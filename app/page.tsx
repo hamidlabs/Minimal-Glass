@@ -339,10 +339,10 @@ export default function HomePage() {
 
       <section className="py-20 px-4 bg-second ">
         <div className="container mx-auto max-w-xl text-center">
-          <p className="text-third text-lg font-normal md:text-xl leading-relaxed mb-8 text-pretty font-[Giplika]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          <p className="text-third text-lg font-normal md:text-3xl leading-tight mb-8 text-pretty font-[Giplika]">
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-            ipsum dolor sit amet.
+            ipsum dolor sit amet."
           </p>
           <a
             href="#"
@@ -368,31 +368,31 @@ export default function HomePage() {
 
             {/* Center - Main Heading */}
             <div className="">
-              <h2 className="text-xl md:text-xl w-[200px] font-light text-third leading-tight font-[Giplika]">
+              <h2 className="text-xl md:text-xl w-[200px] font-light text-third leading-tight">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </h2>
             </div>
 
             {/* Right - Description */}
             <div className="">
-              <p className="text-[#F0E6E2]/40 text-sm w-[200px] leading-relaxed ">
+              <p className="text-[#F0E6E2]/40 text-sm w-[200px] leading-relaxed">
                 Minimal glass creates custom-made glass doors, room dividers and
                 more cabinets in all shapes and sizes. Get inspired.
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
             {categories.map((category) => (
               <Card
                 key={category.id}
-                className="bg-[#C4C4C4] border-gray-600  transition-colors duration-300 group"
+                className="bg-[#C4C4C4]/30 border-gray-600  transition-colors duration-300 group rounded-none"
               >
-                <CardContent className="p-12 text-center">
-                  <div className="w-8 h-8 mx-auto mb-8 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-[#BF8A42] rounded-full"></div>
+                <CardContent className="px-7 py-24 text-center">
+                  <div className="w-8 h-8 mx-auto  flex items-center justify-center">
+                    <div className=" text-[#8F6A42] ">03</div>
                   </div>
-                  <h3 className="text-2xl font-light text-white">
+                  <h3 className="text-2xl font-[Giplika] text-[#F0E6E2]">
                     {category.name}
                   </h3>
                 </CardContent>
