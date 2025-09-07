@@ -109,7 +109,7 @@ export default function HomePage() {
             <nav className="hidden md:flex items-center space-x-8">
               <a
                 href="#"
-                className="text-[#8F6A42] hover:text-white transition-colors text-sm font-medium"
+                className="text-primary hover:text-white transition-colors text-sm font-medium"
               >
                 MINIMAL GLASS
               </a>
@@ -128,7 +128,7 @@ export default function HomePage() {
             </nav>
 
             {/* Center Logo */}
-            <div className="text-2xl font-bold text-[#8F6A42]">A</div>
+            <div className="text-2xl font-bold text-primary">A</div>
 
             {/* Right Icons */}
             <div className="flex items-center space-x-4">
@@ -177,12 +177,6 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative min-h-[80vh] bg-black border-b border-gray-800">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 border border-gray-600 rounded-full"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 border border-gray-600 rounded-full"></div>
-        </div>
-
         {/* Contact Info */}
         <div className="absolute top-8 left-8 text-sm text-gray-400 space-y-1 flex gap-10">
           <div className="text-white">
@@ -196,53 +190,69 @@ export default function HomePage() {
         <Carousel className="h-full" setApi={setApi}>
           <CarouselContent>
             <CarouselItem>
-              <div className="flex items-center justify-center min-h-[500px] px-8">
+              <div className="flex items-center justify-center min-h-[650px] px-8">
                 <div className="container mx-auto">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-                    {/* Left Side - Brand */}
-                    <div className="text-left">
-                      <div className="mb-8">
-                        <h1
-                          className="text-6xl md:text-7xl font-light text-white mb-2"
-                          style={{ fontFamily: "serif" }}
-                        >
-                          <span className="italic">Minimal</span>
-                        </h1>
-                        <div className="text-2xl md:text-3xl font-bold text-white tracking-wider">
-                          GLASS
-                        </div>
-                        <div className="w-16 h-0.5 bg-[#BF8A42] mt-4"></div>
-                      </div>
-                    </div>
-
+                  <div className="">
                     {/* Right Side - Content */}
-                    <div className="text-left bg-[#444444] col-span-2 p-8 relative h-[400px]">
-                      <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
-                        The most elegant glass you'll ever see
-                      </h2>
-                      <p className="text-gray-300 mb-8 text-lg leading-relaxed max-w-md">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud.
-                      </p>
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <Button
-                          size="lg"
-                          className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded-full"
-                        >
-                          Discover our collection
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="lg"
-                          className="border-gray-400 text-white hover:bg-white hover:text-black px-8 py-3 rounded-full bg-transparent"
-                        >
-                          Experience the beauty
-                        </Button>
-                      </div>
-                      {/* circle */}
-                      <div className="flex items-center justify-center absolute -top-[25px] -left-[25px]">
-                        <div className="h-[400px] w-[400px] rounded-full bg-transparent border-[1px] border-[#F0E6E2]/20"></div>
+                    <div className="text-left bg-[#444444] p-8 relative h-[400px] ml-38 flex items-center">
+                      <div>
+                        <div className="w-[300px] ml-24">
+                          <h2 className="text-xl md:text-2xl font-light text-[#F0E6E2] mb-6 leading-tight ">
+                            The most elegant glass you'll ever see
+                          </h2>
+                          <p className="text-[#F0E6E2] mb-8 text-[14px] leading-relaxed max-w-md">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud.
+                          </p>
+                          <div className="flex flex-col sm:flex-row gap-2">
+                            <Button
+                              size="xs"
+                              className="bg-white text-[8px] text-black hover:bg-gray-100 px-4 py-3 rounded-full"
+                            >
+                              Discover our collection
+                            </Button>
+                            <Button
+                              variant="outline"
+                              size="xs"
+                              className="border-gray-400 text-[8px] text-white hover:bg-white hover:text-black px-4 py-3 rounded-full bg-transparent"
+                            >
+                              Experience the beauty
+                            </Button>
+                          </div>
+                          <div className="absolute bottom-8 right-8 flex items-center space-x-2 text-white">
+                            <button
+                              onClick={() =>
+                                api?.scrollTo(
+                                  current === 1 ? count - 1 : current - 2
+                                )
+                              }
+                              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
+                            >
+                              {current}
+                            </button>
+                            <div className="w-8 h-0.5 bg-gray-400"></div>
+                            <button
+                              onClick={() =>
+                                api?.scrollTo(current === count ? 0 : current)
+                              }
+                              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
+                            >
+                              {count}
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* circle */}
+                        <div className="flex items-center justify-center absolute -top-[25px] -left-[25px]">
+                          <div className="h-[400px] w-[400px] rounded-full bg-transparent border-[1px] border-[#F0E6E2]/20"></div>
+                        </div>
+                        <img
+                          src="brand/logo.png"
+                          alt=""
+                          className="absolute top-[20%] -left-[128px] h-[100px]"
+                        />
                       </div>
                     </div>
                   </div>
@@ -251,46 +261,69 @@ export default function HomePage() {
             </CarouselItem>
 
             <CarouselItem>
-              <div className="flex items-center justify-center min-h-[80vh] px-8">
+              <div className="flex items-center justify-center min-h-[650px] px-8">
                 <div className="container mx-auto">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div className="text-left">
-                      <div className="mb-8">
-                        <h1
-                          className="text-6xl md:text-7xl font-light text-white mb-2"
-                          style={{ fontFamily: "serif" }}
-                        >
-                          <span className="italic">Premium</span>
-                        </h1>
-                        <div className="text-2xl md:text-3xl font-bold text-white tracking-wider">
-                          COLLECTION
+                  <div className="">
+                    {/* Right Side - Content */}
+                    <div className="text-left bg-[#444444] p-8 relative h-[400px] ml-38 flex items-center">
+                      <div>
+                        <div className="w-[300px] ml-24">
+                          <h2 className="text-xl md:text-2xl font-light text-[#F0E6E2] mb-6 leading-tight font-[Giplika]">
+                            The most elegant glass you'll ever see
+                          </h2>
+                          <p className="text-[#F0E6E2] mb-8 text-[14px] leading-relaxed max-w-md">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud.
+                          </p>
+                          <div className="flex flex-col sm:flex-row gap-2">
+                            <Button
+                              size="xs"
+                              className="bg-white text-[8px] text-black hover:bg-gray-100 px-4 py-3 rounded-full"
+                            >
+                              Discover our collection
+                            </Button>
+                            <Button
+                              variant="outline"
+                              size="xs"
+                              className="border-gray-400 text-[8px] text-white hover:bg-white hover:text-black px-4 py-3 rounded-full bg-transparent"
+                            >
+                              Experience the beauty
+                            </Button>
+                          </div>
+                          <div className="absolute bottom-8 right-8 flex items-center space-x-2 text-white">
+                            <button
+                              onClick={() =>
+                                api?.scrollTo(
+                                  current === 1 ? count - 1 : current - 2
+                                )
+                              }
+                              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
+                            >
+                              {current}
+                            </button>
+                            <div className="w-8 h-0.5 bg-gray-400"></div>
+                            <button
+                              onClick={() =>
+                                api?.scrollTo(current === count ? 0 : current)
+                              }
+                              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
+                            >
+                              {count}
+                            </button>
+                          </div>
                         </div>
-                        <div className="w-16 h-0.5 bg-[#BF8A42] mt-4"></div>
-                      </div>
-                    </div>
-                    <div className="text-left">
-                      <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
-                        Crafted with precision and care
-                      </h2>
-                      <p className="text-gray-300 mb-8 text-lg leading-relaxed max-w-md">
-                        Each piece in our collection represents the pinnacle of
-                        glassmaking artistry, combining traditional techniques
-                        with modern innovation.
-                      </p>
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <Button
-                          size="lg"
-                          className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded-full"
-                        >
-                          View collection
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="lg"
-                          className="border-gray-400 text-white hover:bg-white hover:text-black px-8 py-3 rounded-full bg-transparent"
-                        >
-                          Learn more
-                        </Button>
+
+                        {/* circle */}
+                        <div className="flex items-center justify-center absolute -top-[25px] -left-[25px]">
+                          <div className="h-[400px] w-[400px] rounded-full bg-transparent border-[1px] border-[#F0E6E2]/20"></div>
+                        </div>
+                        <img
+                          src="brand/logo.png"
+                          alt=""
+                          className="absolute top-[20%] -left-[128px] h-[100px]"
+                        />
                       </div>
                     </div>
                   </div>
@@ -299,46 +332,69 @@ export default function HomePage() {
             </CarouselItem>
 
             <CarouselItem>
-              <div className="flex items-center justify-center min-h-[80vh] px-8">
+              <div className="flex items-center justify-center min-h-[650px] px-8">
                 <div className="container mx-auto">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div className="text-left">
-                      <div className="mb-8">
-                        <h1
-                          className="text-6xl md:text-7xl font-light text-white mb-2"
-                          style={{ fontFamily: "serif" }}
-                        >
-                          <span className="italic">Artisan</span>
-                        </h1>
-                        <div className="text-2xl md:text-3xl font-bold text-white tracking-wider">
-                          SERIES
+                  <div className="">
+                    {/* Right Side - Content */}
+                    <div className="text-left bg-[#444444] p-8 relative h-[400px] ml-38 flex items-center">
+                      <div>
+                        <div className="w-[300px] ml-24">
+                          <h2 className="text-xl md:text-2xl font-light text-[#F0E6E2] mb-6 leading-tight font-[Giplika]">
+                            The most elegant glass you'll ever see
+                          </h2>
+                          <p className="text-[#F0E6E2] mb-8 text-[14px] leading-relaxed max-w-md">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam, quis
+                            nostrud.
+                          </p>
+                          <div className="flex flex-col sm:flex-row gap-2">
+                            <Button
+                              size="xs"
+                              className="bg-white text-[8px] text-black hover:bg-gray-100 px-4 py-3 rounded-full"
+                            >
+                              Discover our collection
+                            </Button>
+                            <Button
+                              variant="outline"
+                              size="xs"
+                              className="border-gray-400 text-[8px] text-white hover:bg-white hover:text-black px-4 py-3 rounded-full bg-transparent"
+                            >
+                              Experience the beauty
+                            </Button>
+                          </div>
+                          <div className="absolute bottom-8 right-8 flex items-center space-x-2 text-white">
+                            <button
+                              onClick={() =>
+                                api?.scrollTo(
+                                  current === 1 ? count - 1 : current - 2
+                                )
+                              }
+                              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
+                            >
+                              {current}
+                            </button>
+                            <div className="w-8 h-0.5 bg-gray-400"></div>
+                            <button
+                              onClick={() =>
+                                api?.scrollTo(current === count ? 0 : current)
+                              }
+                              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
+                            >
+                              {count}
+                            </button>
+                          </div>
                         </div>
-                        <div className="w-16 h-0.5 bg-[#BF8A42] mt-4"></div>
-                      </div>
-                    </div>
-                    <div className="text-left">
-                      <h2 className="text-4xl md:text-5xl font-light text-white mb-6 leading-tight">
-                        Handcrafted excellence in every detail
-                      </h2>
-                      <p className="text-gray-300 mb-8 text-lg leading-relaxed max-w-md">
-                        Our artisan series showcases the finest handcrafted
-                        glass pieces, each one unique and created by master
-                        craftsmen with decades of experience.
-                      </p>
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <Button
-                          size="lg"
-                          className="bg-white text-black hover:bg-gray-100 px-8 py-3 rounded-full"
-                        >
-                          Explore artisan series
-                        </Button>
-                        <Button
-                          variant="outline"
-                          size="lg"
-                          className="border-gray-400 text-white hover:bg-white hover:text-black px-8 py-3 rounded-full bg-transparent"
-                        >
-                          Meet our artisans
-                        </Button>
+
+                        {/* circle */}
+                        <div className="flex items-center justify-center absolute -top-[25px] -left-[25px]">
+                          <div className="h-[400px] w-[400px] rounded-full bg-transparent border-[1px] border-[#F0E6E2]/20"></div>
+                        </div>
+                        <img
+                          src="brand/logo.png"
+                          alt=""
+                          className="absolute top-[20%] -left-[128px] h-[100px]"
+                        />
                       </div>
                     </div>
                   </div>
@@ -347,30 +403,13 @@ export default function HomePage() {
             </CarouselItem>
           </CarouselContent>
 
-          {/* Carousel Indicators */}
-          <div className="absolute bottom-8 right-8 flex items-center space-x-2 text-white">
-            <button
-              onClick={() =>
-                api?.scrollTo(current === 1 ? count - 1 : current - 2)
-              }
-              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
-            >
-              {current}
-            </button>
-            <div className="w-8 h-0.5 bg-gray-400"></div>
-            <button
-              onClick={() => api?.scrollTo(current === count ? 0 : current)}
-              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
-            >
-              {count}
-            </button>
-          </div>
+         
         </Carousel>
       </section>
 
       {/* Content Section */}
-      <div className="border-[#444444]"></div>
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+     
+      <section className="py-20 px-4 bg-second ">
         <div className="container mx-auto max-w-4xl text-center">
           <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 text-pretty">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
