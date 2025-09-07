@@ -357,25 +357,25 @@ export default function HomePage() {
       {/* Category/Feature Boxes */}
       <section className="py-20 px-4 ">
         <div className="container mx-auto">
-          <div className="flex items-center justify-between mb-16">
+          <div className="flex  justify-center gap-8 mb-16">
             {/* Left - Section Label with decorative line */}
-            <div className="flex items-center">
-              <div className="w-16 h-0.5 bg-gray-600 mr-4"></div>
+            <div className="flex items-center self-start justify-end">
+              <div className="w-16 h-0.5 bg-gray-600 mr-2"></div>
               <div className="text-sm text-third tracking-wider">
                 Our products
               </div>
             </div>
 
             {/* Center - Main Heading */}
-            <div className="flex-1 px-8">
-              <h2 className="text-xl md:text-2xl w- font-light text-third leading-tight">
+            <div className="">
+              <h2 className="text-xl md:text-xl w-[200px] font-light text-third leading-tight font-[Giplika]">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </h2>
             </div>
 
             {/* Right - Description */}
             <div className="">
-              <p className="text-third text-sm leading-relaxed">
+              <p className="text-[#F0E6E2]/40 text-sm w-[200px] leading-relaxed ">
                 Minimal glass creates custom-made glass doors, room dividers and
                 more cabinets in all shapes and sizes. Get inspired.
               </p>
