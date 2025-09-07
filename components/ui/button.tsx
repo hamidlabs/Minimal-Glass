@@ -21,6 +21,7 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         primary: "bg-[#8F6A42] text-white shadow-xs hover:bg-[#8F6A42]/90",
         second: "bg-[#444444] text-white shadow-xs hover:bg-[#444444]/90",
+        third: "bg-[#F0E6E2] text-black shadow-xs hover:bg-[#F0E6E2]/90",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
@@ -36,7 +37,7 @@ const buttonVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 function Button({
   className,

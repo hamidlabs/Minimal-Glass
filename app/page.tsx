@@ -410,15 +410,15 @@ export default function HomePage() {
       {/* Content Section */}
      
       <section className="py-20 px-4 bg-second ">
-        <div className="container mx-auto max-w-4xl text-center">
-          <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 text-pretty">
+        <div className="container mx-auto max-w-xl text-center">
+          <p className="text-third text-lg md:text-xl leading-relaxed mb-8 text-pretty">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
             ipsum dolor sit amet.
           </p>
           <a
             href="#"
-            className="inline-flex items-center text-gray-300 hover:text-[#BF8A42] transition-colors text-sm tracking-wide"
+            className="inline-flex items-center text-primary hover:text-[#BF8A42] transition-colors text-sm tracking-wide"
           >
             Discover our collection
             <ArrowRight className="ml-2 h-4 w-4" />
