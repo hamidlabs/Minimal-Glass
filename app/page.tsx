@@ -10,6 +10,7 @@ import {
 import { ShoppingCart, User, ArrowRight, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
 import type { CarouselApi } from "@/components/ui/carousel";
+import Navbar from "@/components/shared/Navbar";
 
 export default function HomePage() {
   const [api, setApi] = useState<CarouselApi>();
@@ -102,78 +103,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header Section */}
-      <header className="bg-black border-b border-gray-800">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            {/* Left Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <a
-                href="#"
-                className="text-primary hover:text-white transition-colors text-sm font-medium"
-              >
-                MINIMAL GLASS
-              </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-              >
-                COLLECTION
-              </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
-              >
-                SAMPLES
-              </a>
-            </nav>
-
-            {/* Center Logo */}
-            <div className="text-2xl font-bold text-primary">A</div>
-
-            {/* Right Icons */}
-            <div className="flex items-center space-x-4">
-              {/* Language Selector */}
-              <div className="hidden md:flex items-center text-gray-300 text-sm">
-                <span className="text-white">EN</span>
-                <span className="mx-1 text-[#F0E6E2]">|</span>
-                <span className="text-[#F0E6E2]">NL</span>
-              </div>
-
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-300 hover:text-white"
-              >
-                <Heart className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-300 hover:text-white"
-              >
-                <User className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-300 hover:text-white"
-              >
-                <ShoppingCart className="h-5 w-5" />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-300 hover:text-white"
-              >
-                <div className="flex flex-col space-y-1">
-                  <div className="w-5 h-0.5 bg-current"></div>
-                  <div className="w-5 h-0.5 bg-current"></div>
-                </div>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-[80vh] bg-black border-b border-gray-800">
@@ -221,7 +151,7 @@ export default function HomePage() {
                               Experience the beauty
                             </Button>
                           </div>
-                          <div className="absolute bottom-8 right-8 flex items-center space-x-2 text-white">
+                          <div className="absolute bottom-20 right-24 flex items-center space-x-2 text-white">
                             <button
                               onClick={() =>
                                 api?.scrollTo(
@@ -292,7 +222,7 @@ export default function HomePage() {
                               Experience the beauty
                             </Button>
                           </div>
-                          <div className="absolute bottom-8 right-8 flex items-center space-x-2 text-white">
+                          <div className="absolute bottom-20 right-24 flex items-center space-x-2 text-white">
                             <button
                               onClick={() =>
                                 api?.scrollTo(
@@ -363,7 +293,7 @@ export default function HomePage() {
                               Experience the beauty
                             </Button>
                           </div>
-                          <div className="absolute bottom-8 right-8 flex items-center space-x-2 text-white">
+                          <div className="absolute bottom-20 right-24 flex items-center space-x-2 text-white">
                             <button
                               onClick={() =>
                                 api?.scrollTo(
@@ -402,16 +332,14 @@ export default function HomePage() {
               </div>
             </CarouselItem>
           </CarouselContent>
-
-         
         </Carousel>
       </section>
 
       {/* Content Section */}
-     
+
       <section className="py-20 px-4 bg-second ">
         <div className="container mx-auto max-w-xl text-center">
-          <p className="text-third text-lg md:text-xl leading-relaxed mb-8 text-pretty">
+          <p className="text-third text-lg font-normal md:text-xl leading-relaxed mb-8 text-pretty font-[Giplika]">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
             ipsum dolor sit amet.
@@ -427,27 +355,27 @@ export default function HomePage() {
       </section>
 
       {/* Category/Feature Boxes */}
-      <section className="py-20 px-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+      <section className="py-20 px-4 ">
         <div className="container mx-auto">
           <div className="flex items-center justify-between mb-16">
             {/* Left - Section Label with decorative line */}
             <div className="flex items-center">
               <div className="w-16 h-0.5 bg-gray-600 mr-4"></div>
-              <div className="text-sm text-gray-400 tracking-wider">
+              <div className="text-sm text-third tracking-wider">
                 Our products
               </div>
             </div>
 
             {/* Center - Main Heading */}
             <div className="flex-1 px-8">
-              <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
+              <h2 className="text-xl md:text-2xl w- font-light text-third leading-tight">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
               </h2>
             </div>
 
             {/* Right - Description */}
-            <div className="max-w-xs">
-              <p className="text-gray-300 text-sm leading-relaxed">
+            <div className="">
+              <p className="text-third text-sm leading-relaxed">
                 Minimal glass creates custom-made glass doors, room dividers and
                 more cabinets in all shapes and sizes. Get inspired.
               </p>
@@ -458,7 +386,7 @@ export default function HomePage() {
             {categories.map((category) => (
               <Card
                 key={category.id}
-                className="bg-gray-700 border-gray-600 hover:bg-gray-600 transition-colors duration-300 group"
+                className="bg-[#C4C4C4] border-gray-600  transition-colors duration-300 group"
               >
                 <CardContent className="p-12 text-center">
                   <div className="w-8 h-8 mx-auto mb-8 flex items-center justify-center">
