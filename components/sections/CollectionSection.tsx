@@ -1,49 +1,100 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+
 export default function CollectionSection() {
   const products = [
-    { id: 1, name: "MODEL NO.73", price: "EUR 905 M2", collection: "Essential collection", status: "In Stock" },
-    { id: 2, name: "MODEL NO.73", price: "EUR 905 M2", collection: "Essential collection", status: "In Stock" },
-    { id: 3, name: "MODEL NO.73", price: "EUR 905 M2", collection: "Essential collection", status: "In Stock" },
+    {
+      id: 1,
+      name: "MODEL NO.73",
+      price: "EUR 905 M2",
+      collection: "Essential collection",
+      status: "In Stock",
+      image: "brand/Mask-group.png",
+    },
+    {
+      id: 2,
+      name: "MODEL NO.73",
+      price: "EUR 905 M2",
+      collection: "Essential collection",
+      status: "In Stock",
+      image: "brand/Mask-group.png",
+    },
+    {
+      id: 3,
+      name: "MODEL NO.73",
+      price: "EUR 905 M2",
+      collection: "Essential collection",
+      status: "In Stock",
+      image: "brand/Mask-group.png",
+    },
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-      <div className="container mx-auto">
-        <div className="flex items-center justify-between mb-16">
-          <div className="flex items-center">
-            <div className="w-16 h-0.5 bg-gray-600 mr-4"></div>
-            <div className="text-sm text-gray-400 tracking-wider">Our collection</div>
+    <section className="py-16 bg-[#1A1A1A] text-white">
+      <div className="container mx-auto px-4 py-24">
+        {/* Header Section */}
+        <div className="flex justify-center gap-8 mb-16">
+          <div className="flex items-center self-start justify-end">
+            <div className="w-16 h-0.5 bg-gray-600 mr-2"></div>
+            <div className="text-sm text-third tracking-wider">
+              Our products
+            </div>
           </div>
-          <div className="flex-1 px-8">
-            <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
+          <div>
+            <h2 className="text-xl md:text-xl w-[200px] font-light text-third leading-tight">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
           </div>
-          <div className="max-w-xs">
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Minimal Glass creates custom-made glass doors, room dividers, and wine cabinets in all shapes and sizes. Get inspired.
+          <div>
+            <p className="text-[#F0E6E2]/40 text-sm w-[200px] leading-relaxed">
+              Minimal glass creates custom-made glass doors, room dividers and
+              more cabinets in all shapes and sizes. Get inspired.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {products.map((product) => (
-            <div key={product.id} className="group">
-              <div className="relative mb-6 overflow-hidden rounded-lg">
-                <div className="aspect-[3/4] bg-gradient-to-br from-amber-600 via-yellow-500 to-orange-400 opacity-80">
-                  <div className="w-full h-full opacity-60" style={{
-                    backgroundImage: `linear-gradient(0deg, transparent 24%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0.3) 26%, transparent 27%, transparent 74%, rgba(0,0,0,0.3) 75%, rgba(0,0,0,0.3) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0.3) 26%, transparent 27%, transparent 74%, rgba(0,0,0,0.3) 75%, rgba(0,0,0,0.3) 76%, transparent 77%, transparent)`,
-                    backgroundSize: "8px 8px",
-                  }}></div>
+            <div
+              key={product.id}
+              className="group bg-[#0000004D] rounded-none overflow-hidden transition-transform duration-300 hover:-translate-y-2"
+            >
+              {/* Product Image Container */}
+              <div className="relative h-80 overflow-hidden">
+                {/* Collection Badge */}
+                <span className="absolute top-5 left-34 text-sm font-medium py-1 px-2 text-[#F0E6E299]  z-10">
+                  {product.collection} | {product.status}
+                </span>
+
+                {/* Product Image */}
+                <div className="relative w-[200px] h-full mx-auto mt-20">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {/* Overlay for better text visibility */}
+                  <div className="absolute inset-0 bg-black/20"></div>
                 </div>
-                <div className="absolute top-4 left-4">
-                  <span className="text-xs text-gray-300 bg-black/50 px-2 py-1 rounded">
-                    {product.collection} | {product.status}
-                  </span>
-                </div>
+
+                {/* Product Name Overlay */}
+                {/* <div className="absolute bottom-4 left-0 right-0 text-center">
+                  <p className="text-lg font-medium bg-black/50 backdrop-blur-sm py-2 mx-8 rounded">
+                    {product.name}
+                  </p>
+                </div> */}
               </div>
-              <div className="flex items-center justify-between">
-                <h3 className="text-white font-medium">{product.name}</h3>
-                <span className="text-gray-300 text-sm">{product.price}</span>
+
+              {/* Product Info */}
+              <div className="p-6 flex justify-between items-center">
+                <h3 className="text-xl text-[#F0E6E2] font-medium">
+                  {product.name}
+                </h3>
+                <span className="text-[#F0E6E299]">{product.price}</span>
               </div>
             </div>
           ))}
