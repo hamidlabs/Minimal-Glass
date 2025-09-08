@@ -65,12 +65,12 @@ export default function CollectionSection() {
               {/* Product Image Container */}
               <div className="relative h-80 overflow-hidden">
                 {/* Collection Badge */}
-                <span className="absolute top-5 left-34 text-sm font-medium py-1 px-2 text-[#F0E6E299]  z-10">
+                <span className="absolute top-5 left-22 text-sm font-medium py-1 px-2 text-[#F0E6E299]  z-10">
                   {product.collection} | {product.status}
                 </span>
 
                 {/* Product Image */}
-                <div className="relative w-[200px] h-full mx-auto mt-20">
+                <div className="relative w-[200px] h-full mx-auto mt-16">
                   <Image
                     src={product.image}
                     alt={product.name}
