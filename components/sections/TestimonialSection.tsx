@@ -27,7 +27,7 @@ export default function TestimonialSection() {
   }, [testimonialApi]);
 
   return (
-    <section className="relative py-20 px-4 ">
+    <section className="relative py-20 px-4 bg-[#1A1A1A] ">
       <div className="container mx-auto bg-[#C4C4C4]/30">
         <Carousel className="w-full" setApi={setTestimonialApi}>
           <CarouselContent>
@@ -35,7 +35,7 @@ export default function TestimonialSection() {
               <CarouselItem key={index}>
                 <div className="relative w-full h-[500px]  rounded-none overflow-hidden">
                   <div className="w-full h-full "></div>
-                  <div className="absolute bottom-0 left-0 right-80 bg-black/80 p-8">
+                  <div className="absolute bottom-0 left-0 right-80 bg-[#1A1A1A] p-8">
                     <div className="flex items-end justify-between">
                       <div className="flex-1 ">
                         <h3 className="text-lg md:text-4xl font-light text-[#F0E6E2] mb-4 leading-tight font-[Giplika] ">

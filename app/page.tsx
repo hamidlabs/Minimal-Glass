@@ -29,6 +29,7 @@ export default function HomePage() {
       {/* Products Section */}
       <PureMasterpieces />
 
+      {/* Pure Masterpieces Section */}
       <PureMasterpiecesed/>
       {/* Testimonial Section */}
       <TestimonialSection />

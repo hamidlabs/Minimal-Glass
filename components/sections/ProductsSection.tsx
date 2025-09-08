@@ -8,8 +8,8 @@ export default function ProductsSection() {
   ];
 
   return (
-    <section className="py-20 px-4">
-      <div className="container mx-auto">
+    <section className="py-20 px-4 bg-[#1A1A1A]">
+      <div className="container mx-auto ">
         <div className="flex justify-center gap-8 mb-16">
           <div className="flex items-center self-start justify-end">
             <div className="w-16 h-0.5 bg-gray-600 mr-2"></div>

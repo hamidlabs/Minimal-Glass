@@ -3,7 +3,7 @@
 
 export default function PureMasterpieces() {
   return (
-    <div className="bg-second ">
+    <div className="bg-[#1A1A1A] ">
       {/* Main Content Section */}
       <div className="container mx-auto px-4 py-20 ">
         <div className="">

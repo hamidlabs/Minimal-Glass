@@ -14,7 +14,7 @@ export default function Navbar() {
     <div className=" text-white">
       <header
         className={cn(
-          "bg-black border-b border-gray-800",
+          "bg-[#1A1A1A] border-b border-gray-800",
           isMenuOpen ? "bg-[#F0E6E2]" : ""
         )}
       >

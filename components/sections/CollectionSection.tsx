@@ -32,18 +32,18 @@ export default function CollectionSection() {
   ];
 
   return (
-    <section className="py-16 bg-[#1A1A1A] text-white">
+    <section className=" bg-[#1A1A1A] text-white">
       <div className="container mx-auto px-4 py-24">
         {/* Header Section */}
         <div className="flex justify-center gap-8 mb-16">
           <div className="flex items-center self-start justify-end">
             <div className="w-16 h-0.5 bg-gray-600 mr-2"></div>
             <div className="text-sm text-third tracking-wider">
-              Our products
+              Our Collection
             </div>
           </div>
           <div>
-            <h2 className="text-xl md:text-xl w-[200px] font-light text-third leading-tight">
+            <h2 className="text-xl md:text-3xl w-[300px] font-[Giplika] text-third leading-tight">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
           </div>

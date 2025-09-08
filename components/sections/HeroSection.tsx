@@ -18,7 +18,7 @@ export default function HeroSection() {
   }, [api]);
 
   return (
-    <section className="relative min-h-[80vh] bg-black border-b border-gray-800">
+    <section className="relative min-h-[80vh] bg-[#1A1A1A]  ">
       <div className="absolute top-8 left-24 text-sm text-gray-400 space-y-1 flex gap-10">
         <div className="text-white">
           NL: <span className="text-[#8F6A42]">31 (0)164220795</span>
