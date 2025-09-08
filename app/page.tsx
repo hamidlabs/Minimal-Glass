@@ -9,6 +9,7 @@ import AboutSection from "@/components/sections/AboutSection";
 import ServiceSection from "@/components/sections/ServiceSection";
 import ProductsSection from "@/components/sections/ProductsSection";
 import PureMasterpieces from "@/components/sections/PureMasterpieces";
+import PureMasterpiecesed from "@/components/sections/PureMasterpiecesed";
 
 export default function HomePage() {
   return (
@@ -28,6 +29,7 @@ export default function HomePage() {
       {/* Products Section */}
       <PureMasterpieces />
 
+      <PureMasterpiecesed/>
       {/* Testimonial Section */}
       <TestimonialSection />
 
