@@ -24,13 +24,16 @@ export default function HeroSection() {
   return (
     <section className="relative bg-[#1A1A1A]">
       {/* top contact info */}
-      <div className="absolute top-4 left-4 md:top-8 md:left-24 text-xs md:text-sm text-gray-400 flex flex-col md:flex-row gap-2 md:gap-10">
-        <div className="text-white">
+      <div className="absolute p-5 text-xs md:text-sm text-gray-400 flex flex-col md:flex-row gap-2 md:gap-10">
+        <div className="flex gap-4">
+           <div className="text-white">
           NL: <span className="text-[#8F6A42]">31 (0)164220795</span>
         </div>
         <div className="text-white">
           BE: <span className="text-[#8F6A42]">+32 (0)164 99 777</span>
         </div>
+       </div> 
+       
       </div>
 
       <Carousel className="h-full" setApi={setApi}>
