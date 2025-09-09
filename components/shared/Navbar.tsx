@@ -11,16 +11,16 @@ export default function Navbar() {
   };
 
   return (
-    <div className=" text-white">
+    <div className="text-white relative">
       <header
         className={cn(
-          "bg-[#1A1A1A] border-b border-gray-800",
+          "bg-[#1A1A1A] border-b border-gray-800 fixed top-0 left-0 right-0 z-50",
           isMenuOpen ? "bg-[#F0E6E2]" : ""
         )}
       >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            {/* Left Navigation */}
+            {/* Left Navigation (hidden on mobile) */}
             <nav className="hidden md:flex items-center space-x-8">
               <a
                 href="#"
@@ -49,17 +49,10 @@ export default function Navbar() {
             </nav>
 
             {/* Center Logo */}
-            <div className="text-2xl font-bold text-primary">A</div>
+            <div className="text-xl sm:text-2xl font-bold text-primary">A</div>
 
             {/* Right Icons */}
-            <div className="flex items-center space-x-4">
-              {/* Language Selector */}
-              {/* <div className="hidden md:flex items-center text-gray-300 text-sm">
-                <span className="text-white">EN</span>
-                <span className="mx-1 text-[#F0E6E2]">|</span>
-                <span className="text-[#F0E6E2]">NL</span>
-              </div> */}
-
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <Button
                 variant="ghost"
                 size="icon"
@@ -91,7 +84,7 @@ export default function Navbar() {
                 <ShoppingCart className="h-5 w-5" />
               </Button>
 
-              {/* Toggle Button for both mobile and desktop */}
+              {/* Toggle Button */}
               <Button
                 variant="ghost"
                 size="icon"
@@ -112,120 +105,93 @@ export default function Navbar() {
               </Button>
             </div>
           </div>
+        </div>
 
-          {/* Menu Content - Visible on both mobile and desktop when open */}
-          {isMenuOpen && (
-            <div className="mt-4 pb-8 border-t border-gray-800 bg-[#F0E6E2] text-gray-900">
-              <div className="pt-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                  <ul className="text-[#8F6A42] text-4xl leading-12 font-[Gifilka]">
-                    <li>Home</li>
-                    <li>Discover</li>
-                    <li>Collections</li>
-                    <li>About Us</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium mb-4 flex items-center">
-                    Popular models
-                    <ChevronDown className="h-4 w-4 ml-1" />
-                  </h3>
-                  <ul className="space-y-3 text-sm">
-                    <li>
+        {/* Floating Mobile / Desktop Menu */}
+        <div
+          className={cn(
+            "absolute left-0 right-0 top-full bg-[#F0E6E2] text-gray-900 border-t border-gray-300 shadow-lg overflow-hidden transition-all duration-500 ease-in-out",
+            isMenuOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+          )}
+        >
+          <div className="container mx-auto px-4 py-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+              {/* Section 1 */}
+              <div>
+                <ul className="text-[#8F6A42] text-2xl sm:text-3xl md:text-4xl leading-relaxed font-[Gifilka] space-y-2 sm:space-y-3">
+                  <li>Home</li>
+                  <li>Discover</li>
+                  <li>Collections</li>
+                  <li>About Us</li>
+                </ul>
+              </div>
+
+              {/* Section 2 */}
+              <div>
+                <h3 className="text-sm font-medium mb-3 flex items-center">
+                  Popular models
+                  <ChevronDown className="h-4 w-4 ml-1" />
+                </h3>
+                <ul className="space-y-2 sm:space-y-3 text-sm">
+                  {[
+                    "Model no. 74",
+                    "Model no. 2",
+                    "Model no. 56",
+                    "Model no. 34",
+                    "Model no. 80",
+                  ].map((model) => (
+                    <li key={model}>
                       <a href="#" className="hover:text-gray-700">
-                        Model no. 74
+                        {model}
                       </a>
                     </li>
-                    <li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Section 3 */}
+              <div>
+                <h3 className="text-sm font-medium mb-3 flex items-center">
+                  Customer service
+                  <ChevronDown className="h-4 w-4 ml-1" />
+                </h3>
+                <ul className="space-y-2 sm:space-y-3 text-sm">
+                  {[
+                    "Contact us",
+                    "FAQ",
+                    "Order process",
+                    "Payment & shipment",
+                    "Warranty",
+                    "Become a dealer",
+                    "Request a quote",
+                  ].map((item) => (
+                    <li key={item}>
                       <a href="#" className="hover:text-gray-700">
-                        Model no. 2
+                        {item}
                       </a>
                     </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Model no. 56
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Model no. 34
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Model no. 80
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Model no. 74
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium mb-4 flex items-center">
-                    Customer service
-                    <ChevronDown className="h-4 w-4 ml-1" />
-                  </h3>
-                  <ul className="space-y-3 text-sm">
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Contact us
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        FAQ
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Order process
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Payment & shipment
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Warranty
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Become a dealer
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Request a quote
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium mb-4">
-                    Privacy statement
-                  </h3>
-                  <ul className="space-y-3 text-sm">
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        General terms and conditions
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#" className="hover:text-gray-700">
-                        Cookie settings
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Section 4 */}
+              <div>
+                <h3 className="text-sm font-medium mb-3">Privacy statement</h3>
+                <ul className="space-y-2 sm:space-y-3 text-sm">
+                  <li>
+                    <a href="#" className="hover:text-gray-700">
+                      General terms and conditions
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-gray-700">
+                      Cookie settings
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </header>
     </div>
