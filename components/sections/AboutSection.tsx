@@ -36,7 +36,7 @@ export default function AboutSection() {
             <div className="mt-8">
               <a
                 href="#"
-                className="inline-flex items-center text-[#F0E6E2] hover:text-primary transition-colors text-sm tracking-wide"
+                className="inline-flex items-center text-[#F0E6E2] hover:text-primary transition-colors underline text-sm tracking-wide"
               >
                 About us
                 <ArrowRight className="ml-2 h-4 w-4" />
