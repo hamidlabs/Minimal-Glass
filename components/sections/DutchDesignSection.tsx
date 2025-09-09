@@ -42,13 +42,11 @@ export default function DutchDesignSection() {
                   Dutch Design by Bas Coppelmans combined with the hard work and
                   pride of our Belgian steelworkers. The best of both worlds,
                   because what's good doesn't have to come from far away.
-                </p>
-                <p>
+                
                   Bas, Chief Studio Design, always seeks the perfect balance in
                   minimalism and works unconventionally during his design
                   process.
-                </p>
-                <p>
+                
                   Dutch Design by Bas Coppelmans combined with the hard work and
                   pride of our Belgian steelworkers. The best of both worlds,
                   because what's good doesn't have to come from far away. Bas,
