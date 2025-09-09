@@ -15,7 +15,7 @@ export default function Navbar() {
       <header
         className={cn(
           "bg-[#1A1A1A] border-b border-gray-800 fixed top-0 left-0 right-0 z-50",
-          isMenuOpen ? "bg-[#F0E6E2]" : ""
+          isMenuOpen ? "bg-[#F0E6E2] text-black" : ""
         )}
       >
         <div className="container mx-auto px-4 py-4">
@@ -24,7 +24,10 @@ export default function Navbar() {
             <nav className="hidden md:flex items-center space-x-8">
               <a
                 href="#"
-                className="text-primary hover:text-white transition-colors text-sm font-medium"
+                className={cn(
+                  "text-primary hover:text-white transition-colors text-sm font-medium",
+                  isMenuOpen ? "text-black hover:text-black" : ""
+                )}
               >
                 MINIMAL GLASS
               </a>
@@ -32,7 +35,7 @@ export default function Navbar() {
                 href="#"
                 className={cn(
                   "text-gray-300 hover:text-white transition-colors text-sm font-medium",
-                  isMenuOpen ? "text-black" : ""
+                  isMenuOpen ? "text-black hover:text-black" : ""
                 )}
               >
                 COLLECTION
@@ -41,7 +44,7 @@ export default function Navbar() {
                 href="#"
                 className={cn(
                   "text-gray-300 hover:text-white transition-colors text-sm font-medium",
-                  isMenuOpen ? "text-black" : ""
+                  isMenuOpen ? "text-black hover:text-black" : ""
                 )}
               >
                 SAMPLES
@@ -49,7 +52,14 @@ export default function Navbar() {
             </nav>
 
             {/* Center Logo */}
-            <div className="text-xl sm:text-2xl font-bold text-primary">A</div>
+            <div
+              className={cn(
+                "text-xl sm:text-2xl font-bold text-primary",
+                isMenuOpen ? "text-black" : ""
+              )}
+            >
+              A
+            </div>
 
             {/* Right Icons */}
             <div className="flex items-center space-x-2 sm:space-x-4">
@@ -58,7 +68,7 @@ export default function Navbar() {
                 size="icon"
                 className={cn(
                   "text-gray-300 hover:text-white",
-                  isMenuOpen ? "text-black" : ""
+                  isMenuOpen ? "text-black hover:text-black" : ""
                 )}
               >
                 <Heart className="h-5 w-5" />
@@ -68,7 +78,7 @@ export default function Navbar() {
                 size="icon"
                 className={cn(
                   "text-gray-300 hover:text-white",
-                  isMenuOpen ? "text-black" : ""
+                  isMenuOpen ? "text-black hover:text-black" : ""
                 )}
               >
                 <User className="h-5 w-5" />
@@ -78,7 +88,7 @@ export default function Navbar() {
                 size="icon"
                 className={cn(
                   "text-gray-300 hover:text-white",
-                  isMenuOpen ? "text-black" : ""
+                  isMenuOpen ? "text-black hover:text-black" : ""
                 )}
               >
                 <ShoppingCart className="h-5 w-5" />
@@ -90,7 +100,7 @@ export default function Navbar() {
                 size="icon"
                 className={cn(
                   "text-gray-300 hover:text-white",
-                  isMenuOpen ? "text-black" : ""
+                  isMenuOpen ? "text-black hover:text-black" : ""
                 )}
                 onClick={toggleMenu}
               >
@@ -118,7 +128,7 @@ export default function Navbar() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {/* Section 1 */}
               <div>
-                <ul className="text-[#8F6A42] text-2xl sm:text-3xl md:text-4xl leading-relaxed font-[Gifilka] space-y-2 sm:space-y-3">
+                <ul className="text-[#8F6A42] text-2xl sm:text-3xl md:text-4xl leading-relaxed space-y-2 sm:space-y-3">
                   <li>Home</li>
                   <li>Discover</li>
                   <li>Collections</li>
