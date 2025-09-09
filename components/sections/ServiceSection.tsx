@@ -1,6 +1,6 @@
 export default function ServiceSection() {
   return (
-    <section className="py-20 px-4 bg-[#1A1A1A]">
+    <section className=" px-4 py-24 bg-[#1A1A1A]">
       <div className="container mx-auto">
         {/* Top Grid (Number + Boxes) */}
         <div className="grid grid-cols-3 gap-6 items-center mb-12">
@@ -19,7 +19,7 @@ export default function ServiceSection() {
         </div>
 
         {/* Bottom Grid (Text + Description) */}
-        <div className="px-8 py-24">
+        <div >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Left Text List */}
             <div className="space-y-3 font-[Gifilka] md:ml-46 ">

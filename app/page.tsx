@@ -10,6 +10,7 @@ import ServiceSection from "@/components/sections/ServiceSection";
 import ProductsSection from "@/components/sections/ProductsSection";
 import PureMasterpieces from "@/components/sections/PureMasterpieces";
 import PureMasterpiecesed from "@/components/sections/PureMasterpiecesed";
+import DutchDesignSection from "@/components/sections/DutchDesignSection";
 
 export default function HomePage() {
   return (
@@ -42,6 +43,9 @@ export default function HomePage() {
 
       {/* Service Explanation Section */}
       <ServiceSection />
+
+      {/* Dutch Design Section */}
+      <DutchDesignSection />
     </div>
   );
 }
