@@ -67,7 +67,7 @@ export default function CollectionSection() {
               {/* Product Image Container */}
               <div className="relative h-80 overflow-hidden">
                 {/* Collection Badge */}
-                <span className="absolute top-5 left-20 md:left-2 text-sm font-medium py-1 px-2 text-[#F0E6E299]  z-10">
+                <span className="absolute top-5 left-20 md:left-2 text-sm font-medium py-1 px-2 text-[#F0E6E299] md:ml-20 z-10">
                   {product.collection} | {product.status}
                 </span>
 
@@ -93,10 +93,10 @@ export default function CollectionSection() {
 
               {/* Product Info */}
               <div className="p-6 flex justify-between items-center">
-                <h3 className="text-xl text-[#F0E6E2] font-medium">
+                <h3 className="text-xs text-[#F0E6E2] font-medium">
                   {product.name}
                 </h3>
-                <span className="text-[#F0E6E299]">{product.price}</span>
+                <span className="text-[#F0E6E299] text-xs">{product.price}</span>
               </div>
             </div>
           ))}
