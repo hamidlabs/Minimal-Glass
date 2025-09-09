@@ -33,22 +33,24 @@ export default function CollectionSection() {
 
   return (
     <section className=" bg-[#1A1A1A] text-white">
-      <div className="container mx-auto px-4 py-24">
+      <div className="container mx-auto px-4 py-16 md:py-24">
         {/* Header Section */}
-        <div className="flex justify-center gap-8 mb-16">
-          <div className="flex items-center self-start justify-end">
-            <div className="w-16 h-0.5 bg-gray-600 mr-2"></div>
-            <div className="text-sm text-third tracking-wider">
+        <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-6 md:gap-8 mb-12 md:mb-16 text-center md:text-left">
+          <div className="flex items-center justify-center md:justify-end">
+            <div className="w-12 md:w-16 h-0.5 bg-gray-600 mr-2"></div>
+            <div className="text-xs md:text-sm text-third tracking-wider">
               Our Collection
             </div>
           </div>
-          <div>
-            <h2 className="text-xl md:text-3xl w-[300px] font-[Giplika] text-third leading-tight">
+
+          <div className="max-w-xs md:max-w-sm">
+            <h2 className="text-lg md:text-3xl font-[Giplika] text-third leading-snug">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
           </div>
-          <div>
-            <p className="text-[#F0E6E2]/40 text-sm w-[200px] leading-relaxed">
+
+          <div className="max-w-xs md:max-w-[200px]">
+            <p className="text-[#F0E6E2]/40 text-sm leading-relaxed">
               Minimal glass creates custom-made glass doors, room dividers and
               more cabinets in all shapes and sizes. Get inspired.
             </p>
@@ -65,7 +67,7 @@ export default function CollectionSection() {
               {/* Product Image Container */}
               <div className="relative h-80 overflow-hidden">
                 {/* Collection Badge */}
-                <span className="absolute top-5 left-22 text-sm font-medium py-1 px-2 text-[#F0E6E299]  z-10">
+                <span className="absolute top-5 left-20 md:left-2 text-sm font-medium py-1 px-2 text-[#F0E6E299]  z-10">
                   {product.collection} | {product.status}
                 </span>
 

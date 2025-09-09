@@ -1,28 +1,28 @@
 export default function ServiceSection() {
   return (
-    <section className=" px-4 py-24 bg-[#1A1A1A]">
+    <section className="px-4 py-12 md:py-24 bg-[#1A1A1A]">
       <div className="container mx-auto">
         {/* Top Grid (Number + Boxes) */}
-        <div className="grid grid-cols-3 gap-6 items-center mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center mb-12">
           {/* Left Side (01 Number) */}
-          <div className="flex justify-center items-center ml-24 mt-24">
-            <div className="text-8xl md:text-9xl font-light text-[#BF8A42]">
+          <div className="flex justify-center md:justify-start items-center md:ml-24 mt-12 md:mt-24">
+            <div className="text-6xl sm:text-7xl md:text-9xl font-light text-[#BF8A42]">
               01
             </div>
           </div>
 
           {/* Middle Box */}
-          <div className="bg-[#C4C4C4]/30 h-[300px] w-full rounded-none mb-23"></div>
+          <div className="bg-[#C4C4C4]/30 h-48 sm:h-64 md:h-[300px] md:mb-24 w-full rounded-none"></div>
 
           {/* Right Box */}
-          <div className="bg-[#C4C4C4]/30 h-[400px] w-full rounded-none"></div>
+          <div className="bg-[#C4C4C4]/30 h-56 sm:h-72 md:h-[400px] w-full rounded-none"></div>
         </div>
 
         {/* Bottom Grid (Text + Description) */}
-        <div >
+        <div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Left Text List */}
-            <div className="space-y-3 font-[Gifilka] md:ml-60 ">
+            <div className="space-y-3 font-[Gifilka] md:ml-60">
               {[
                 { num: "01", title: "Dutch design", active: true },
                 { num: "02", title: "Creative", active: false },
@@ -30,16 +30,16 @@ export default function ServiceSection() {
                 { num: "04", title: "Made to measure", active: false },
                 { num: "05", title: "Installation", active: false },
               ].map((item) => (
-                <div key={item.num} className="flex items-start space-x-4 ">
+                <div key={item.num} className="flex items-start space-x-4">
                   <span
                     className={`text-sm font-medium ${
-                      item.active ? "text-primary" : "text-[#F0E6E2]/40 "
+                      item.active ? "text-primary" : "text-[#F0E6E2]/40"
                     }`}
                   >
                     {item.num}
                   </span>
                   <h3
-                    className={`text-sm font-medium mb-2 ${
+                    className={`font-medium mb-2 ${
                       item.active ? "text-[#F0E6E2]" : "text-[#F0E6E2]/40"
                     }`}
                   >
@@ -50,7 +50,7 @@ export default function ServiceSection() {
             </div>
 
             {/* Right Side Description */}
-            <div className="space-y-4 text-gray-300 text-xs leading-relaxed ">
+            <div className="space-y-4 text-gray-300 text-xs sm:text-sm leading-relaxed">
               <p>
                 Dutch Design by Bas Coppelmans combined with the hard work and
                 pride of our Belgian steelworkers. The best of both worlds,
