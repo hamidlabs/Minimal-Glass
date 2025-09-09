@@ -22,7 +22,7 @@ export default function ServiceSection() {
         <div >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Left Text List */}
-            <div className="space-y-3 font-[Gifilka] md:ml-46 ">
+            <div className="space-y-3 font-[Gifilka] md:ml-60 ">
               {[
                 { num: "01", title: "Dutch design", active: true },
                 { num: "02", title: "Creative", active: false },
@@ -32,14 +32,14 @@ export default function ServiceSection() {
               ].map((item) => (
                 <div key={item.num} className="flex items-start space-x-4 ">
                   <span
-                    className={`text-lg font-medium ${
+                    className={`text-sm font-medium ${
                       item.active ? "text-primary" : "text-[#F0E6E2]/40 "
                     }`}
                   >
                     {item.num}
                   </span>
                   <h3
-                    className={`text-lg font-medium mb-2 ${
+                    className={`text-sm font-medium mb-2 ${
                       item.active ? "text-[#F0E6E2]" : "text-[#F0E6E2]/40"
                     }`}
                   >

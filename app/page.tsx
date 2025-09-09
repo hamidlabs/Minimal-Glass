@@ -11,7 +11,7 @@ import ProductsSection from "@/components/sections/ProductsSection";
 import PureMasterpieces from "@/components/sections/PureMasterpieces";
 import PureMasterpiecesed from "@/components/sections/PureMasterpiecesed";
 import DutchDesignSection from "@/components/sections/DutchDesignSection";
-
+import Footer from "@/components/shared/Footer";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -46,6 +46,9 @@ export default function HomePage() {
 
       {/* Dutch Design Section */}
       <DutchDesignSection />
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 }

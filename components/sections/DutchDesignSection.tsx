@@ -2,8 +2,8 @@ import React from "react";
 
 export default function DutchDesignSection() {
   return (
-    <section className="min-h-screen bg-[#4D4D4D] flex items-center justify-center p-8">
-      <div className="w-full max-w-6xl flex items-center justify-center">
+    <section className="px-4 py-24 bg-[#4D4D4D] flex items-center justify-center p-8">
+      <div className="w-full  flex items-center justify-center">
         <div >
           <div className="grid grid-cols-12 gap-8 items-center">
             {/* Left - Section Label with decorative line */}
