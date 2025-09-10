@@ -22,10 +22,10 @@ export default function HeroSection({ isMenuOpen = false }) {
   }, [api]);
 
   return (
-    <section className="relative min-h-[50vh] bg-[#1A1A1A] pt-16 sm:pt-0">
+    <section className="relative min-h-[50vh] bg-[#1A1A1A] pt-0 sm:pt-0 ">
       {/* Contact Info - Hidden on mobile, shown on larger screens */}
       <div
-        className={`absolute top-4 left-4 right-4 md:top-8 md:left-24 text-xs sm:text-sm text-gray-400 hidden sm:flex justify-between sm:justify-start sm:gap-10 p-4 md:p-20 z-10 transition-opacity duration-300 ${
+        className={`absolute top-4 left-4 right-4 md:top-8 md:left-24 text-xs sm:text-sm text-gray-400 hidden sm:flex justify-between sm:justify-start sm:gap-10  md:p-20 z-10 transition-opacity duration-300 ${
           isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
@@ -43,10 +43,10 @@ export default function HeroSection({ isMenuOpen = false }) {
             <CarouselItem key={slide}>
               <div className="flex items-center justify-center min-h-[500px] sm:min-h-[700px]">
                 <div className="container mx-auto ">
-                  <div className="text-left bg-[#444444] relative   sm:ml-38 mt-10 md:mt-20   ">
+                  <div className="text-left bg-[#444444] relative  sm:ml-38  md:mt-20  ">
                     {/* Mobile Layout */}
-                    <div className="block sm:hidden p-4 min-h-[300px] flex flex-col justify-center">
-                      <div className="text-center">
+                    <div className="block sm:hidden flex flex-col justify-center">
+                      <div className="text-center px-4">
                         <h2 className="text-lg font-light text-[#F0E6E2] mb-4 leading-tight">
                           The most elegant glass you'll ever see
                         </h2>
@@ -72,7 +72,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                         </div>
 
                         {/* Mobile Navigation */}
-                        <div className="flex items-center justify-center space-x-2 text-white">
+                        <div className="flex items-center justify-center space-x-2 text-white mb-4">
                           <button
                             onClick={() =>
                               api?.scrollTo(
@@ -93,15 +93,15 @@ export default function HeroSection({ isMenuOpen = false }) {
                             {count}
                           </button>
                         </div>
-                      </div>
 
-                      {/* Mobile Logo */}
-                      <div className="flex justify-center mt-4">
-                        <img
-                          src="brand/logo.png"
-                          alt="Minimal Glass Logo"
-                          className="h-12 w-auto"
-                        />
+                        {/* Mobile Logo */}
+                        <div className="flex justify-center">
+                          <img
+                            src="brand/logo.png"
+                            alt="Minimal Glass Logo"
+                            className="h-12 w-auto"
+                          />
+                        </div>
                       </div>
                     </div>
 
