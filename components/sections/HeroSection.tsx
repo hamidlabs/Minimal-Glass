@@ -50,14 +50,14 @@ export default function HeroSection({ isMenuOpen = false }) {
                         {/* Mobile Content */}
                         <div className="max-w-xs">
                           {/* Mobile Contact Info - At the top */}
-                          <div className="mb-6 space-y-1">
+                          {/* <div className="mb-6 space-y-1">
                             <div className="text-xs text-white">
                               NL: <span className="text-[#BF8A42]">31 (0)164220795</span>
                             </div>
                             <div className="text-xs text-white">
                               BE: <span className="text-[#BF8A42]">+32 (0)164 99 777</span>
                             </div>
-                          </div>
+                          </div> */}
                           <p className="text-[#F0E6E2] mb-8 text-sm leading-relaxed">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
