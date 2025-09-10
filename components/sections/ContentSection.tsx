@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function ContentSection() {
   return (
-    <section className="py-20 px-4 bg-[#1A1A1A]">
+    <section className="py-24 px-4 bg-[#1A1A1A]">
       <div className="container mx-auto max-w-xl text-center">
         <p className="text-third text-lg font-normal md:text-3xl leading-tight mb-8 text-pretty font-[Giplika]">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet."
