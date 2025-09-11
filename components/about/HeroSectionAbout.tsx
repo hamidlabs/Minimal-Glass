@@ -23,7 +23,7 @@ export default function HeroSectionAbout({ isMenuOpen = false }) {
   return (
     <section className="relative min-h-[50vh] bg-[#1A1A1A]">
       {/* Contact Info */}
-    
+
       <div
         className={`absolute top-4 left-4 right-4 
   flex flex-col sm:flex-row gap-2 sm:gap-10 
