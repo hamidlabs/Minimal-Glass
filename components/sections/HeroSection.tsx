@@ -1,13 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import type { CarouselApi } from "@/components/ui/carousel";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { useState, useEffect } from "react";
-import type { CarouselApi } from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 
 export default function HeroSection({ isMenuOpen = false }) {
   const [api, setApi] = useState<CarouselApi>();
@@ -25,12 +25,12 @@ export default function HeroSection({ isMenuOpen = false }) {
     <section className="relative min-h-[50vh] bg-[#1A1A1A] pt-0 sm:pt-0">
       {/* Contact Info - FIXED FOR MOBILE */}
       <div
-        className={`absolute top-4 left-4 right-4 md:top-8 md:left-24 text-xs sm:text-sm z-10 transition-opacity duration-300 ${
-          isMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100"
+        className={`absolute top-24 left-4  right-4 md:top-8 md:left-24 text-xs sm:text-sm z-20 transition-opacity duration-300 ${
+          isMenuOpen ? "md:opacity-0 pointer-events-none" : "opacity-100"
         }`}
       >
         {/* Mobile Layout - Stacked and Visible */}
-        <div className="flex flex-col gap-1 sm:hidden">
+        <div className="sm:hidden flex gap-5">
           <div className="text-white font-medium">
             NL: <span className="text-[#BF8A42]">31 (0)164220795</span>
           </div>
@@ -54,7 +54,9 @@ export default function HeroSection({ isMenuOpen = false }) {
         <CarouselContent>
           {[1, 2, 3].map((slide) => (
             <CarouselItem key={slide}>
-              <div className="flex items-center justify-center min-h-[500px] sm:min-h-[700px]">
+              <div
+                className={`flex items-center justify-center min-h-[500px] sm:min-h-[700px] mt-24 md:mt-0 `}
+              >
                 <div className="container mx-auto">
                   <div className="text-left bg-[#444444] relative sm:ml-38 md:mt-20">
                     {/* Mobile Layout */}
@@ -121,7 +123,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                     {/* Desktop Layout (unchanged) */}
                     <div className="hidden sm:flex items-center p-10 h-[400px]">
                       <div>
-                        <div className="w-[300px] ml-34">
+                        <div className="w-[300px] ml-24">
                           <h2 className="text-xl md:text-2xl font-light text-[#F0E6E2] mb-6 leading-tight">
                             The most elegant glass you'll ever see
                           </h2>
@@ -175,14 +177,11 @@ export default function HeroSection({ isMenuOpen = false }) {
                           </div>
 
                           {/* Desktop Logo */}
-                          <div className="mb-6 sm:mb-0 sm:absolute sm:top-[20%] sm:-left-32">
-                            <img
-                              src="brand/logo.png"
-                              alt="Minimal Glass Logo"
-                              className="font-[Giplika] text-[#F0E6E2]  mb-4 sm:mb-7 "
-                            />
-                            <div className="w-16 sm:w-20 h-0.5 bg-[#F0E6E2] ml-0 sm:ml-32"></div>
-                          </div>
+                          <img
+                            src="brand/logo.png"
+                            alt="Minimal Glass Logo"
+                            className="absolute top-[20%] -left-[128px] h-[100px]"
+                          />
                         </div>
                       </div>
                     </div>

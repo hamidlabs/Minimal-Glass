@@ -27,7 +27,7 @@ export default function MinimalGlassFooter() {
               <a href="#" className="text-primary hover:underline">
                 Collection
               </a>
-              <a href="#" className="text-primary hover:underline">
+              <a href="about" className="text-primary hover:underline">
                 About us
               </a>
               <a href="#" className="text-primary hover:underline">
