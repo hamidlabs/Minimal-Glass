@@ -94,11 +94,11 @@ export default function HeroSection({ isMenuOpen = false }) {
                                 current === 1 ? count - 1 : current - 2
                               )
                             }
-                            className="text-3xl font-bold text-[#BF8A42] hover:text-white transition-colors cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                            className="text-3xl font-bold text-[#F0E6E2] hover:text-[#BF8A42]  transition-colors cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                           >
                             {current}
                           </button>
-                          <div className="w-12 h-0.5 bg-[#BF8A42] drop-shadow-sm"></div>
+                          <div className="w-12 h-0.5 bg-[#F0E6E2] drop-shadow-sm"></div>
                           <button
                             onClick={() =>
                               api?.scrollTo(current === count ? 0 : current)
