@@ -23,7 +23,6 @@ export default function HeroSection({ isMenuOpen = false }) {
 
   return (
     <section className="relative min-h-[50vh] bg-[#1A1A1A] pt-0 sm:pt-0">
-     
       {/* Contact Info - FIXED FOR MOBILE */}
       <div
         className={`absolute top-4 left-4 right-4 md:top-8 md:left-24 text-xs sm:text-sm z-10 transition-opacity duration-300 ${
@@ -39,7 +38,7 @@ export default function HeroSection({ isMenuOpen = false }) {
             BE: <span className="text-[#BF8A42]">+32 (0)164 99 777</span>
           </div>
         </div>
-        
+
         {/* Desktop Layout - Side by side */}
         <div className="hidden sm:flex justify-between md:justify-start md:gap-10 md:p-20">
           <div className="text-white">
@@ -122,7 +121,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                     {/* Desktop Layout (unchanged) */}
                     <div className="hidden sm:flex items-center p-10 h-[400px]">
                       <div>
-                        <div className="w-[300px] ml-24">
+                        <div className="w-[300px] ml-34">
                           <h2 className="text-xl md:text-2xl font-light text-[#F0E6E2] mb-6 leading-tight">
                             The most elegant glass you'll ever see
                           </h2>
@@ -176,11 +175,14 @@ export default function HeroSection({ isMenuOpen = false }) {
                           </div>
 
                           {/* Desktop Logo */}
-                          <img
-                            src="brand/logo.png"
-                            alt="Minimal Glass Logo"
-                            className="absolute top-[20%] -left-[128px] h-[100px]"
-                          />
+                          <div className="mb-6 sm:mb-0 sm:absolute sm:top-[20%] sm:-left-32">
+                            <img
+                              src="brand/logo.png"
+                              alt="Minimal Glass Logo"
+                              className="font-[Giplika] text-[#F0E6E2]  mb-4 sm:mb-7 "
+                            />
+                            <div className="w-16 sm:w-20 h-0.5 bg-[#F0E6E2] ml-0 sm:ml-32"></div>
+                          </div>
                         </div>
                       </div>
                     </div>

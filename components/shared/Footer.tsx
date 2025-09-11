@@ -8,7 +8,7 @@ export default function MinimalGlassFooter() {
         {/* Logo */}
         <div className="flex flex-col sm:flex-row items-center sm:justify-between mb-12 sm:mb-16 space-y-4 sm:space-y-0">
           <img src="brand/logoblack.png" alt="Minimal Steel Logo" />
-          <img src="brand/vector.png" alt="Decoration" />
+          <img src="brand/vector.png" alt="" />
         </div>
 
         <div className="border-t border-gray-300 pt-6 sm:pt-8"></div>
