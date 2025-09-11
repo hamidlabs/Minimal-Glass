@@ -49,7 +49,7 @@ export default function ServiceSection() {
           </div>
 
           {/* Right Side Description */}
-          <div className="space-y-4 text-[#F0E6E2]/70 text-sm md:text-base leading-relaxed font-[Gifilka]">
+          <div className="space-y-4 text-[#F0E6E2]/70 text-sm md:text-base leading-relaxed md:w-[600px] font-[Gifilka] ">
             <p>
               Dutch Design by Bas Coppelmans combined with the hard work and
               pride of our Belgian steelworkers. The best of both worlds,
