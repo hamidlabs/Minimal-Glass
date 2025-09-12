@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { useEffect, useState } from "react";
 
-export default function HeroSectionAbout({ isMenuOpen = false }) {
+export default function HeroProductImpression({ isMenuOpen = false }) {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
@@ -64,7 +64,7 @@ export default function HeroSectionAbout({ isMenuOpen = false }) {
                       <div className="text-center w-full max-w-sm">
                         <div className="text-lg font-light text-[#F0E6E2] mb-4 leading-tight flex items-center gap-3 flex-col">
                           <h1 className="font-[Giplika] text-[#F0E6E2] text-lg md:text-3xl mb-4 sm:mb-7">
-                            About Minimal Glass
+                            Product Impression
                           </h1>
                           <div className="w-16 sm:w-20 h-0.5 bg-[#F0E6E2] ml-0 sm:ml-12"></div>
                         </div>
@@ -109,8 +109,8 @@ export default function HeroSectionAbout({ isMenuOpen = false }) {
                         <div className="w-[300px] ml-24">
                           {/* Heading + Line */}
                           <div className="mb-6 sm:mb-0 sm:absolute sm:top-[20%] sm:-left-[50px]">
-                            <h1 className="font-[Giplika] text-[#F0E6E2] text-lg md:text-3xl mb-4 sm:mb-7">
-                              About Minimal Glass
+                            <h1 className="font-[Giplika] text-[#F0E6E2] text-lg md:text-4xl mb-4 sm:mb-7">
+                              Product Impression
                             </h1>
                             <div className="w-16 sm:w-20 h-0.5 bg-[#F0E6E2] ml-0 sm:ml-12"></div>
                           </div>
