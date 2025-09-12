@@ -23,5 +23,5 @@ export default function Product() {
       <CollectionSection />
       <Footer />
     </div>
-  );
+  ); 
 }

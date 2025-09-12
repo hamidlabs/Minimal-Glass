@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, User, ShoppingCart, X, ChevronDown } from "lucide-react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -132,7 +133,9 @@ export default function Navbar() {
                   <li>Home</li>
                   <li>Discover</li>
                   <li>Collections</li>
-                  <li>About Us</li>
+                  <Link href="/about">
+                    <li>About Us</li>
+                  </Link>
                 </ul>
               </div>
 
