@@ -42,7 +42,9 @@ const ContactForm = () => {
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <div className="w-16 h-px bg-white"></div>
-          <h2 className="text-xl font-light tracking-wide">Contact form</h2>
+          <h2 className="text-sm font-light font-medium tracking-wide">
+            Contact form
+          </h2>
         </div>
 
         {/* Form Fields */}
@@ -53,9 +55,9 @@ const ContactForm = () => {
               onValueChange={(value) => handleInputChange("reason", value)}
             >
               <SelectTrigger className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none text-zinc-400 px-0 focus:ring-0 focus:border-zinc-400">
-                <SelectValue placeholder="Reason for contact" />
+                <SelectValue placeholder="Reason for contact" className="text-zinc-400" />
               </SelectTrigger>
-              <SelectContent className="bg-[#FFFFFF] border-[#FFFFFF]">
+              <SelectContent className="bg-[#1A1A1A] border-[#FFFFFF]">
                 <SelectItem value="general">General Inquiry</SelectItem>
                 <SelectItem value="support">Technical Support</SelectItem>
                 <SelectItem value="sales">Sales</SelectItem>
@@ -73,9 +75,9 @@ const ContactForm = () => {
               onValueChange={(value) => handleInputChange("business", value)}
             >
               <SelectTrigger className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none text-zinc-400 px-0 focus:ring-0 focus:border-zinc-400">
-                <SelectValue placeholder="Private or business" />
+                <SelectValue placeholder="Private or business" className="text-zinc-400" />
               </SelectTrigger>
-              <SelectContent className="bg-[#FFFFFF] border-[#FFFFFF]">
+              <SelectContent className="bg-[#1A1A1A] border-[#FFFFFF]">
                 <SelectItem value="private">Private</SelectItem>
                 <SelectItem value="business">Business</SelectItem>
               </SelectContent>
@@ -158,7 +160,7 @@ const ContactForm = () => {
                 <Button
                   type="button"
                   variant="outline"
-                  className="bg-transparent border border-zinc-600 text-white hover:bg-zinc-800 hover:border-zinc-500 px-6 py-2 rounded-full text-sm"
+                  className="bg-transparent border border-[#FAE2D3] text-white hover:bg-zinc-800 hover:border-zinc-500 px-6 py-2 rounded-full text-sm"
                 >
                   Browse
                 </Button>
@@ -173,21 +175,22 @@ const ContactForm = () => {
           <div className="pt-8 flex justify-end">
             <Button
               onClick={handleSubmit}
-              className="bg-white text-black hover:bg-zinc-200 px-8 py-2 rounded-full font-medium text-sm"
+              className=" text-[#8F6A42] bg-[#1A1A1A] px-8 py-2 rounded-full font-medium text-sm"
             >
               Send
             </Button>
+
           </div>
 
           {/* Footer text */}
           <div className="pt-6">
             <p className="text-xs text-zinc-500 leading-relaxed">
               This site is protected by reCAPTCHA and the{" "}
-              <a href="#" className="text-zinc-400 hover:text-white underline">
+              <a href="#" className="text-[#8F6A42] hover:text-white underline">
                 Google Privacy Policy
               </a>{" "}
               and{" "}
-              <a href="#" className="text-zinc-400 hover:text-white underline">
+              <a href="#" className="text-[#8F6A42] hover:text-white underline">
                 Terms of Service
               </a>{" "}
               apply.

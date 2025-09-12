@@ -7,8 +7,8 @@ const ContactSpecialist = () => {
       <div className="w-full max-w-6xl  ">
         <div className="grid grid-cols-1 lg:grid-cols-14 items-center">
           {/* Left side - Contact us section */}
-          <div className="space-y-8 col-span-4">
-            <div className="flex items-center gap-4">
+          <div className=" col-span-4  ">
+            <div className="flex items-center justify-center gap-4">
               <div className="w-16 h-px bg-[#F0E6E2]"></div>
               <h3 className="text-sm font-medium text-[#F0E6E2] tracking-wider uppercase">
                 Contact us
