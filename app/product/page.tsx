@@ -10,7 +10,7 @@ import TestimonialSection from "@/components/sections/TestimonialSection";
 import CollectionSection from "@/components/sections/CollectionSection";
 import Footer from "@/components/shared/Footer";
 
-export default function Product() {
+export default function ProductImpression() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
