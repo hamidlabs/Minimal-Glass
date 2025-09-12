@@ -8,7 +8,7 @@ import {
   
 } from "lucide-react";  
 
-export function CustomerServiceSection() {
+export function CustomerServiceHeroSection() {
   const services = [
     {
       icon: ListOrdered,
