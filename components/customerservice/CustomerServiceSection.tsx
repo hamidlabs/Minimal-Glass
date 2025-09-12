@@ -41,7 +41,7 @@ export function CustomerServiceSection() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left side - Content */}
           <div className="space-y-10 md:mt-30">
-            <h1 className="text-6xl  lg:text-7xl font-light leading-tight text-balance">
+            <h1 className="text-6xl  lg:text-7xl font-light leading-tight text-balance font-[Gipilka]">
               Customer
               <br />
               service
