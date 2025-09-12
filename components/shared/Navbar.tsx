@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, User, ShoppingCart, X, ChevronDown } from "lucide-react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export default function Navbar() {
@@ -128,16 +127,33 @@ export default function Navbar() {
           <div className="container mx-auto px-4 py-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {/* Section 1 */}
-              <div>
-                <ul className="text-[#8F6A42] text-2xl sm:text-3xl md:text-4xl leading-relaxed space-y-2 sm:space-y-3">
-                  <li>Home</li>
-                  <li>Discover</li>
-                  <li>Collections</li>
-                  <Link href="/about">
-                    <li>About Us</li>
-                  </Link>
-                </ul>
-              </div>
+              <nav className="flex flex-col  text-2xl font-light font-[Gifilka] text-[#8F6A42] md:text-3xl leading-relaxed sm:space-y-2">
+                <a
+                  href="/"
+                  className="text-primary hover:underline transition-colors py-1"
+                >
+                  Home
+                </a>
+                <a
+                  href="#"
+                  className="text-primary hover:underline transition-colors py-1"
+                >
+                  Discover
+                </a>
+                <a
+                  href="#"
+                  className="text-primary hover:underline transition-colors py-1"
+                >
+                  Colledtion
+                </a>
+                <a
+                  href="about"
+                  className="text-primary hover:underline transition-colors py-1"
+                >
+                  About us
+                </a>
+               
+              </nav>
 
               {/* Section 2 */}
               <div>
