@@ -4,6 +4,7 @@ import React from 'react'
 import Navbar from '@/components/shared/Navbar'
 import { CustomerServiceSection } from '@/components/customerservice/CustomerServiceSection'
 import FAQAccordion from '@/components/customerservice/FAQAccordionSection'
+import ContactSpecialist from '@/components/customerservice/SpecialistSection'
 
 export default function CustomerService() {
   return (
@@ -11,6 +12,7 @@ export default function CustomerService() {
           <Navbar />
           <CustomerServiceSection />
           <FAQAccordion />
+          <ContactSpecialist />
     </div>
   )
 }
