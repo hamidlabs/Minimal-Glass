@@ -33,7 +33,7 @@ export function CustomerServiceSection() {
   ];
 
   return (
-    <section className="relative min-h-[700px]   bg-[#1A1A1A] text-[#FFFFFF] overflow-hidden ">
+    <section className="relative min-h-[700px]  bg-[#1A1A1A] text-[#FFFFFF] overflow-hidden ">
       {/* Background geometric pattern */}
      
 
