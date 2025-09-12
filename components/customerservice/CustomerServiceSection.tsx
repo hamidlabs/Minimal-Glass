@@ -33,11 +33,11 @@ export function CustomerServiceSection() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-[#1A1A1A] text-[#FFFFFF] overflow-hidden   border-amber-100 border-2">
+    <section className="relative min-h-[700px]   bg-[#1A1A1A] text-[#FFFFFF] overflow-hidden ">
       {/* Background geometric pattern */}
-      <div className="absolute inset-0 opacity-10"></div>
+     
 
-      <div className="relative z-10 container mx-auto px-4 py-16  rounded-none ">
+      <div className="relative z-10 container mx-auto px-4 py-16  rounded-none  ">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* Left side - Content */}
           <div className="space-y-10 md:mt-30">
@@ -54,7 +54,7 @@ export function CustomerServiceSection() {
           </div>
 
           {/* Right side - Service cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:mt-30 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:mt-30  ">
             {services.map((service, index) => (
               <Card
                 key={index}
@@ -82,8 +82,8 @@ export function CustomerServiceSection() {
               </Card>
             ))} 
           </div>
-          <div className="flex items-center justify-center absolute left-[500px]">
-            <div className="h-[700px] w-[700px] rounded-full bg-transparent border-[1px] border-[#F0E6E2]/10"></div>
+          <div className="flex items-center justify-center absolute left-[450px]">
+            <div className="h-[600px] w-[600px] rounded-full bg-transparent border-[1px] border-[#F0E6E2]/10"></div>
           </div>
         </div>
       </div>
