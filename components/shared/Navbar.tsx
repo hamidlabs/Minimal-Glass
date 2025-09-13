@@ -58,7 +58,7 @@ export default function Navbar() {
                 isMenuOpen ? "text-black" : ""
               )}
             >
-              A
+              M
             </div>
 
             {/* Right Icons */}
