@@ -55,18 +55,43 @@ const ContactForm = () => {
               onValueChange={(value) => handleInputChange("reason", value)}
             >
               <SelectTrigger className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none text-zinc-400 px-0 focus:ring-0 focus:border-zinc-400">
-                <SelectValue placeholder="Reason for contact" className="text-zinc-400" />
+                <div className="flex justify-between items-center w-full">
+                  <SelectValue
+                    placeholder="Reason for contact"
+                    className="text-zinc-400"
+                  />
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs text-zinc-400">Standard</span>
+                  </div>
+                </div>
               </SelectTrigger>
-              <SelectContent className="bg-[#1A1A1A] border-[#FFFFFF]">
-                <SelectItem value="general">General Inquiry</SelectItem>
-                <SelectItem value="support">Technical Support</SelectItem>
-                <SelectItem value="sales">Sales</SelectItem>
-                <SelectItem value="partnership">Partnership</SelectItem>
+              <SelectContent className="bg-[#2A2A2A] border border-zinc-600 text-white">
+                <SelectItem
+                  value="general"
+                  className="text-white hover:bg-zinc-700"
+                >
+                  General Inquiry
+                </SelectItem>
+                <SelectItem
+                  value="support"
+                  className="text-white hover:bg-zinc-700"
+                >
+                  Technical Support
+                </SelectItem>
+                <SelectItem
+                  value="sales"
+                  className="text-white hover:bg-zinc-700"
+                >
+                  Sales
+                </SelectItem>
+                <SelectItem
+                  value="partnership"
+                  className="text-white hover:bg-zinc-700"
+                >
+                  Partnership
+                </SelectItem>
               </SelectContent>
             </Select>
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 text-zinc-400 text-xs">
-              Standard
-            </div>
           </div>
 
           {/* Private or business */}
@@ -75,15 +100,18 @@ const ContactForm = () => {
               onValueChange={(value) => handleInputChange("business", value)}
             >
               <SelectTrigger className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none text-zinc-400 px-0 focus:ring-0 focus:border-zinc-400">
-                <SelectValue placeholder="Private or business" className="text-zinc-400" />
+                <SelectValue
+                  placeholder="Private or business"
+                  className="text-zinc-600"
+                />
               </SelectTrigger>
               <SelectContent className="bg-[#1A1A1A] border-[#FFFFFF]">
                 <SelectItem value="private">Private</SelectItem>
                 <SelectItem value="business">Business</SelectItem>
               </SelectContent>
             </Select>
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 text-zinc-400 text-xs">
-              Standard
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none">
+              <span className="text-zinc-400 text-xs">Standard</span>
             </div>
           </div>
 
@@ -179,7 +207,6 @@ const ContactForm = () => {
             >
               Send
             </Button>
-
           </div>
 
           {/* Footer text */}
