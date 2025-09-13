@@ -168,7 +168,7 @@ export default function MinimalGlassFooter() {
                   href="#"
                   className="text-primary hover:underline transition-colors py-1"
                 >
-                  Colledtion
+                  Collection
                 </a>
                 <a
                   href="about"
