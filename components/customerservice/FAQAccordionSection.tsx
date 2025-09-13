@@ -3,7 +3,7 @@ import { Plus, Minus } from "lucide-react";
 
 const FAQAccordion = () => {
   // Pre-expand specific items to match the screenshot
-  const [expandedItems, setExpandedItems] = useState(new Set([3, 8, 13]));
+  const [expandedItems, setExpandedItems] = useState(new Set([]));
 
   const faqSections = [
     {
