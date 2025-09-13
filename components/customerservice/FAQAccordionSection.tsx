@@ -127,19 +127,19 @@ const FAQAccordion = () => {
     <div className="min-h-[600px] bg-[#1A1A1A] text-white ">
       <div className="container mx-auto px-6 py-8 max-w-7xl space-y-0 ">
         {faqSections.map((section, sectionIndex) => (
-          <div key={section.title} className="relative  mb-10  ">
-            {/* Dotted border around each section */}
-            <div className=" p-8 md:flex  justify-center  self-center items-start md:gap-9">
-              {/* Section Header */}
-              <div className="mb-8 flex items-center gap-3">
+          <div key={section.title} className="relative mb-10">
+            {/* Consistent flex layout for all sections */}
+            <div className="p-8 md:flex justify-center self-center items-start md:gap-9">
+              {/* Section Header - Fixed width for alignment */}
+              <div className="mb-8 md:mb-0 flex items-center gap-3 md:min-w-[400px]">
                 <div className="w-16 h-px bg-white"></div>
-                <h2 className="text-sm font-medium text-white tracking-wider">
+                <h2 className="text-sm font-medium text-white tracking-wider whitespace-nowrap">
                   {section.title}
                 </h2>
               </div>
 
-              {/* FAQ Items */}
-              <div className="space-y-0">
+              {/* FAQ Items - Consistent width */}
+              <div className="space-y-0 flex-1 md:max-w-[800px] ">
                 {section.items.map((item, index) => {
                   const isExpanded = expandedItems.has(item.id);
 
@@ -154,12 +154,7 @@ const FAQAccordion = () => {
                           {item.question}
                         </span>
 
-                        <div className="flex items-center space-x-4">
-                          {/* Golden dot indicator for expanded items
-                          {isExpanded && (
-                            <div className="w-3 h-3 bg-amber-500 rounded-full"></div>
-                          )} */}
-
+                        <div className="flex items-center space-x-4 align-center">
                           {/* Plus/Minus icon */}
                           <div className="w-8 h-8 bg-[#121212] rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors duration-200">
                             {isExpanded ? (
@@ -190,8 +185,6 @@ const FAQAccordion = () => {
                 })}
               </div>
             </div>
-
-           
           </div>
         ))}
       </div>
