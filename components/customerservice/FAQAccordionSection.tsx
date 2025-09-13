@@ -131,7 +131,7 @@ const FAQAccordion = () => {
             {/* Consistent flex layout for all sections */}
             <div className="p-8 md:flex justify-center self-center items-start md:gap-9">
               {/* Section Header - Fixed width for alignment */}
-              <div className="mb-8 md:mb-0 flex items-center gap-3 md:min-w-[400px]">
+              <div className="mb-8 md:mb-0 flex items-center gap-3 md:min-w-[250px]">
                 <div className="w-16 h-px bg-white"></div>
                 <h2 className="text-sm font-medium text-white tracking-wider whitespace-nowrap">
                   {section.title}
