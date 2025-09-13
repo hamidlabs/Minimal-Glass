@@ -38,7 +38,7 @@ const ContactForm = () => {
 
   return (
     <div className="min-h-[600px] bg-[#1A1A1A] text-white flex items-center justify-center p-4 ">
-      <div className="w-full max-w-6xl  p-8 md:flex  justify-center  self-center items-start md:gap-9 ">
+      <div className="w-full max-w-7xl  p-8 md:flex  justify-center  self-center items-start md:gap-9 ">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <div className="w-16 h-px bg-white"></div>
