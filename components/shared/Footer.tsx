@@ -14,7 +14,8 @@ export default function MinimalGlassFooter() {
               alt="Minimal Glass Logo"
               className="h-16 w-auto"
             />
-            <img src="brand/vector.png" alt="" className="h-12 w-auto" />
+
+            <div className="text-xl sm:text-2xl font-bold text-primary">M</div>
           </div>
 
           {/* Navigation - Mobile */}
@@ -142,7 +143,7 @@ export default function MinimalGlassFooter() {
               alt="Minimal Steel Logo"
               className="h-16 w-auto"
             />
-            <img src="brand/vector.png" alt="" className="h-10 w-auto" />
+            <div className="text-xl sm:text-2xl font-bold text-primary ">M</div>
           </div>
 
           <div className="border-t border-gray-300 pt-8"></div>
