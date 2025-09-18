@@ -33,11 +33,11 @@ const ContactSpecialist = () => {
 
             {/* Contact buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="third" size="lg">
+              <Button variant="secondary" size="lg">
                 email@email.be
               </Button>
 
-              <Button variant="third" size="lg">
+              <Button variant="secondary" size="lg">
                 +32 144 99 777
               </Button>
             </div>

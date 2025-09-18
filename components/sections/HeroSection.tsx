@@ -58,7 +58,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                 className={`flex items-center justify-center min-h-[500px] sm:min-h-[700px] mt-24 md:mt-0 `}
               >
                 <div className="container mx-auto">
-                  <div className="text-left bg-[#444444] relative sm:ml-38 md:mt-20">
+                  <div className="text-left bg-secondary relative sm:ml-38 md:mt-20">
                     {/* Mobile Layout */}
                     <div className="flex flex-col justify-center items-center sm:hidden px-4 py-8">
                       <div className="text-center w-full max-w-sm">
@@ -71,10 +71,10 @@ export default function HeroSection({ isMenuOpen = false }) {
                           dolore magna aliqua.
                         </p>
                         <div className="flex flex-col gap-3 mb-6">
-                          <Button size="sm" variant="third">
+                          <Button size="sm" variant="secondary">
                             Discover our collection
                           </Button>
-                          <Button size="sm" variant="second">
+                          <Button size="sm" variant="outline">
                             Experience the beauty
                           </Button>
                         </div>
@@ -114,7 +114,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                     </div>
 
                     {/* Desktop Layout (unchanged) */}
-                    <div className="hidden sm:flex items-center p-10 h-[400px]">
+                    <div className="hidden sm:flex items-center p-10 h-[400px] ">
                       <div>
                         <div className="w-[300px] ml-24">
                           <h2 className="text-xl md:text-2xl font-light text-ternary mb-6 leading-tight">
@@ -126,10 +126,10 @@ export default function HeroSection({ isMenuOpen = false }) {
                             dolore magna aliqua.
                           </p>
                           <div className="flex flex-col sm:flex-row gap-2">
-                            <Button size="xs" variant="third">
+                            <Button size="xs" variant="secondary">
                               Discover our collection
                             </Button>
-                            <Button variant="second" size="xs">
+                            <Button variant="outline" size="xs">
                               Experience the beauty
                             </Button>
                           </div>
