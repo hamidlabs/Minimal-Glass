@@ -46,8 +46,8 @@ export default function TestimonialSection() {
   }, [testimonialApi]);
 
   return (
-    <section className="relative py-12 md:py-20 px-4 bg-[#1A1A1A]">
-      <div className="container mx-auto bg-[#C4C4C4]/30">
+    <section className="relative py-12 md:py-20 px-4 bg-background">
+      <div className="container mx-auto bg-secondary">
         <Carousel className="w-full" setApi={setTestimonialApi}>
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
@@ -56,10 +56,10 @@ export default function TestimonialSection() {
                   <div className="w-full h-full"></div>
 
                   {/* Text overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 md:right-80 bg-[#1A1A1A] p-4 sm:p-6 md:p-8">
+                  <div className="absolute bottom-0 left-0 right-0 md:right-80 bg-background p-4 sm:p-6 md:p-8">
                     <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4">
                       <div className="flex-1">
-                        <h3 className="text-base sm:text-lg md:text-3xl lg:text-4xl font-light text-[#F0E6E2] mb-2 sm:mb-4 leading-snug font-[Giplika]">
+                        <h3 className="text-base sm:text-lg md:text-3xl lg:text-4xl font-light text-ternary mb-2 sm:mb-4 leading-snug font-[Giplika]">
                           "{testimonial.quote}"
                         </h3>
                         <p className="text-primary text-xs sm:text-sm">
@@ -68,7 +68,7 @@ export default function TestimonialSection() {
                       </div>
 
                       {/* Navigation numbers */}
-                      <div className="flex items-center space-x-2 text-[#F0E6E2]">
+                      <div className="flex items-center space-x-2 text-ternary">
                         <button
                           onClick={() =>
                             testimonialApi?.scrollTo(
@@ -90,7 +90,7 @@ export default function TestimonialSection() {
                                 : testimonialCurrent
                             )
                           }
-                          className="text-sm sm:text-base md:text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
+                          className="text-sm sm:text-base md:text-lg hover:text-primary transition-colors cursor-pointer"
                         >
                           {testimonialCount}
                         </button>

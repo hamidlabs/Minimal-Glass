@@ -22,7 +22,7 @@ export default function HeroSection({ isMenuOpen = false }) {
   }, [api]);
 
   return (
-    <section className="relative min-h-[50vh] bg-[#1A1A1A] pt-0 sm:pt-0">
+    <section className="relative min-h-[50vh] bg-background pt-0 sm:pt-0">
       {/* Contact Info - FIXED FOR MOBILE */}
       <div
         className={`absolute top-24 left-4  right-4 md:top-8 md:left-24 text-xs sm:text-sm z-20 transition-opacity duration-300 ${
@@ -31,20 +31,20 @@ export default function HeroSection({ isMenuOpen = false }) {
       >
         {/* Mobile Layout - Stacked and Visible */}
         <div className="sm:hidden flex gap-5">
-          <div className="text-white font-medium">
-            NL: <span className="text-[#BF8A42]">31 (0)164220795</span>
+          <div className=" font-medium">
+            NL: <span className="text-primary">31 (0)164220795</span>
           </div>
-          <div className="text-white font-medium">
-            BE: <span className="text-[#BF8A42]">+32 (0)164 99 777</span>
+          <div className=" font-medium">
+            BE: <span className="text-primary">+32 (0)164 99 777</span>
           </div>
         </div>
 
         {/* Desktop Layout - Side by side */}
         <div className="hidden sm:flex justify-between md:justify-start md:gap-10 md:p-20">
-          <div className="text-white">
+          <div className="">
             NL: <span className="text-primary">31 (0)164220795</span>
           </div>
-          <div className="text-white">
+          <div className="">
             BE: <span className="text-primary">+32 (0)164 99 777</span>
           </div>
         </div>
@@ -124,10 +124,10 @@ export default function HeroSection({ isMenuOpen = false }) {
                     <div className="hidden sm:flex items-center p-10 h-[400px]">
                       <div>
                         <div className="w-[300px] ml-24">
-                          <h2 className="text-xl md:text-2xl font-light text-[#F0E6E2] mb-6 leading-tight">
+                          <h2 className="text-xl md:text-2xl font-light text-ternary mb-6 leading-tight">
                             The most elegant glass you'll ever see
                           </h2>
-                          <p className="text-[#F0E6E2] mb-8 text-[14px] leading-relaxed max-w-md">
+                          <p className="text-ternary mb-8 text-[14px] leading-relaxed max-w-md">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
                             dolore magna aliqua.
@@ -142,7 +142,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                             <Button
                               variant="outline"
                               size="xs"
-                              className="border-gray-400 text-[8px] text-[#F0E6E2] hover:bg-white hover:text-black px-4 py-3 rounded-full bg-transparent"
+                              className="border-gray-400 text-[8px] text-ternary hover:bg-white hover:text-black px-4 py-3 rounded-full bg-transparent"
                             >
                               Experience the beauty
                             </Button>
@@ -156,7 +156,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                                   current === 1 ? count - 1 : current - 2
                                 )
                               }
-                              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
+                              className="text-lg hover:text-primary transition-colors cursor-pointer"
                             >
                               {current}
                             </button>
@@ -165,7 +165,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                               onClick={() =>
                                 api?.scrollTo(current === count ? 0 : current)
                               }
-                              className="text-lg hover:text-[#BF8A42] transition-colors cursor-pointer"
+                              className="text-lg hover:text-primary transition-colors cursor-pointer"
                             >
                               {count}
                             </button>

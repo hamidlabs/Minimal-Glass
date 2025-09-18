@@ -27,7 +27,7 @@ const teamMembers = [
 
 export default function TeamSection() {
   return (
-    <section className="bg-[#1A1A1A] text-white py-16 px-6 md:px-20">
+    <section className="bg-background  py-16 px-6 md:px-20">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-6 md:gap-20 mb-12 md:mb-16 text-center md:text-left">
@@ -39,12 +39,12 @@ export default function TeamSection() {
           </div>
 
           <div className="max-w-xs md:max-w-[600px] flex flex-col md:flex-row gap-2">
-            <p className="text-[#F0E6E2]/40 text-sm leading-relaxed">
+            <p className="text-ternary text-sm leading-relaxed">
               Minimal glass creates custom-made glass doors, room dividers and
               more cabinets in all shapes and sizes. Get inspired.
             </p>
 
-            <p className="text-[#F0E6E2]/40 text-sm leading-relaxed">
+            <p className="text-ternary text-sm leading-relaxed">
               Minimal glass creates custom-made glass doors, room dividers and
               more cabinets in all shapes and sizes. Get inspired.
             </p>
@@ -56,16 +56,16 @@ export default function TeamSection() {
           {teamMembers.map((member, index) => (
             <Card
               key={index}
-              className="bg-[#1A1A1A] border-0 shadow-none group"
+              className="bg-background border-0 shadow-none group"
             >
               <CardContent className="p-0 flex flex-col items-center">
                 {/* Placeholder (initials instead of image) */}
-                <div className="w-full h-[250px] bg-[#4D4D4D] flex p-5 text-primary text-8xl font-serif">
+                <div className="w-full h-[250px] bg-secondary flex p-5 text-primary text-8xl font-serif">
                   {member.initial}
                 </div>
                 <div className="flex flex-col items-start mt-2 self-start p-4 mb-2">
                   {/* Name + LinkedIn */}
-                  <div className="flex items-center gap-40">
+                  <div className="flex items-center gap-2">
                     <h3 className="text-primary font-medium">{member.name}</h3>
                     {member.linkedIn && (
                       <a
@@ -80,7 +80,7 @@ export default function TeamSection() {
                   </div>
 
                   {/* Role */}
-                  <p className="text-sm text-gray-400 mt-1">{member.role}</p>
+                  <p className="text-sm text-[#F0E6E2]/50 mt-1">{member.role}</p>
                 </div>
               </CardContent>
             </Card>

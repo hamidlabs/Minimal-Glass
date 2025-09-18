@@ -33,7 +33,7 @@ export function CustomerServiceHeroSection() {
   ];
 
   return (
-    <section className="relative min-h-[700px]  bg-[#1A1A1A] text-[#FFFFFF] overflow-hidden ">
+    <section className="relative min-h-[700px]  bg-background overflow-hidden ">
       {/* Background geometric pattern */}
      
 
@@ -46,7 +46,7 @@ export function CustomerServiceHeroSection() {
               <br />
               service
             </h1>
-            <p className="text-lg text-[#FFFFFF] leading-relaxed max-w-md">
+            <p className="text-lg leading-relaxed max-w-md">
               We are always interested in exploring possibilities together. If
               you have a question or would like general information, feel free
               to contact us. We are happy to assist you.
@@ -58,7 +58,7 @@ export function CustomerServiceHeroSection() {
             {services.map((service, index) => (
               <Card
                 key={index}
-                className="group bg-[#121212]  rounded-none transition-all duration-300 cursor-pointer p-6 backdrop-blur-sm"
+                className="group bg-accent  rounded-none transition-all duration-300 cursor-pointer p-6 backdrop-blur-sm border-transparent"
               >
                 <div className="space-y-4 ">
                   {/* Icon */}
@@ -72,9 +72,9 @@ export function CustomerServiceHeroSection() {
                       <h3 className="text-lg font-medium text-white group-hover:text-gray-100 transition-colors">
                         {service.title}
                       </h3>
-                      <ArrowUpRight className="w-12 h-12 p-3  text-primary group-hover:text-gray-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 rounded-full bg-[#1A1A1A]" />
+                      <ArrowUpRight className="w-12 h-12 p-3  text-primary group-hover:text-gray-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 rounded-full bg-background" />
                     </div>
-                    <p className="text-sm text-[#F0E6E2]/60 group-hover:text-gray-300 transition-colors">
+                    <p className="text-sm text-[#F0E6E2]/50 group-hover:text-gray-300 transition-colors">
                       {service.subtitle}
                     </p>
                   </div>

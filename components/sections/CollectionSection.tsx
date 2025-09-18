@@ -32,7 +32,7 @@ export default function CollectionSection() {
   ];
 
   return (
-    <section className=" bg-[#1A1A1A] text-white">
+    <section className=" bg-background ">
       <div className="container mx-auto px-4 py-16 md:py-24">
         {/* Header Section */}
         <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-6 md:gap-8 mb-12 md:mb-16 text-center md:text-left">
@@ -44,13 +44,13 @@ export default function CollectionSection() {
           </div>
 
           <div className="max-w-xs md:max-w-sm">
-            <h2 className="text-lg md:text-3xl font-[Giplika] text-third leading-snug">
+            <h2 className="text-lg md:text-3xl font-[Giplika] text-ternary leading-snug">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit
             </h2>
           </div>
 
           <div className="max-w-xs md:max-w-[200px]">
-            <p className="text-[#F0E6E2]/40 text-sm leading-relaxed">
+            <p className="text-[#F0E6E2]/50 text-sm leading-relaxed">
               Minimal glass creates custom-made glass doors, room dividers and
               more cabinets in all shapes and sizes. Get inspired.
             </p>
@@ -62,7 +62,7 @@ export default function CollectionSection() {
           {products.map((product) => (
             <div
               key={product.id}
-              className="group bg-[#0000004D] rounded-none overflow-hidden transition-transform duration-300 hover:-translate-y-2"
+              className="group bg-accent rounded-none overflow-hidden transition-transform duration-300 hover:-translate-y-2"
             >
               {/* Product Image Container */}
               <div className="relative h-80 overflow-hidden">
@@ -93,10 +93,12 @@ export default function CollectionSection() {
 
               {/* Product Info */}
               <div className="p-6 flex justify-between items-center">
-                <h3 className="text-xs text-[#F0E6E2] font-medium">
+                <h3 className="text-xs text-ternary font-medium">
                   {product.name}
                 </h3>
-                <span className="text-[#F0E6E299] text-xs">{product.price}</span>
+                <span className="text-[#F0E6E299] text-xs">
+                  {product.price}
+                </span>
               </div>
             </div>
           ))}

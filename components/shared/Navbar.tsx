@@ -11,10 +11,10 @@ export default function Navbar() {
   };
 
   return (
-    <div className="text-white relative">
+    <div className="relative">
       <header
         className={cn(
-          "bg-[#1A1A1A] border-b border-gray-800 fixed top-0 left-0 right-0 z-50",
+          "bg-background border-b border-gray-800 fixed top-0 left-0 right-0 z-50",
           isMenuOpen ? "bg-[#F0E6E2] text-black" : ""
         )}
       >

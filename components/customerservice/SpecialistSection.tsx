@@ -2,15 +2,15 @@ import React from "react";
 
 const ContactSpecialist = () => {
   return (
-    <div className=" bg-[#4D4D4D]  flex items-center justify-center p-12">
+    <div className=" bg-secondary  flex items-center justify-center p-12">
       {/* Purple border frame */}
       <div className="w-full max-w-6xl  ">
         <div className="grid grid-cols-1 lg:grid-cols-14 items-center">
           {/* Left side - Contact us section */}
           <div className=" col-span-4  ">
             <div className="flex items-center justify-center gap-4">
-              <div className="w-16 h-px bg-[#F0E6E2]"></div>
-              <h3 className="text-sm font-medium text-[#F0E6E2] tracking-wider uppercase">
+              <div className="w-16 h-px bg-gray-300"></div>
+              <h3 className="text-sm font-medium text-ternary tracking-wider uppercase">
                 Contact us
               </h3>
             </div>
@@ -26,18 +26,18 @@ const ContactSpecialist = () => {
             </h1>
 
             {/* Description */}
-            <p className="text-[#F0E6E2] text-lg leading-relaxed max-w-lg">
+            <p className="text-ternary text-lg leading-relaxed max-w-lg">
               Dutch Design by Bas Coppelmans combined with the hard work and
               pride of our Belgian steelworkers.
             </p>
 
             {/* Contact buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-3 bg-[#F0E6E2] text-[#1A1A1A] rounded-full font-medium hover:bg-white transition-colors duration-300">
+              <button className="px-8 py-3 bg-[#F0E6E2] text-background rounded-full font-medium hover:bg-white transition-colors duration-300">
                 email@email.be
               </button>
 
-              <button className="px-8 py-3 bg-[#F0E6E2] text-[#1A1A1A] rounded-full font-medium hover:bg-white transition-colors duration-300">
+              <button className="px-8 py-3 bg-[#F0E6E2] text-background rounded-full font-medium hover:bg-white transition-colors duration-300">
                 +32 144 99 777
               </button>
             </div>

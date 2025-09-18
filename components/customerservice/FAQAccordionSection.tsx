@@ -124,7 +124,7 @@ const FAQAccordion = () => {
   };
 
   return (
-    <div className="min-h-[600px] bg-[#1A1A1A] text-white ">
+    <div className="min-h-[600px] bg-background  ">
       <div className="container mx-auto px-6 py-8 max-w-7xl space-y-0 ">
         {faqSections.map((section, sectionIndex) => (
           <div key={section.title} className="relative mb-10">
@@ -132,8 +132,8 @@ const FAQAccordion = () => {
             <div className="p-8 md:flex justify-center self-center items-start md:gap-9">
               {/* Section Header - Fixed width for alignment */}
               <div className="mb-8 md:mb-0 flex items-center gap-3 md:min-w-[250px]">
-                <div className="w-16 h-px bg-white"></div>
-                <h2 className="text-sm font-medium text-white tracking-wider whitespace-nowrap">
+                <div className="w-16 h-px "></div>
+                <h2 className="text-sm font-medium tracking-wider whitespace-nowrap">
                   {section.title}
                 </h2>
               </div>
@@ -148,15 +148,15 @@ const FAQAccordion = () => {
                       {/* Question Button */}
                       <button
                         onClick={() => toggleItem(item.id)}
-                        className="w-full py-5 text-left hover:bg-gray-800/20 transition-colors duration-200 flex items-center justify-between border-b border-[#333333]"
+                        className="w-full py-5 text-left  transition-colors duration-200 flex items-center justify-between border-b border-[#333333]"
                       >
-                        <span className="text-[#FFFFFF] font-normal text-base">
+                        <span className=" font-normal text-base">
                           {item.question}
                         </span>
 
                         <div className="flex items-center space-x-4 align-center">
                           {/* Plus/Minus icon */}
-                          <div className="w-8 h-8 bg-[#121212] rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors duration-200">
+                          <div className="w-8 h-8 bg-background rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors duration-200">
                             {isExpanded ? (
                               <Minus className="w-6 h-6 text-primary" />
                             ) : (
@@ -175,7 +175,7 @@ const FAQAccordion = () => {
                         }`}
                       >
                         <div className="py-5 border-b border-gray-700/30">
-                          <p className="text-gray-400 text-sm leading-relaxed max-w-3xl">
+                          <p className="text-[#FFFFFF]/50 text-sm leading-relaxed max-w-3xl">
                             {item.answer}
                           </p>
                         </div>

@@ -26,11 +26,11 @@ const brandValues = [
 
 export default function BrandSectionAbout() {
   return (
-    <section className="bg-[#1A1A1A] text-white py-24 px-6 md:px-20">
+    <section className="bg-background py-24 px-6 md:px-20">
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
         {/* Left Title */}
         <div className="col-span-1 flex items-start">
-          <h2 className="text-2xl md:text-3xl font-light text-[#F0E6E2]">
+          <h2 className="text-2xl md:text-3xl font-light text-ternary">
             Our brand values
           </h2>
         </div>
@@ -40,7 +40,7 @@ export default function BrandSectionAbout() {
           {brandValues.map((item, index) => (
             <div key={index}>
               <h3 className="text-primary font-medium mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-300 leading-relaxed">
+              <p className="text-sm text-ternary leading-relaxed">
                 {item.description}
               </p>
             </div>

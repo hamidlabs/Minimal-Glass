@@ -37,7 +37,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="min-h-[600px] bg-[#1A1A1A] text-white flex items-center justify-center p-4 ">
+    <div className="min-h-[600px] bg-background text-white flex items-center justify-center p-4 ">
       <div className="w-full max-w-7xl  p-8 md:flex  justify-center  self-center items-start md:gap-9 ">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
@@ -54,11 +54,11 @@ const ContactForm = () => {
             <Select
               onValueChange={(value) => handleInputChange("reason", value)}
             >
-              <SelectTrigger className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none text-zinc-400 px-0 focus:ring-0 focus:border-zinc-400">
+              <SelectTrigger className="w-full h-12 bg-transparent border-0 border-b border-secondary rounded-none text-secondary px-0 focus:ring-0 focus:border-secondary">
                 <div className="flex justify-between items-center w-full">
                   <SelectValue
                     placeholder="Reason for contact"
-                    className="text-zinc-400"
+                    className="text-secondary"
                   />
                   <div className="flex items-center gap-2">
                     <span className="text-xs text-zinc-400">Standard</span>
@@ -132,7 +132,7 @@ const ContactForm = () => {
               placeholder="Your email address"
               value={formData.email}
               onChange={(e) => handleInputChange("email", e.target.value)}
-              className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none text-white placeholder:text-zinc-400 px-0 focus-visible:ring-0 focus-visible:border-zinc-400"
+              className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none  placeholder:text-zinc-400 px-0 focus-visible:ring-0 focus-visible:border-zinc-400"
             />
           </div>
 
@@ -143,7 +143,7 @@ const ContactForm = () => {
               placeholder="Your phone number"
               value={formData.phone}
               onChange={(e) => handleInputChange("phone", e.target.value)}
-              className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none text-white placeholder:text-zinc-400 px-0 focus-visible:ring-0 focus-visible:border-zinc-400"
+              className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none placeholder:text-zinc-400 px-0 focus-visible:ring-0 focus-visible:border-zinc-400"
             />
           </div>
 
@@ -153,7 +153,7 @@ const ContactForm = () => {
               placeholder="Your city"
               value={formData.city}
               onChange={(e) => handleInputChange("city", e.target.value)}
-              className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none text-white placeholder:text-zinc-400 px-0 focus-visible:ring-0 focus-visible:border-zinc-400"
+              className="w-full h-12 bg-transparent border-0 border-b border-[#F0E6E2]/50  rounded-none  placeholder:text-[#F0E6E2]/50  px-0 focus-visible:ring-0 focus-visible:border-[#F0E6E2]/50 "
             />
           </div>
 
@@ -163,18 +163,18 @@ const ContactForm = () => {
               placeholder="Your message"
               value={formData.message}
               onChange={(e) => handleInputChange("message", e.target.value)}
-              className="w-full bg-transparent border-0 border-b border-zinc-600 rounded-none text-white placeholder:text-zinc-400 px-0 resize-none focus-visible:ring-0 focus-visible:border-zinc-400 min-h-[100px]"
+              className="w-full bg-transparent border-0 border-b border-[#F0E6E2]/50  rounded-none placeholder:text-[#F0E6E2]/50  px-0 resize-none focus-visible:ring-0 focus-visible:border-[#F0E6E2]/50  min-h-[100px]"
             />
           </div>
 
           {/* File upload section */}
           <div className="pt-8">
             <div className="flex items-center gap-4 pb-2">
-              <Upload className="h-4 w-4 text-zinc-400" />
+              <Upload className="h-4 w-4 text-[#F0E6E2]/50" />
               <div className="flex-1">
                 <Input
                   placeholder="Field name"
-                  className="w-full h-12 bg-transparent border-0 border-b border-zinc-600 rounded-none text-zinc-400 placeholder:text-zinc-400 px-0 focus-visible:ring-0"
+                  className="w-full h-12 bg-transparent border-0 border-b border-[#F0E6E2]/50  rounded-none  placeholder:text-[#F0E6E2]/50  px-0 focus-visible:ring-0"
                   disabled
                 />
               </div>
@@ -188,13 +188,13 @@ const ContactForm = () => {
                 <Button
                   type="button"
                   variant="outline"
-                  className="bg-transparent border border-[#FAE2D3] text-white hover:bg-zinc-800 hover:border-zinc-500 px-6 py-2 rounded-full text-sm"
+                  className=" border-4 border-gray-200 px-6 py-2 rounded-full text-sm "
                 >
                   Browse
                 </Button>
               </div>
             </div>
-            <p className="text-xs text-zinc-500 mt-1">
+            <p className="text-xs text-[#F0E6E2]/50 mt-1">
               Select a JPG, JPEG, PNG, GIF, SVG, or PDF file.
             </p>
           </div>
@@ -203,7 +203,7 @@ const ContactForm = () => {
           <div className="pt-8 flex justify-end">
             <Button
               onClick={handleSubmit}
-              className=" text-[#8F6A42] bg-[#1A1A1A] px-8 py-2 rounded-full font-medium text-sm"
+              className=" text-primary bg-background px-8 py-2 rounded-full font-medium text-sm"
             >
               Send
             </Button>
@@ -211,13 +211,13 @@ const ContactForm = () => {
 
           {/* Footer text */}
           <div className="pt-6">
-            <p className="text-xs text-zinc-500 leading-relaxed">
+            <p className="text-xs text-[#F0E6E2]/50 leading-relaxed">
               This site is protected by reCAPTCHA and the{" "}
-              <a href="#" className="text-[#8F6A42] hover:text-white underline">
+              <a href="#" className="text-primary hover:text-white underline">
                 Google Privacy Policy
               </a>{" "}
               and{" "}
-              <a href="#" className="text-[#8F6A42] hover:text-white underline">
+              <a href="#" className="text-primary hover:text-white underline">
                 Terms of Service
               </a>{" "}
               apply.

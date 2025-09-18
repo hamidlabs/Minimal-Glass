@@ -12,7 +12,7 @@ export default function NotFoundHeroSection() {
             <div className=" sm:flex items-center p-10 h-[400px]">
               {/* Heading + Line */}
               <div className=" sm:mb-0 sm:absolute top-[20%] sm:-left-[50px] ">
-                <h1 className="font-[Giplika] text-[#F0E6E2] text-xl sm:text-lg md:text-4xl mb-4 sm:mb-7 sm:w-[350px]">
+                <h1 className="font-[Giplika] text-ternary text-xl sm:text-lg md:text-4xl mb-4 sm:mb-7 sm:w-[350px]">
                   Oops.. this page could not be found
                 </h1>
                 <div className="mb-6 space-y-2">
@@ -20,7 +20,7 @@ export default function NotFoundHeroSection() {
                     Sorry, but the page you are looking for does not exist
                     (anymore).We are happy to help you further.
                   </p>
-                </div>
+                </div> 
                 {/* Back to homepage link */}
                 <div className="flex justify-center  sm:justify-start mr-72">
                   <button

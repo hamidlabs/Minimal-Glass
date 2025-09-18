@@ -22,7 +22,7 @@ export default function HeroSectionAbout({ isMenuOpen = false }) {
   }, [api]);
 
   return (
-    <section className="relative min-h-[50vh] bg-[#1A1A1A] pt-0 sm:pt-0">
+    <section className="relative min-h-[50vh] bg-background pt-0 sm:pt-0">
       {/* Contact Info - FIXED FOR MOBILE */}
       <div
         className={`absolute top-24 left-4  right-4 md:top-8 md:left-24 text-xs sm:text-sm z-20 transition-opacity duration-300 ${
@@ -31,20 +31,20 @@ export default function HeroSectionAbout({ isMenuOpen = false }) {
       >
         {/* Mobile Layout - Stacked and Visible */}
         <div className="sm:hidden flex gap-5">
-          <div className="text-white font-medium">
-            NL: <span className="text-[#BF8A42]">31 (0)164220795</span>
+          <div className="font-medium">
+            NL: <span className="text-primary">31 (0)164220795</span>
           </div>
-          <div className="text-white font-medium">
-            BE: <span className="text-[#BF8A42]">+32 (0)164 99 777</span>
+          <div className="font-medium">
+            BE: <span className="text-primary">+32 (0)164 99 777</span>
           </div>
         </div>
 
         {/* Desktop Layout - Side by side */}
         <div className="hidden sm:flex justify-between md:justify-start md:gap-10 md:p-20">
-          <div className="text-white">
+          <div className="">
             NL: <span className="text-primary">31 (0)164220795</span>
           </div>
-          <div className="text-white">
+          <div className="">
             BE: <span className="text-primary">+32 (0)164 99 777</span>
           </div>
         </div>
@@ -58,20 +58,20 @@ export default function HeroSectionAbout({ isMenuOpen = false }) {
                 className={`flex items-center justify-center min-h-[500px] sm:min-h-[700px] mt-24 md:mt-0 `}
               >
                 <div className="container mx-auto">
-                  <div className="text-left bg-[#444444] relative sm:ml-38 md:mt-20">
+                  <div className="text-left bg-secondary relative sm:ml-38 md:mt-20">
                     {/* Mobile Layout */}
                     <div className="flex flex-col justify-center items-center sm:hidden px-4 py-8">
                       <div className="text-center w-full max-w-sm">
-                        <div className="text-lg font-light text-[#F0E6E2] mb-4 leading-tight flex items-center gap-3 flex-col">
-                          <h1 className="font-[Giplika] text-[#F0E6E2] text-lg md:text-3xl mb-4 sm:mb-7">
+                        <div className="text-lg font-light text-ternary mb-4 leading-tight flex items-center gap-3 flex-col">
+                          <h1 className="font-[Giplika] text-ternary text-lg md:text-3xl mb-4 sm:mb-7">
                             About Minimal Glass
                           </h1>
-                          <div className="w-16 sm:w-20 h-0.5 bg-[#F0E6E2] ml-0 sm:ml-12"></div>
+                          <div className="w-16 sm:w-20 h-0.5 bg-ternary ml-0 sm:ml-12"></div>
                         </div>
 
                         {/* Paragraph */}
                         <div className="w-full sm:w-[300px] sm:ml-24 mt-6 sm:mt-0">
-                          <p className="text-[#F0E6E2] mb-6 text-sm leading-relaxed">
+                          <p className="text-ternary mb-6 text-sm leading-relaxed">
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit, sed do eiusmod tempor incididunt ut labore et
                             dolore magna aliqua.
@@ -86,16 +86,16 @@ export default function HeroSectionAbout({ isMenuOpen = false }) {
                                 current === 1 ? count - 1 : current - 2
                               )
                             }
-                            className="text-3xl font-bold text-[#F0E6E2] hover:text-primary transition-colors cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                            className="text-3xl font-bold text-ternary hover:text-primary transition-colors cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                           >
                             {current}
                           </button>
-                          <div className="w-12 h-0.5 bg-[#F0E6E2] drop-shadow-sm"></div>
+                          <div className="w-12 h-0.5 bg-ternary drop-shadow-sm"></div>
                           <button
                             onClick={() =>
                               api?.scrollTo(current === count ? 0 : current)
                             }
-                            className="text-3xl font-bold transition-colors  text-[#F0E6E2] hover:text-primary cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+                            className="text-3xl font-bold transition-colors  text-ternary hover:text-primary cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                           >
                             {count}
                           </button>
@@ -109,29 +109,29 @@ export default function HeroSectionAbout({ isMenuOpen = false }) {
                         <div className="w-[300px] ml-24">
                           {/* Heading + Line */}
                           <div className="mb-6 sm:mb-0 sm:absolute sm:top-[20%] sm:-left-[50px]">
-                            <h1 className="font-[Giplika] text-[#F0E6E2] text-lg md:text-3xl mb-4 sm:mb-7">
+                            <h1 className="font-[Giplika] text-ternary text-lg md:text-3xl mb-4 sm:mb-7">
                               About Minimal Glass
                             </h1>
-                            <div className="w-16 sm:w-20 h-0.5 bg-[#F0E6E2] ml-0 sm:ml-12"></div>
+                            <div className="w-16 sm:w-20 h-0.5 bg-ternary ml-0 sm:ml-12"></div>
                           </div>
 
                           {/* Paragraph */}
                           <div className="w-full sm:w-[300px] sm:ml-24 mt-6 sm:mt-0">
-                            <p className="text-[#F0E6E2] mb-8 text-sm font-normal leading-relaxed max-w-md">
+                            <p className="text-ternary mb-8 text-sm font-normal leading-relaxed max-w-md">
                               Lorem ipsum dolor sit amet, consectetur adipiscing
                               elit, sed do eiusmod tempor incididunt ut labore
                               et dolore magna aliqua.
                             </p>
                           </div>
                           {/* Desktop Navigation */}
-                          <div className="absolute bottom-20 right-24 flex items-center space-x-2 text-white">
+                          <div className="absolute bottom-20 right-24 flex items-center space-x-2 text-ternary">
                             <button
                               onClick={() =>
                                 api?.scrollTo(
                                   current === 1 ? count - 1 : current - 2
                                 )
                               }
-                              className="text-[#F0E6E2] hover:text-primary transition-colors cursor-pointer"
+                              className="text-ternary hover:text-primary transition-colors cursor-pointer"
                             >
                               {current}
                             </button>
@@ -140,7 +140,7 @@ export default function HeroSectionAbout({ isMenuOpen = false }) {
                               onClick={() =>
                                 api?.scrollTo(current === count ? 0 : current)
                               }
-                              className="text-lg text-[#F0E6E2] hover:text-primary transition-colors cursor-pointer"
+                              className="text-lg  hover:text-primary transition-colors cursor-pointer"
                             >
                               {count}
                             </button>
