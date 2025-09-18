@@ -71,17 +71,10 @@ export default function HeroSection({ isMenuOpen = false }) {
                           dolore magna aliqua.
                         </p>
                         <div className="flex flex-col gap-3 mb-6">
-                          <Button
-                            size="sm"
-                            className="bg-[#F0E6E2] text-xs text-black hover:bg-gray-100 px-6 py-2 rounded-full w-full"
-                          >
+                          <Button size="sm" variant="third">
                             Discover our collection
                           </Button>
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            className="border-gray-400 text-xs text-[#F0E6E2] hover:bg-white hover:text-black px-6 py-2 rounded-full bg-transparent w-full"
-                          >
+                          <Button size="sm" variant="second">
                             Experience the beauty
                           </Button>
                         </div>
@@ -133,17 +126,10 @@ export default function HeroSection({ isMenuOpen = false }) {
                             dolore magna aliqua.
                           </p>
                           <div className="flex flex-col sm:flex-row gap-2">
-                            <Button
-                              size="xs"
-                              className="bg-[#F0E6E2] text-[8px] text-black hover:bg-gray-100 px-4 py-3 rounded-full"
-                            >
+                            <Button size="xs" variant="third">
                               Discover our collection
                             </Button>
-                            <Button
-                              variant="outline"
-                              size="xs"
-                              className="border-gray-400 text-[8px] text-ternary hover:bg-white hover:text-black px-4 py-3 rounded-full bg-transparent"
-                            >
+                            <Button variant="second" size="xs">
                               Experience the beauty
                             </Button>
                           </div>

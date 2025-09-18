@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Button } from "@/components/ui/button";
 const ContactSpecialist = () => {
   return (
     <div className=" bg-secondary  flex items-center justify-center p-12">
@@ -33,13 +33,13 @@ const ContactSpecialist = () => {
 
             {/* Contact buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-3 bg-[#F0E6E2] text-background rounded-full font-medium hover:bg-white transition-colors duration-300">
+              <Button variant="third" size="lg">
                 email@email.be
-              </button>
+              </Button>
 
-              <button className="px-8 py-3 bg-[#F0E6E2] text-background rounded-full font-medium hover:bg-white transition-colors duration-300">
+              <Button variant="third" size="lg">
                 +32 144 99 777
-              </button>
+              </Button>
             </div>
           </div>
         </div>

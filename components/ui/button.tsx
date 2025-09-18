@@ -20,16 +20,19 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         primary: "bg-[#8F6A42] text-white shadow-xs hover:bg-[#8F6A42]/90",
-        second: "bg-[#1A1A1A] text-white shadow-xs hover:bg-[#1A1A1A]/90 ",
-        third: "bg-[#F0E6E2] text-black shadow-xs hover:bg-[#F0E6E2]/90",
-
+        second:
+          "bg-[#1A1A1A] text-xs text-[#F0E6E2]   hover:text-[#F0E6E2] hover:bg-white shadow-xs border border-[#F0E6E2] bg-transparent",
+        third:
+          "bg-[#F0E6E2] text-xs text-[#1A1A1A] hover:bg-white hover:text-black border-2 border-white",
+        fourth:
+          "bg-[#D9D9D9] text-xs text-[#1A1A1A] hover:bg-white hover:text-black",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        xs: "h-7 rounded-md px-4 has-[>svg]:px-2.5",
+        sm: "px-6 py-2 rounded-full w-full",
+        lg: "h-10 rounded-full px-6 has-[>svg]:px-4",
+        xs: "h-7 text-[8px] rounded-full px-4 py-3 has-[>svg]:px-2.5",
         icon: "size-9",
       },
     },
