@@ -44,20 +44,20 @@ export default function MinimalGlassFooter() {
               <h3 className="text-black font-semibold text-sm mb-2">
                 Office Belgium
               </h3>
-              <div className="text-gray-600 text-xs leading-relaxed mb-2">
+              <div className="text-secondary text-xs leading-relaxed mb-2">
                 <p>Corsendonk 9</p>
                 <p>2560 Oud Turnhout</p>
               </div>
               <div className="space-y-1">
                 <a
                   href="tel:+3214499777"
-                  className="text-[#BF8A42] text-xs font-medium hover:underline block"
+                  className="text-primary text-xs font-medium hover:underline block"
                 >
                   +32 144 99 777
                 </a>
                 <a
                   href="mailto:info@minimalsteel.com"
-                  className="text-gray-600 text-xs hover:underline block"
+                  className="text-secondary text-xs hover:underline block"
                 >
                   info@minimalsteel.com
                 </a>
@@ -66,36 +66,32 @@ export default function MinimalGlassFooter() {
 
             {/* Showroom Netherlands */}
             <div>
-              <h3 className="text-black font-semibold text-sm mb-2">
-                Showroom Nederland
-              </h3>
-              <div className="text-gray-600 text-xs leading-relaxed mb-2">
+              <h3 className="font-semibold text-sm mb-2">Showroom Nederland</h3>
+              <div className="text-secondary text-xs leading-relaxed mb-2">
                 <p>Beethovenstraat 530,</p>
                 <p>1082 PR Amsterdam</p>
               </div>
               <div className="space-y-1">
                 <a
                   href="tel:+31642220795"
-                  className="text-[#BF8A42] text-xs font-medium hover:underline block"
+                  className="text-primary text-xs font-medium hover:underline block"
                 >
                   +31 6 4222 0795
                 </a>
-                <p className="text-[#1A1A1A] text-xs font-medium">
-                  Enkel op afspraak
-                </p>
+                <p className=" text-xs font-medium">Enkel op afspraak</p>
               </div>
             </div>
           </div>
 
           {/* Social Icons - Mobile */}
           <div className="flex gap-4 mb-8">
-            <a href="#" className="text-black hover:text-[#BF8A42]">
+            <a href="#" className=" hover:text-primary">
               <Instagram size={20} />
             </a>
-            <a href="#" className="text-black hover:text-[#BF8A42]">
+            <a href="#" className=" hover:text-primary">
               <Facebook size={20} />
             </a>
-            <a href="#" className="text-black hover:text-[#BF8A42]">
+            <a href="#" className=" hover:text-primary">
               <Linkedin size={20} />
             </a>
           </div>
@@ -103,31 +99,25 @@ export default function MinimalGlassFooter() {
           {/* Bottom Section - Mobile */}
           <div className="space-y-4">
             {/* Legal Links - Mobile Stacked */}
-            <div className="flex flex-col space-y-2 text-xs text-gray-600">
-              <a href="#" className="hover:text-[#1A1A1A]">
+            <div className="flex flex-col space-y-2 text-xs text-secondary">
+              <a href="#" className="hover:text-secondary">
                 Privacy statement
               </a>
-              <a href="#" className="hover:text-[#1A1A1A]">
+              <a href="#" className="hover:text-secondary">
                 Algemene voorwaarden
               </a>
-              <a href="#" className="hover:text-[#1A1A1A]">
+              <a href="#" className="hover:text-secondary">
                 Cookie Policy
               </a>
             </div>
 
             {/* Copyright - Mobile */}
-            <div className="text-xs text-gray-600 space-y-1">
+            <div className="text-xs text-secondary space-y-1">
               <p>All rights reserved</p>
               <p>
                 © 2025{" "}
-                <span className="text-[#1A1A1A] font-semibold">
+                <span className="font-semibold">
                   Minimal Steel
-                </span>
-              </p>
-              <p>
-                Crafted by{" "}
-                <span className="text-[#BF8A42] font-medium">
-                  De jongens van Boven
                 </span>
               </p>
             </div>
@@ -189,19 +179,19 @@ export default function MinimalGlassFooter() {
               <div className="flex gap-4 mt-6">
                 <a
                   href="#"
-                  className="text-black hover:text-[#BF8A42] transition-colors"
+                  className="text-secondary hover:text-primary transition-colors"
                 >
                   <Instagram size={22} />
                 </a>
                 <a
                   href="#"
-                  className="text-black hover:text-[#BF8A42] transition-colors"
+                  className="text-secondary hover:text-primary transition-colors"
                 >
                   <Facebook size={22} />
                 </a>
                 <a
                   href="#"
-                  className="text-black hover:text-[#BF8A42] transition-colors"
+                  className="text-secondary hover:text-primary transition-colors"
                 >
                   <Linkedin size={22} />
                 </a>
@@ -213,23 +203,23 @@ export default function MinimalGlassFooter() {
               <div className="grid grid-cols-2 gap-8">
                 {/* Office Belgium */}
                 <div>
-                  <h3 className="text-black font-semibold text-lg mb-3">
+                  <h3 className="text-secondary font-semibold text-lg mb-3">
                     Office Belgium
                   </h3>
-                  <div className="text-gray-600 text-sm leading-relaxed mb-3">
+                  <div className="text-secondary text-sm leading-relaxed mb-3">
                     <p>Corsendonk 9</p>
                     <p>2560 Oud Turnhout</p>
                   </div>
                   <div className="space-y-1">
                     <a
                       href="tel:+3214499777"
-                      className="text-[#BF8A42] text-sm font-medium hover:underline block transition-colors"
+                      className="text-primary text-sm font-medium hover:underline block transition-colors"
                     >
                       +32 144 99 777
                     </a>
                     <a
                       href="mailto:info@minimalsteel.com"
-                      className="text-gray-600 text-sm hover:underline block transition-colors"
+                      className="text-secondary text-sm hover:underline block transition-colors"
                     >
                       info@minimalsteel.com
                     </a>
@@ -238,21 +228,21 @@ export default function MinimalGlassFooter() {
 
                 {/* Showroom Netherlands */}
                 <div>
-                  <h3 className="text-black font-semibold text-lg mb-3">
-                    Showroom Nederland
+                  <h3 className="text-secondary font-semibold text-lg mb-3">
+                    Showroom Netherlands
                   </h3>
-                  <div className="text-gray-600 text-sm leading-relaxed mb-3">
+                  <div className="text-secondary text-sm leading-relaxed mb-3">
                     <p>Beethovenstraat 530</p>
                     <p>1082 PR Amsterdam</p>
                   </div>
                   <div className="space-y-1">
                     <a
                       href="tel:+31642220795"
-                      className="text-[#BF8A42] text-sm font-medium hover:underline block transition-colors"
+                      className="text-primary text-sm font-medium hover:underline block transition-colors"
                     >
                       +31 6 4222 0795
                     </a>
-                    <p className="text-[#1A1A1A] text-sm font-medium">
+                    <p className="text-secondary text-sm font-medium">
                       Enkel op afspraak
                     </p>
                   </div>
@@ -265,29 +255,24 @@ export default function MinimalGlassFooter() {
           <div className="border-t border-gray-300 pt-6">
             <div className="flex flex-row justify-between items-center">
               {/* Legal Links */}
-              <div className="flex space-x-4 text-sm text-gray-600">
-                <a href="#" className="hover:text-[#1A1A1A] transition-colors">
+              <div className="flex space-x-4 text-sm text-secondary">
+                <a href="#" className="hover:text-primary transition-colors">
                   Privacy statement
                 </a>
-                <a href="#" className="hover:text-[#1A1A1A] transition-colors">
+                <a href="#" className="hover:text-secondary transition-colors">
                   Algemene voorwaarden
                 </a>
-                <a href="#" className="hover:text-[#1A1A1A] transition-colors">
+                <a href="#" className="hover:text-secondary transition-colors">
                   Cookie Policy
                 </a>
               </div>
 
               {/* Copyright */}
-              <div className="text-sm text-gray-600">
-                <p className="mb-1">
-                  Crafted by{" "}
-                  <span className="text-[#BF8A42] font-medium">
-                    De jongens van Boven
-                  </span>
-                </p>
+              <div className="text-sm text-secondary">
+               
                 <p>
                   © 2025{" "}
-                  <span className="text-[#1A1A1A] font-semibold">
+                  <span className="font-semibold">
                     Minimal Steel
                   </span>
                   . All rights reserved

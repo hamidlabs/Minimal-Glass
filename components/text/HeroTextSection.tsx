@@ -2,7 +2,7 @@ import React from "react";
 
 export default function PrivacyStatement() {
   return (
-    <section className="relative min-h-screen  bg-[#1A1A1A] text-[#FFFFFF] overflow-hidden ">
+    <section className="relative min-h-screen bg-background overflow-hidden ">
       {/* Background geometric pattern */}
 
       <div className="relative z-10 container mx-auto px-4 py-16  rounded-none  ">

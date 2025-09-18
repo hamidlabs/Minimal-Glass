@@ -127,7 +127,7 @@ export default function Navbar() {
           <div className="container mx-auto px-4 py-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
               {/* Section 1 */}
-              <nav className="flex flex-col  text-2xl font-light font-[Gifilka] text-[#8F6A42] md:text-3xl leading-relaxed sm:space-y-2">
+              <nav className="flex flex-col  text-2xl font-light font-[Gifilka] text-primary md:text-3xl leading-relaxed sm:space-y-2">
                 <a
                   href="/"
                   className="text-primary hover:underline transition-colors py-1"
@@ -157,11 +157,11 @@ export default function Navbar() {
 
               {/* Section 2 */}
               <div>
-                <h3 className="text-sm font-medium mb-3 flex items-center">
+                <h3 className="text-sm font-medium mb-3 flex items-center ">
                   Popular models
                   <ChevronDown className="h-4 w-4 ml-1" />
                 </h3>
-                <ul className="space-y-2 sm:space-y-3 text-sm">
+                <ul className="space-y-2 sm:space-y-3 text-sm text-secondary">
                   {[
                     "Model no. 74",
                     "Model no. 2",
@@ -170,7 +170,7 @@ export default function Navbar() {
                     "Model no. 80",
                   ].map((model) => (
                     <li key={model}>
-                      <a href="#" className="hover:text-gray-700">
+                      <a href="#" className="hover:text-primary">
                         {model}
                       </a>
                     </li>
@@ -184,7 +184,7 @@ export default function Navbar() {
                   Customer service
                   <ChevronDown className="h-4 w-4 ml-1" />
                 </h3>
-                <ul className="space-y-2 sm:space-y-3 text-sm">
+                <ul className="space-y-2 sm:space-y-3 text-sm text-secondary">
                   {[
                     "Contact us",
                     "FAQ",
@@ -195,7 +195,7 @@ export default function Navbar() {
                     "Request a quote",
                   ].map((item) => (
                     <li key={item}>
-                      <a href="#" className="hover:text-gray-700">
+                      <a href="#" className="hover:text-primary">
                         {item}
                       </a>
                     </li>
@@ -206,14 +206,14 @@ export default function Navbar() {
               {/* Section 4 */}
               <div>
                 <h3 className="text-sm font-medium mb-3">Privacy statement</h3>
-                <ul className="space-y-2 sm:space-y-3 text-sm">
+                <ul className="space-y-2 sm:space-y-3 text-sm text-secondary">
                   <li>
-                    <a href="#" className="hover:text-gray-700">
+                    <a href="#" className="hover:text-primary">
                       General terms and conditions
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:text-gray-700">
+                    <a href="#" className="hover:text-primary">
                       Cookie settings
                     </a>
                   </li>
