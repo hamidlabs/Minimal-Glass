@@ -16,13 +16,15 @@ export default function GlassForm() {
       <Input placeholder="Enter glass type" variant="bordered" />
       <Input placeholder="Enter glass type" variant="borderless" />
 
+      <div className="inline-block items-center gap-2 justify-center">
       <Button
         variant="underline"
-        size="default"
+ 
       >
-        <ArrowLeft className="w-4 h-4" />
+    <ArrowLeft className="size-4"/>
         Continue shopping
       </Button>
+      </div>    
     </div>
   );
 }

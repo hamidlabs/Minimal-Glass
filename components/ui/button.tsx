@@ -22,7 +22,8 @@ const buttonVariants = cva(
           "text-xs text-ternary hover:text-background hover:bg-white shadow-xs border border-white bg-transparent",
         white:
           "bg-[#D9D9D9] text-xs text-background hover:bg-white hover:text-black",
-        underline:"bg-ternary text-xs text-white hover:bg-white hover:text-black ",
+        underline:
+          "text-xs text-white border-b-[1px] border-white rounded-none hover:text-primary hover:bg-transparent hover:border-white transition-all w-fit",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
