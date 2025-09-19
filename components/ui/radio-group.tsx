@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
-import { CircleIcon } from "lucide-react"
+import * as React from "react";
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import { CircleIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function RadioGroup({
   className,
@@ -16,7 +16,7 @@ function RadioGroup({
       className={cn("grid gap-3", className)}
       {...props}
     />
-  )
+  );
 }
 
 function RadioGroupItem({
@@ -36,10 +36,45 @@ function RadioGroupItem({
         data-slot="radio-group-indicator"
         className="relative flex items-center justify-center"
       >
-        <CircleIcon className="fill-primary absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2" />
+        <CircleIcon className="fill-primary absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 border border-white rounded-full px-2 py-2          " />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
-  )
+  );
+}
+function CustomRadioGroup({
+  className,
+  ...props
+}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
+  return (
+    <RadioGroupPrimitive.Root
+      className={cn("flex gap-4", className)}
+      {...props}
+    />
+  );
 }
 
-export { RadioGroup, RadioGroupItem }
+function CustomRadioItem({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof RadioGroupPrimitive.Item> & {
+  children?: React.ReactNode;
+}) {
+  return (
+    <RadioGroupPrimitive.Item
+      className={cn(
+        "border rounded-full  px-2 py-2 text-sm cursor-pointer transition-colors",
+        "data-[state=checked]:bg-primary data-[state=checked]:border-white border-2",
+        "focus:outline-none focus:ring-1 focus:ring-white",
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </RadioGroupPrimitive.Item>
+  );
+}
+
+export { CustomRadioGroup, CustomRadioItem };
+
+export { RadioGroup, RadioGroupItem };
