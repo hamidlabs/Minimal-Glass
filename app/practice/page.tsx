@@ -20,14 +20,10 @@ export default function GlassForm() {
 
 			<div>
 				<RadioGroup className="flex items-center gap-2">
-					<RadioGroupItem value="compact" id="r3" />
-					<Label htmlFor="r3">Compact</Label>
-				</RadioGroup>
-			</div>
-			<div>
-				<RadioGroup className="flex items-center gap-2">
-					<RadioGroupItem value="compact" id="r3" />
-					<Label htmlFor="r3">Compact</Label>
+					<RadioGroupItem value="bkash" id="r3" />
+					<Label htmlFor="r3">Bkash</Label>
+					<RadioGroupItem value="nagad" id="r3" />
+					<Label htmlFor="r3">Nagad</Label>
 				</RadioGroup>
 			</div>
 		</div>

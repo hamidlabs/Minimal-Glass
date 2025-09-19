@@ -32,7 +32,7 @@ export default function Navbar() {
                 MINIMAL GLASS
               </a>
               <a
-                href="#"
+                href="/collection"
                 className={cn(
                   "text-gray-300 hover:text-white transition-colors text-sm font-medium",
                   isMenuOpen ? "text-black hover:text-black" : ""
@@ -141,7 +141,7 @@ export default function Navbar() {
                   Discover
                 </a>
                 <a
-                  href="#"
+                  href="/collection"
                   className="text-primary hover:underline transition-colors py-1"
                 >
                   Collection

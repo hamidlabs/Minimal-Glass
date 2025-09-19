@@ -41,40 +41,6 @@ function RadioGroupItem({
     </RadioGroupPrimitive.Item>
   );
 }
-function CustomRadioGroup({
-  className,
-  ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Root>) {
-  return (
-    <RadioGroupPrimitive.Root
-      className={cn("flex gap-4", className)}
-      {...props}
-    />
-  );
-}
 
-function CustomRadioItem({
-  className,
-  children,
-  ...props
-}: React.ComponentProps<typeof RadioGroupPrimitive.Item> & {
-  children?: React.ReactNode;
-}) {
-  return (
-    <RadioGroupPrimitive.Item
-      className={cn(
-        "border rounded-full  px-2 py-2 text-sm cursor-pointer transition-colors",
-        "data-[state=checked]:bg-primary data-[state=checked]:border-white border-2",
-        "focus:outline-none focus:ring-1 focus:ring-white",
-        className
-      )}
-      {...props}
-    >
-      {children}
-    </RadioGroupPrimitive.Item>
-  );
-}
-
-export { CustomRadioGroup, CustomRadioItem };
 
 export { RadioGroup, RadioGroupItem };
