@@ -62,7 +62,13 @@ export default function Navbar() {
             </div>
 
             {/* Right Icons */}
+
             <div className="flex items-center space-x-2 sm:space-x-4">
+              <div className="hidden md:flex items-center space-x-1">
+                <span className={cn("text-white font-medium",isMenuOpen ? "text-black hover:text-black" : "")}>EN</span>
+                <span className="text-gray-500">|</span>
+                <span className="text-gray-500">NL</span>
+              </div>
               <Button
                 variant="ghost"
                 size="icon"
@@ -71,7 +77,7 @@ export default function Navbar() {
                   isMenuOpen ? "text-black hover:text-black" : ""
                 )}
               >
-                <Heart className="h-5 w-5" />
+                <Heart className="h-5 w-5" /> 
               </Button>
               <Button
                 variant="ghost"
@@ -152,7 +158,6 @@ export default function Navbar() {
                 >
                   About us
                 </a>
-               
               </nav>
 
               {/* Section 2 */}
