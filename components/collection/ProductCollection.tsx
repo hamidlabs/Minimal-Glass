@@ -127,7 +127,7 @@ export default function ProductCollection() {
 			<div className="container mx-auto px-4 py-16 md:py-24">
 				{/* Header Section */}
 				<div>
-					<div className="flex items-center justify-between font-gifilika text-4xl font-light">
+					<div className="flex items-center justify-between font-gifilka text-4xl font-light">
 						<h2>Collection</h2>
 						<h2>{filteredProducts.length} Products</h2>
 					</div>
