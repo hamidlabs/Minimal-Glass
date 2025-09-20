@@ -127,7 +127,7 @@ export default function ProductFilters() {
 			>
 				<SheetHeader className="space-y-0">
 					<div className="flex items-center justify-between">
-						<SheetTitle className="text-black">Filters</SheetTitle>
+						<SheetTitle className="text-black font-gifilka text-2xl leading-6">Filters</SheetTitle>
 						<div className="flex items-center space-x-2">
 							{hasActiveFilters && (
 								<Button

@@ -10,7 +10,7 @@ import localFont from "next/font/local";
 
 
 const gifilka = localFont({
-  src: "../public/fonts/Giflika-Regular.otf",
+  src: "../public/fonts/Giflika-Regular.woff",
   weight: "400",
   style: "normal",
   variable: "--font-gifilka",
