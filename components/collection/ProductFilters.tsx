@@ -18,7 +18,7 @@ import {
 	ProductFilters as FiltersType,
 	ProductType,
 } from '@/types/product'
-import { Filter, X } from 'lucide-react'
+import { ListFilter, X } from 'lucide-react'
 import { useState } from 'react'
 
 interface FilterGroupProps {
@@ -107,8 +107,8 @@ export default function ProductFilters() {
 	return (
 		<Sheet open={isOpen} onOpenChange={setIsOpen}>
 			<SheetTrigger asChild>
-				<Button variant="outline" className="relative">
-					<Filter className="mr-2 h-4 w-4" />
+				<Button variant="outline" className="relative border-none">
+					<ListFilter className="mr-2 h-4 w-4" />
 					Filters
 					{activeFilterCount > 0 && (
 						<Badge

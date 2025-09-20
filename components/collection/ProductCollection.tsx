@@ -1,11 +1,10 @@
 "use client";
 import Image from "next/image";
-import { ArrowDownNarrowWide, Heart, Search } from "lucide-react";
+import { ArrowDownNarrowWide, Heart } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useProductStore } from "@/store/product-store";
 import ProductFilters from "./ProductFilters";
 import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -27,19 +26,11 @@ export default function ProductCollection() {
     fetchProducts
   } = useProductStore();
 
-  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
 
-  const handleSearchChange = (value: string) => {
-    setSearchTerm(value);
-    setFilters({
-      ...filters,
-      search: value || undefined
-    });
-  };
 
   const handleSortChange = (value: string) => {
     setSortBy(value as any);
@@ -139,20 +130,8 @@ export default function ProductCollection() {
             <h2>{filteredProducts.length} Products</h2>
           </div>
 
-          {/* Search and Controls */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-7">
-            {/* Search */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <Input
-                type="text"
-                placeholder="Search products..."
-                value={searchTerm}
-                onChange={(e) => handleSearchChange(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-
+          {/* Filter and Sort Controls */}
+          <div className="flex items-center justify-between mt-7">
             {/* Filter Button */}
             <ProductFilters />
 
@@ -163,7 +142,7 @@ export default function ProductCollection() {
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="newest">Newest First</SelectItem>
+                <SelectItem value="newest">Best selling</SelectItem>
                 <SelectItem value="oldest">Oldest First</SelectItem>
                 <SelectItem value="price-low">Price: Low to High</SelectItem>
                 <SelectItem value="price-high">Price: High to Low</SelectItem>
