@@ -34,30 +34,37 @@ export default function ProductCard({
 			onClick={handleCardClick}
 		>
 			{/* Product Image */}
-			<div className="relative aspect-square overflow-hidden">
-				<Image
-					src={product.image}
-					alt={product.name}
-					fill
-					className="object-cover"
-				/>
+			<div className="p-6 bg-black">
+				<div className="relative aspect-square overflow-hidden">
+					<Image
+						src={product.image}
+						alt={product.name}
+						fill
+						className="object-cover"
+					/>
+				</div>
 			</div>
 
 			{/* Product Info Below Image */}
 			<div className="p-6 bg-black">
-				{/* Product Name */}
-				<h3 className="font-gifilka text-3xl capitalize font-light text-white mb-2">
-					{product.name}
-				</h3>
+				{/* Product Details Group 1 */}
+				<div className="mb-8">
+					{/* Product Name */}
+					<h3 className="font-gifilka text-3xl capitalize font-light text-white mb-2">
+						{product.name}
+					</h3>
 
-				{/* Product Details */}
-				<div className="flex items-center justify-between">
+					{/* Color and Collection */}
+					<p className="text-white/80 text-sm">
+						{product.color} | {product.collection}
+					</p>
+				</div>
+
+				{/* Product Details Group 2 with Button */}
+				<div className="flex items-end justify-between">
 					<div>
-						<p className="text-white/80 text-sm mb-1">
-							{product.color} | {product.collection}
-						</p>
 						<p className="text-white font-medium text-lg">
-							€{product.price.toFixed(2)} | {product.applications.length} COLORS
+							€{product.price.toFixed(2)} M2 | {product.applications.length} COLORS
 						</p>
 					</div>
 
