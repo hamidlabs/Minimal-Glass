@@ -1,56 +1,105 @@
-"use client";
+'use client'
 
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { Badge } from '@/components/ui/badge'
+import { Heart } from 'lucide-react'
+import Image from 'next/image'
 
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  type: string;
-  collection: string;
-  applications: string[];
-  color: string;
-  status: string;
-};
+interface Product {
+	id: string
+	name: string
+	price: number
+	image: string
+	collection: string
+	color: string
+	applications: string[]
+	inStock: boolean
+}
 
-export default function ProductCard({ product }: { product: Product }) {
-  return (
-    <div className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-      {/* Product Image */}
-      <div className="relative w-full h-48 bg-gray-100">
-        <Image
-          src={product.image}
-          alt={product.name}
-          fill
-          className="object-cover"
-        />
-      </div>
+interface ProductCardProps {
+	product: Product
+	onFavoriteClick?: (productId: string) => void
+	isFavorited?: boolean
+}
 
-      {/* Product Info */}
-      <div className="p-4 space-y-2">
-        <h3 className="text-lg font-semibold">{product.name}</h3>
-        <p className="text-sm text-gray-500">{product.collection}</p>
-        <p className="text-sm text-gray-500">Color: {product.color}</p>
-        <p className="text-base font-bold">${product.price}</p>
+export default function ProductCard({
+	product,
+	onFavoriteClick,
+	isFavorited = false,
+}: ProductCardProps) {
+	const handleFavoriteClick = () => {
+		onFavoriteClick?.(product.id)
+	}
 
-        {/* Status */}
-        <span
-          className={`inline-block px-2 py-1 text-xs rounded-full ${
-            product.status === "In Stock"
-              ? "bg-green-100 text-green-700"
-              : "bg-red-100 text-red-700"
-          }`}
-        >
-          {product.status}
-        </span>
+	return (
+		<div className="group bg-accent rounded-none overflow-hidden transition-transform duration-300 hover:-translate-y-2 p-5">
+			{/* Product Image Container */}
+			<div className="relative h-80 overflow-hidden">
+				{/* Product Info Header */}
+				<div className="flex justify-between items-center">
+					<h3 className="text-xs text-ternary font-medium">
+						{product.name}
+					</h3>
+					<span className="text-[#F0E6E299] text-xs">
+						€{product.price}
+					</span>
+				</div>
 
-        {/* Action Button */}
-        <div className="pt-2">
-          <Button className="w-full">View Details</Button>
-        </div>
-      </div>
-    </div>
-  );
+				{/* Product Image */}
+				<div className="relative w-[200px] h-full mx-auto mt-5">
+					<Image
+						src={product.image}
+						alt={product.name}
+						fill
+						className="object-cover group-hover:scale-105 transition-transform duration-300"
+					/>
+
+					{/* Overlay for better text visibility */}
+					<div className="absolute inset-0 bg-black/20"></div>
+
+					{/* Stock Status Badge */}
+					{!product.inStock && (
+						<div className="absolute top-2 right-2">
+							<Badge variant="destructive" className="text-xs">
+								Out of Stock
+							</Badge>
+						</div>
+					)}
+				</div>
+			</div>
+
+			{/* Product Details Footer */}
+			<div className="flex items-center justify-between">
+				<div>
+					<div className="flex items-center gap-2 mt-5 font-medium text-[#F0E6E299] z-10">
+						{product.collection}
+						<div>
+							<span>|</span>
+							<span className="ml-2 text-[#F0E6E2]">
+								{product.color}
+							</span>
+						</div>
+					</div>
+					<div className="flex items-center gap-1 mt-1 text-xs text-[#F0E6E299]">
+						{product.applications.map((app, idx) => (
+							<span key={idx}>
+								{app}
+								{idx < product.applications.length - 1 && ', '}
+							</span>
+						))}
+					</div>
+				</div>
+
+				<div>
+					<Heart
+						className={`mt-5 cursor-pointer transition-colors ${
+							isFavorited
+								? 'fill-red-500 text-red-500'
+								: 'hover:fill-red-500 hover:text-red-500'
+						}`}
+						onClick={handleFavoriteClick}
+					/>
+				</div>
+			</div>
+		</div>
+	)
 }
