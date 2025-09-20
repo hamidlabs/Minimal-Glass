@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import {
 	Sheet,
+	SheetClose,
 	SheetContent,
 	SheetHeader,
 	SheetTitle,
@@ -120,20 +121,35 @@ export default function ProductFilters() {
 					)}
 				</Button>
 			</SheetTrigger>
-			<SheetContent side="left" className="w-[400px] sm:w-[540px] bg-ternary">
+			<SheetContent
+				side="left"
+				className="w-[400px] sm:w-[540px] bg-ternary pl-6"
+			>
 				<SheetHeader className="space-y-0">
 					<div className="flex items-center justify-between">
 						<SheetTitle className="text-black">Filters</SheetTitle>
-						{hasActiveFilters && (
-							<Button
-								variant="ghost"
-								size="sm"
-								onClick={handleClearFilters}
-								className="text-black hover:text-gray-700"
-							>
-								Clear filters
-							</Button>
-						)}
+						<div className="flex items-center space-x-2">
+							{hasActiveFilters && (
+								<Button
+									variant="ghost"
+									size="sm"
+									onClick={handleClearFilters}
+									className="text-black hover:text-gray-700"
+								>
+									Clear filters
+								</Button>
+							)}
+							<SheetClose asChild>
+								<Button
+									variant="ghost"
+									size="sm"
+									className="text-black hover:text-gray-700 flex items-center"
+								>
+									Close
+									<X className="ml-1 h-4 w-4" />
+								</Button>
+							</SheetClose>
+						</div>
 					</div>
 				</SheetHeader>
 
