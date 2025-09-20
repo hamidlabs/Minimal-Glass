@@ -1,152 +1,137 @@
 "use client";
 import Image from "next/image";
-import { ArrowDownNarrowWide, Heart, ListFilter } from "lucide-react";
-import { useState, useMemo } from "react";
-import ProductFilterSidebar from "./ProductFilterSidebar";
+import { ArrowDownNarrowWide, Heart, Search } from "lucide-react";
+import { useState, useEffect } from "react";
+import { useProductStore } from "@/store/product-store";
+import ProductFilters from "./ProductFilters";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function ProductCollection() {
-  // State for filters and sidebar visibility
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [filters, setFilters] = useState({
-    collections: [],
-    priceRange: [0, 2000],
-    status: [],
-    sortBy: "name", // name, price-asc, price-desc
-  });
+  const {
+    filteredProducts,
+    filters,
+    sortBy,
+    isLoading,
+    setFilters,
+    setSortBy,
+    clearFilters,
+    fetchProducts
+  } = useProductStore();
 
-  // All products data
-  const allProducts = [
-    {
-      id: 1,
-      name: "MODEL NO.73",
-      price: "EUR 905 M2",
-      priceValue: 905,
-      collection: "Essential collection",
-      status: "In Stock",
-      image: "brand/Mask-group.png",
-    },
-    {
-      id: 2,
-      name: "MODEL NO.50",
-      price: "EUR 905/m² ex. VAT",
-      priceValue: 905,
-      collection: "Exclusive collection",
-      status: "10-12 weeks",
-      image: "brand/Mask-groups.png",
-    },
-    {
-      id: 3,
-      name: "MODEL NO.73",
-      price: "EUR 905 M2",
-      priceValue: 905,
-      collection: "Essential collection",
-      status: "In Stock",
-      image: "brand/Mask-group.png",
-    },
-    {
-      id: 4,
-      name: "MODEL NO.50",
-      price: "EUR 905/m² ex. VAT",
-      priceValue: 905,
-      collection: "Exclusive collection",
-      status: "10-12 weeks",
-      image: "brand/Mask-groups.png",
-    },
-    // Add more products as needed
-  ];
+  const [searchTerm, setSearchTerm] = useState("");
 
-  // Filter and sort products
-  const filteredProducts = useMemo(() => {
-    let filtered = [...allProducts];
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
-    // Filter by collections
-    if (filters.collections.length > 0) {
-      filtered = filtered.filter((product) =>
-        filters.collections.includes(product.collection)
-      );
-    }
-
-    // Filter by status
-    if (filters.status.length > 0) {
-      filtered = filtered.filter((product) =>
-        filters.status.includes(product.status)
-      );
-    }
-
-    // Filter by price range
-    filtered = filtered.filter(
-      (product) =>
-        product.priceValue >= filters.priceRange[0] &&
-        product.priceValue <= filters.priceRange[1]
-    );
-
-    // Sort products
-    switch (filters.sortBy) {
-      case "price-asc":
-        filtered.sort((a, b) => a.priceValue - b.priceValue);
-        break;
-      case "price-desc":
-        filtered.sort((a, b) => b.priceValue - a.priceValue);
-        break;
-      case "name":
-      default:
-        filtered.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-    }
-
-    return filtered;
-  }, [filters]);
-
-  // Handle filter changes
-  const handleFilterChange = (newFilters) => {
-    setFilters(newFilters);
+  const handleSearchChange = (value: string) => {
+    setSearchTerm(value);
+    setFilters({
+      ...filters,
+      search: value || undefined
+    });
   };
 
-  // Handle sort change
-  const handleSortChange = () => {
-    const sortOptions = ["name", "price-asc", "price-desc"];
-    const currentIndex = sortOptions.indexOf(filters.sortBy);
-    const nextIndex = (currentIndex + 1) % sortOptions.length;
-
-    setFilters((prev) => ({
-      ...prev,
-      sortBy: sortOptions[nextIndex],
-    }));
+  const handleSortChange = (value: string) => {
+    setSortBy(value as any);
   };
 
-  // Get sort label
   const getSortLabel = () => {
-    switch (filters.sortBy) {
-      case "price-asc":
+    switch (sortBy) {
+      case "price-low":
         return "Price: Low to High";
-      case "price-desc":
+      case "price-high":
         return "Price: High to Low";
-      case "name":
-      default:
+      case "name-asc":
         return "Name: A to Z";
+      case "name-desc":
+        return "Name: Z to A";
+      case "oldest":
+        return "Oldest First";
+      case "newest":
+      default:
+        return "Newest First";
     }
   };
+
+  const getActiveFiltersCount = () => {
+    return Object.values(filters).reduce((count, value) => {
+      if (Array.isArray(value)) return count + value.length;
+      return value ? count + 1 : count;
+    }, 0);
+  };
+
+  const getActiveFilterTags = () => {
+    const tags: Array<{ label: string; onRemove: () => void }> = [];
+
+    filters.productTypes?.forEach(type => {
+      tags.push({
+        label: type,
+        onRemove: () => setFilters({
+          ...filters,
+          productTypes: filters.productTypes?.filter(t => t !== type)
+        })
+      });
+    });
+
+    filters.collections?.forEach(collection => {
+      tags.push({
+        label: collection,
+        onRemove: () => setFilters({
+          ...filters,
+          collections: filters.collections?.filter(c => c !== collection)
+        })
+      });
+    });
+
+    filters.applications?.forEach(app => {
+      tags.push({
+        label: app,
+        onRemove: () => setFilters({
+          ...filters,
+          applications: filters.applications?.filter(a => a !== app)
+        })
+      });
+    });
+
+    filters.colors?.forEach(color => {
+      tags.push({
+        label: color,
+        onRemove: () => setFilters({
+          ...filters,
+          colors: filters.colors?.filter(c => c !== color)
+        })
+      });
+    });
+
+    return tags;
+  };
+
+  if (isLoading) {
+    return (
+      <section className="bg-background relative">
+        <div className="container mx-auto px-4 py-16 md:py-24">
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto"></div>
+            <p className="mt-4 text-gray-600">Loading products...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="bg-background relative">
       <div className="container mx-auto px-4 py-16 md:py-24">
-        {/* Filter Sidebar */}
-        <ProductFilterSidebar
-          isOpen={isFilterOpen}
-          onClose={() => setIsFilterOpen(false)}
-          filters={filters}
-          onFilterChange={handleFilterChange}
-          products={allProducts}
-        />
-
-        {/* Overlay for mobile */}
-        {isFilterOpen && (
-          <div
-            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-            onClick={() => setIsFilterOpen(false)}
-          />
-        )}
-
         {/* Header Section */}
         <div>
           <div className="flex items-center justify-between font-gifilika text-4xl font-light">
@@ -154,89 +139,69 @@ export default function ProductCollection() {
             <h2>{filteredProducts.length} Products</h2>
           </div>
 
-          <div className="flex items-center justify-between mt-7">
-            <button
-              onClick={() => setIsFilterOpen(true)}
-              className="flex items-center gap-3 hover:text-ternary transition-colors"
-            >
-              <ListFilter />
-              <h2>Filter</h2>
-            </button>
+          {/* Search and Controls */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-7">
+            {/* Search */}
+            <div className="relative flex-1 max-w-md">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+              <Input
+                type="text"
+                placeholder="Search products..."
+                value={searchTerm}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                className="pl-10"
+              />
+            </div>
 
-            <button
-              onClick={handleSortChange}
-              className="flex items-center gap-3 hover:text-ternary transition-colors"
-            >
-              <ArrowDownNarrowWide />
-              <div className="text-left">
-                <h2>Sort by</h2>
-                <span className="text-xs text-gray-500 block">
-                  {getSortLabel()}
-                </span>
-              </div>
-            </button>
+            {/* Filter Button */}
+            <ProductFilters />
+
+            {/* Sort Dropdown */}
+            <Select value={sortBy} onValueChange={handleSortChange}>
+              <SelectTrigger className="w-[200px]">
+                <ArrowDownNarrowWide className="mr-2 h-4 w-4" />
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="newest">Newest First</SelectItem>
+                <SelectItem value="oldest">Oldest First</SelectItem>
+                <SelectItem value="price-low">Price: Low to High</SelectItem>
+                <SelectItem value="price-high">Price: High to Low</SelectItem>
+                <SelectItem value="name-asc">Name: A to Z</SelectItem>
+                <SelectItem value="name-desc">Name: Z to A</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="border mt-3" />
 
           {/* Active filters display */}
-          {(filters.collections.length > 0 || filters.status.length > 0) && (
+          {getActiveFiltersCount() > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
-              {filters.collections.map((collection) => (
-                <span
-                  key={collection}
-                  className="bg-ternary text-background px-3 py-1 rounded-full text-sm flex items-center gap-2"
+              {getActiveFilterTags().map((tag, index) => (
+                <Badge
+                  key={index}
+                  variant="secondary"
+                  className="flex items-center gap-2 bg-black text-white hover:bg-gray-800"
                 >
-                  {collection}
+                  {tag.label}
                   <button
-                    onClick={() =>
-                      setFilters((prev) => ({
-                        ...prev,
-                        collections: prev.collections.filter(
-                          (c) => c !== collection
-                        ),
-                      }))
-                    }
-                    className="hover:text-red-400"
+                    onClick={tag.onRemove}
+                    className="hover:text-red-400 ml-1"
                   >
                     ×
                   </button>
-                </span>
+                </Badge>
               ))}
 
-              {filters.status.map((status) => (
-                <span
-                  key={status}
-                  className="bg-ternary text-background px-3 py-1 rounded-full text-sm flex items-center gap-2"
-                >
-                  {status}
-                  <button
-                    onClick={() =>
-                      setFilters((prev) => ({
-                        ...prev,
-                        status: prev.status.filter((s) => s !== status),
-                      }))
-                    }
-                    className="hover:text-red-400"
-                  >
-                    ×
-                  </button>
-                </span>
-              ))}
-
-              <button
-                onClick={() =>
-                  setFilters({
-                    collections: [],
-                    priceRange: [0, 2000],
-                    status: [],
-                    sortBy: "name",
-                  })
-                }
-                className="text-sm text-gray-500 hover:text-ternary underline"
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={clearFilters}
+                className="text-sm text-gray-500 hover:text-gray-700 underline"
               >
                 Clear all
-              </button>
+              </Button>
             </div>
           )}
         </div>
@@ -257,7 +222,7 @@ export default function ProductCollection() {
                       {product.name}
                     </h3>
                     <span className="text-[#F0E6E299] text-xs">
-                      {product.price}
+                      €{product.price}
                     </span>
                   </div>
 
@@ -272,6 +237,15 @@ export default function ProductCollection() {
 
                     {/* Overlay for better text visibility */}
                     <div className="absolute inset-0 bg-black/20"></div>
+
+                    {/* Stock Status Badge */}
+                    {!product.inStock && (
+                      <div className="absolute top-2 right-2">
+                        <Badge variant="destructive" className="text-xs">
+                          Out of Stock
+                        </Badge>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -282,9 +256,16 @@ export default function ProductCollection() {
                       <div>
                         <span>|</span>
                         <span className="ml-2 text-[#F0E6E2]">
-                          {product.status}
+                          {product.color}
                         </span>
                       </div>
+                    </div>
+                    <div className="flex items-center gap-1 mt-1 text-xs text-[#F0E6E299]">
+                      {product.applications.map((app, idx) => (
+                        <span key={idx}>
+                          {app}{idx < product.applications.length - 1 && ", "}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
