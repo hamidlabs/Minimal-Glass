@@ -16,15 +16,13 @@ interface Product {
 interface ProductContainerProps {
 	products: Product[]
 	isLoading?: boolean
-	onFavoriteClick?: (productId: string) => void
-	favoritedProducts?: string[]
+	onCardClick?: (productId: string) => void
 }
 
 export default function ProductContainer({
 	products,
 	isLoading = false,
-	onFavoriteClick,
-	favoritedProducts = [],
+	onCardClick,
 }: ProductContainerProps) {
 	if (isLoading) {
 		return (
@@ -54,8 +52,7 @@ export default function ProductContainer({
 				<ProductCard
 					key={product.id}
 					product={product}
-					onFavoriteClick={onFavoriteClick}
-					isFavorited={favoritedProducts.includes(product.id)}
+					onCardClick={onCardClick}
 				/>
 			))}
 		</div>

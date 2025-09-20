@@ -1,7 +1,7 @@
 'use client'
 
-import { Badge } from '@/components/ui/badge'
-import { Heart } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { ArrowUpRight } from 'lucide-react'
 import Image from 'next/image'
 
 interface Product {
@@ -17,87 +17,58 @@ interface Product {
 
 interface ProductCardProps {
 	product: Product
-	onFavoriteClick?: (productId: string) => void
-	isFavorited?: boolean
+	onCardClick?: (productId: string) => void
 }
 
 export default function ProductCard({
 	product,
-	onFavoriteClick,
-	isFavorited = false,
+	onCardClick,
 }: ProductCardProps) {
-	const handleFavoriteClick = () => {
-		onFavoriteClick?.(product.id)
+	const handleCardClick = () => {
+		onCardClick?.(product.id)
 	}
 
 	return (
-		<div className="group bg-accent rounded-none overflow-hidden transition-transform duration-300 hover:-translate-y-2 p-5">
-			{/* Product Image Container */}
-			<div className="relative h-80 overflow-hidden">
-				{/* Product Info Header */}
-				<div className="flex justify-between items-center">
-					<h3 className="text-xs text-ternary font-medium">
-						{product.name}
-					</h3>
-					<span className="text-[#F0E6E299] text-xs">
-						€{product.price}
-					</span>
-				</div>
-
-				{/* Product Image */}
-				<div className="relative w-[200px] h-full mx-auto mt-5">
-					<Image
-						src={product.image}
-						alt={product.name}
-						fill
-						className="object-cover group-hover:scale-105 transition-transform duration-300"
-					/>
-
-					{/* Overlay for better text visibility */}
-					<div className="absolute inset-0 bg-black/20"></div>
-
-					{/* Stock Status Badge */}
-					{!product.inStock && (
-						<div className="absolute top-2 right-2">
-							<Badge variant="destructive" className="text-xs">
-								Out of Stock
-							</Badge>
-						</div>
-					)}
-				</div>
+		<div
+			className="group bg-black rounded-none overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
+			onClick={handleCardClick}
+		>
+			{/* Product Image */}
+			<div className="relative aspect-square overflow-hidden">
+				<Image
+					src={product.image}
+					alt={product.name}
+					fill
+					className="object-cover"
+				/>
 			</div>
 
-			{/* Product Details Footer */}
-			<div className="flex items-center justify-between">
-				<div>
-					<div className="flex items-center gap-2 mt-5 font-medium text-[#F0E6E299] z-10">
-						{product.collection}
-						<div>
-							<span>|</span>
-							<span className="ml-2 text-[#F0E6E2]">
-								{product.color}
-							</span>
-						</div>
-					</div>
-					<div className="flex items-center gap-1 mt-1 text-xs text-[#F0E6E299]">
-						{product.applications.map((app, idx) => (
-							<span key={idx}>
-								{app}
-								{idx < product.applications.length - 1 && ', '}
-							</span>
-						))}
-					</div>
-				</div>
+			{/* Product Info Below Image */}
+			<div className="p-6 bg-black">
+				{/* Product Name */}
+				<h3 className="font-gifilka text-3xl capitalize font-light text-white mb-2">
+					{product.name}
+				</h3>
 
-				<div>
-					<Heart
-						className={`mt-5 cursor-pointer transition-colors ${
-							isFavorited
-								? 'fill-red-500 text-red-500'
-								: 'hover:fill-red-500 hover:text-red-500'
-						}`}
-						onClick={handleFavoriteClick}
-					/>
+				{/* Product Details */}
+				<div className="flex items-center justify-between">
+					<div>
+						<p className="text-white/80 text-sm mb-1">
+							{product.color} | {product.collection}
+						</p>
+						<p className="text-white font-medium text-lg">
+							€{product.price.toFixed(2)} | {product.applications.length} COLORS
+						</p>
+					</div>
+
+					{/* Arrow Button */}
+					<Button
+						size="icon"
+						variant="arrow"
+						className="group-hover:text-gray-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+					>
+						<ArrowUpRight className="size-6" />
+					</Button>
 				</div>
 			</div>
 		</div>
