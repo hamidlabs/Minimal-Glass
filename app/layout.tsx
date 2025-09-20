@@ -1,13 +1,16 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Montserrat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Suspense } from "react";
 import "./globals.css";
 
 import localFont from "next/font/local";
 
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
 
 const gifilka = localFont({
   src: "../public/fonts/Giflika-Regular.woff",
@@ -31,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`font-sans ${GeistSans.variable} ${GeistMono.variable} ${gifilka.variable} antialiased`}
+        className={`${montserrat.variable} ${gifilka.variable} font-montserrat antialiased`}
       >
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
