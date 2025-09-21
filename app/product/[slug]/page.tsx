@@ -1,10 +1,11 @@
 "use client";
 
-import CollectionProductHeader from "@/components/product/collectionproduct";
+import CollectionProductHeader from "@/components/product/CollectionProductHeader";
 import Navbar from "@/components/shared/Navbar";
 import { useProductStore } from "@/store/product-store";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
+import PureMasterpieces from "@/components/sections/PureMasterpieces";
 
 export default function SingleProductPage() {
   const params = useParams();
@@ -23,7 +24,7 @@ export default function SingleProductPage() {
   if (!product) return <div>Product not found</div>;
 
   return (
-    <div>
+    <div className="">
       <Navbar />
       <CollectionProductHeader product={product} />
     </div>

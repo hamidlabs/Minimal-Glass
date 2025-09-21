@@ -1,0 +1,91 @@
+import { ArrowLeft, ArrowUpRight, ChevronLeft } from "lucide-react";
+import React from "react";
+import { Product } from "@/types/product";
+
+import Image from "next/image";
+import { Button } from "../ui/button";
+
+export default function CollectionProductHeader({
+  product,
+}: {
+  product: Product;
+}) {
+  return (
+    <div className="max-w-7xl mx-auto  ">
+      <header className="fixed top-0 left-0 right-0 z-10 border-b border-white/50 mt-20 ">
+        <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="text-2xl font-light tracking-[0.2em]">
+            {product.name}
+          </div>
+          <div className="flex items-center space-x-4 text-sm font-light tracking-wider ">
+            <button className="text-ternary transition-colors">
+              PRODUCT INFO
+            </button>
+            <button className="text-ternary transition-colors">
+              IMPRESSIONS
+            </button>
+            <button className="text-ternary transition-colors">
+              ORDER SAMPLE
+            </button>
+            <button className="text-ternary transition-colors">
+              CONFIGURE & ORDER
+            </button>
+          </div>
+        </nav>
+      </header>
+      {/* Back Button */}
+
+      <div className="absolute top-20 left-0 right-0 z-40 pt-24 flex items-center justify-between mx-auto">
+        <button className="flex items-center space-x-2 text-ternary transition-colors duration-300">
+          <ArrowLeft size={16} />
+          <span className="text-sm font-light tracking-wider">Overview</span>
+        </button>
+        <span className="px-4 py-2 text-xs font-medium tracking-wider">
+          {product.collection} | {product.inStock ? "In Stock" : "Out of Stock"}
+        </span>
+      </div>
+
+      {/* Main Content - Centered */}
+      <div className="relative z-30 flex items-center justify-center h-[calc(100vh-100px)] min-h-[calc(100vh-100px)]   px-8 ">
+        <div className="text-center">
+          {/* Product Title */}
+          <h1 className="text-6xl md:text-8xl font-gifilka tracking-[0.1em] text-ternary mb-6">
+            {product.name}
+          </h1>
+
+          {/* Product Details */}
+          <div className="flex items-center justify-center space-x-4 text-ternary text-lg font-light tracking-wider mb-16">
+            <span>{product.color}</span>
+            <div className="text-ternary">|</div>
+            <span>{product.collection}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Section - Fixed at bottom */}
+      <div className="absolute bottom-8 left-0 right-0 z-40 px-8">
+        <div className="flex flex-col space-y-6 items-center justify-between">
+          <div className=" font-light tracking-wider">
+            <span className="text-lg font-medium text-ternary underline">
+              {product.price}
+            </span>
+            <span className="text-md ml-2 text-ternary">
+              REF: {product.slug}
+            </span>
+          </div>
+          <Button variant="ghost" size="sm" className="border border-ternary">
+            {" "}
+            Configure
+          </Button>
+        </div>
+      </div>
+      <div className="relative">
+        <div className="fixed inset-0 pointer-events-none  ">
+          <div className="absolute inset-0 ">
+            <Image src="/brand/bg.jpg" fill alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
