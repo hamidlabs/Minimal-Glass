@@ -17,6 +17,7 @@ interface ProductState {
 const dummyProducts: Product[] = [
 	{
 		id: '1',
+		slug: 'model-no-01',
 		name: 'Model No.01',
 		price: 905,
 		image: '/products/Mask group.png',
@@ -29,6 +30,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '2',
+		slug: 'model-no-73',
 		name: 'Model No.73',
 		price: 905,
 		image: '/products/Mask group-1.png',
@@ -41,6 +43,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '3',
+		slug: 'model-no-50',
 		name: 'Model No.50',
 		price: 1200,
 		image: '/products/Mask group-2.png',
@@ -53,6 +56,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '4',
+		slug: 'model-no-85',
 		name: 'Model No.85',
 		price: 780,
 		image: '/products/Mask group-3.png',
@@ -65,6 +69,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '5',
+		slug: 'model-no-42',
 		name: 'Model No.42',
 		price: 1450,
 		image: '/products/Mask group-4.png',
@@ -77,6 +82,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '6',
+		slug: 'model-no-67',
 		name: 'Model No.67',
 		price: 650,
 		image: '/products/Mask group-5.png',
@@ -89,6 +95,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '7',
+		slug: 'model-no-91',
 		name: 'Model No.91',
 		price: 890,
 		image: '/products/Mask group-6.png',
@@ -101,6 +108,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '8',
+		slug: 'model-no-28',
 		name: 'Model No.28',
 		price: 1680,
 		image: '/products/Mask group-7.png',
@@ -113,6 +121,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '9',
+		slug: 'model-no-15',
 		name: 'Model No.15',
 		price: 520,
 		image: '/products/Mask group-8.png',
@@ -125,6 +134,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '10',
+		slug: 'model-no-34',
 		name: 'Model No.34',
 		price: 1950,
 		image: '/products/Mask group-9.png',
@@ -137,6 +147,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '11',
+		slug: 'model-no-56',
 		name: 'Model No.56',
 		price: 750,
 		image: '/products/Mask group-10.png',
@@ -149,6 +160,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '12',
+		slug: 'model-no-78',
 		name: 'Model No.78',
 		price: 1320,
 		image: '/products/Mask group-11.png',
@@ -161,6 +173,7 @@ const dummyProducts: Product[] = [
 	},
 	{
 		id: '13',
+		slug: 'model-no-92',
 		name: 'Model No.92',
 		price: 840,
 		image: '/products/Mask group-12.png',
