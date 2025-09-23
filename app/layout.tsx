@@ -6,6 +6,8 @@ import { Suspense } from "react";
 import "./globals.css";
 
 import localFont from "next/font/local";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -36,7 +38,9 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${gifilka.variable} font-montserrat antialiased`}
       >
+        <Navbar />
         <Suspense fallback={null}>{children}</Suspense>
+        <Footer />
         <Analytics />
       </body>
     </html>

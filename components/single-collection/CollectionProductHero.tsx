@@ -1,9 +1,9 @@
 import { ArrowLeft } from "lucide-react";
 import React from "react";
 import { Product } from "@/types/product";
-
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import CardWrapper from "../cardwrapper";
 
 export default function CollectionProductHeader({
   product,
@@ -13,9 +13,9 @@ export default function CollectionProductHeader({
   return (
     <div className="relative min-h-screen">
       {/* Background Image */}
-      <div className="absolute inset-0 -z-10">
+      <div className=" inset-0 -z-10">
         <Image
-          src="brand/bg.jpg"
+          src="/products/bg.jpg"
           alt="background"
           fill
           className="object-cover"
@@ -46,7 +46,8 @@ export default function CollectionProductHeader({
       </header>
 
       {/* Back Button */}
-      <div className="absolute top-20 left-0 right-0 z-30 pt-24 flex items-center justify-between mx-auto">
+
+      <CardWrapper className="absolute top-20 left-0 right-0 z-30 pt-24 flex items-center justify-between">
         <button className="flex items-center space-x-2 text-ternary transition-colors duration-300">
           <ArrowLeft size={16} />
           <span className="text-sm font-light tracking-wider">Overview</span>
@@ -54,7 +55,7 @@ export default function CollectionProductHeader({
         <span className="px-4 py-2 text-xs font-medium tracking-wider">
           {product.collection} | {product.inStock ? "In Stock" : "Out of Stock"}
         </span>
-      </div>
+      </CardWrapper>
 
       {/* Main Content - Centered */}
       <div className="relative z-30 flex items-center justify-center h-[calc(100vh-100px)] min-h-[calc(100vh-100px)] px-8">

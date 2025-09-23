@@ -1,7 +1,5 @@
 "use client";
-
-import CollectionProductHeader from "@/components/product/CollectionProductHeader";
-
+import CollectionProductHeader from "@/components/single-collection/CollectionProductHero";
 import { useProductStore } from "@/store/product-store";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
@@ -19,13 +17,13 @@ export default function SingleProductPage() {
   console.log(slug);
 
   const product = products.find((product) => product.slug === slug);
-
+console.log(product)
   if (isLoading) return <div>Loading...</div>;
   if (!product) return <div>Product not found</div>;
 
   return (
-    <CardWrapper>
+    <div>
       <CollectionProductHeader product={product} />
-    </CardWrapper>
+    </div>
   );
 }

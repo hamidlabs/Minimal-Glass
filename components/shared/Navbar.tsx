@@ -1,7 +1,9 @@
+"use client"
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, User, ShoppingCart, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import CardWrapper from "../cardwrapper";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +20,7 @@ export default function Navbar() {
           isMenuOpen ? "bg-[#F0E6E2] text-black" : ""
         )}
       >
-        <div className="container mx-auto px-4 py-4">
+        <CardWrapper>
           <div className="flex items-center justify-between">
             {/* Left Navigation (hidden on mobile) */}
             <nav className="hidden md:flex items-center space-x-8">
@@ -121,7 +123,7 @@ export default function Navbar() {
               </Button>
             </div>
           </div>
-        </div>
+        </CardWrapper>
 
         {/* Floating Mobile / Desktop Menu */}
         <div

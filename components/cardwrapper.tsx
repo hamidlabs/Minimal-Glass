@@ -1,13 +1,16 @@
-import React from 'react'
-import Navbar from '@/components/shared/Navbar'
-import Footer from '@/components/shared/Footer'
+import React from "react";
+import { cn } from "@/lib/utils";
 
-export default function CardWrapper({children}: {children: React.ReactNode}) {
+export default function CardWrapper({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Navbar />
+    <div className={cn("container mx-auto px-4 py-4", className)}>
       {children}
-      <Footer />
     </div>
   );
 }
