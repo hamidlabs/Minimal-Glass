@@ -1,11 +1,11 @@
 "use client";
 
 import CollectionProductHeader from "@/components/product/CollectionProductHeader";
-import Navbar from "@/components/shared/Navbar";
+
 import { useProductStore } from "@/store/product-store";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
-import PureMasterpieces from "@/components/sections/PureMasterpieces";
+import CardWrapper from "@/components/cardwrapper";
 
 export default function SingleProductPage() {
   const params = useParams();
@@ -24,9 +24,8 @@ export default function SingleProductPage() {
   if (!product) return <div>Product not found</div>;
 
   return (
-    <div className="">
-      <Navbar />
+    <CardWrapper>
       <CollectionProductHeader product={product} />
-    </div>
+    </CardWrapper>
   );
 }

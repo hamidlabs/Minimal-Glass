@@ -7,10 +7,11 @@ import HeroProductImpressionSection from "@/components/impression/HeroProductImp
 import ContentBlockSection from "@/components/impression/ContentBlockSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
 import CollectionSection from "@/components/sections/CollectionSection";
+import CardWrapper from "@/components/cardwrapper";
 
 export default function ProductImpression() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <CardWrapper>
       <HeroProductImpressionSection />
       <PureMasterpieces />
       <PureMasterpiecesed />
@@ -18,6 +19,6 @@ export default function ProductImpression() {
       <ContentBlockSection />
       <TestimonialSection />
       <CollectionSection />
-    </div>
+    </CardWrapper>
   );
 }

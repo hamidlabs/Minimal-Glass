@@ -1,15 +1,11 @@
-
 "use client";
-import React from 'react'
-import Navbar from '@/components/shared/Navbar'
-import HeroTextSection from '@/components/text/HeroTextSection'
-import Footer from '@/components/shared/Footer'
+import React from "react";
+import HeroTextSection from "@/components/text/HeroTextSection";
+import CardWrapper from "@/components/cardwrapper";
 export default function TextPage() {
   return (
-      <div>
-          <Navbar />
-          <HeroTextSection />
-          <Footer />
-    </div>
-  )
+    <CardWrapper>
+      <HeroTextSection />
+    </CardWrapper>
+  );
 }

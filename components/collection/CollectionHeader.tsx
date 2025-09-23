@@ -37,7 +37,7 @@ export default function CollectionHeader({
 	return (
 		<div>
 			{/* Main Header */}
-			<div className="flex items-center justify-between font-gifilka text-4xl font-light mt-15">
+			<div className="flex items-center justify-between font-gifilka text-4xl font-light mt-10">
 				<h2>Collection</h2>
 				<h2>{productCount} Products</h2>
 			</div>

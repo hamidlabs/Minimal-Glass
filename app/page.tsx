@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from "@/components/shared/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import ContentSection from "@/components/sections/ContentSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
@@ -11,13 +10,10 @@ import ProductsSection from "@/components/sections/ProductsSection";
 import PureMasterpieces from "@/components/sections/PureMasterpieces";
 import PureMasterpiecesed from "@/components/sections/PureMasterpiecesed";
 import DutchDesignSection from "@/components/sections/DutchDesignSection";
-import Footer from "@/components/shared/Footer";
+import CardWrapper from "@/components/cardwrapper";
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Header Section */}
-      <Navbar />
-
+    <CardWrapper>
       {/* Hero Section */}
       <HeroSection />
 
@@ -31,7 +27,7 @@ export default function HomePage() {
       <PureMasterpieces />
 
       {/* Pure Masterpieces Section */}
-      <PureMasterpiecesed/>
+      <PureMasterpiecesed />
       {/* Testimonial Section */}
       <TestimonialSection />
 
@@ -46,9 +42,6 @@ export default function HomePage() {
 
       {/* Dutch Design Section */}
       <DutchDesignSection />
-
-      {/* Footer Section */}
-      <Footer />
-    </div>
+    </CardWrapper>
   );
 }
