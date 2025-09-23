@@ -10,23 +10,23 @@ const buttonVariants = cva(
 		variants: {
 			variant: {
 				default:
-					'bg-background text-primary-foreground shadow-xs hover:bg-primary/90',
+					'bg-background text-primary-foreground shadow-xs hover:bg-primary/90 cursor-pointer',
 				destructive:
-					'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
+					'bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 cursor-pointer',
 				secondary:
-					'bg-[#F0E6E2] text-sm text-background hover:bg-white hover:text-black border border-background',
+					'bg-[#F0E6E2] text-sm text-background hover:bg-white hover:text-black border border-background cursor-pointer',
 				ghost:
-					'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
-				primary: 'bg-primary text-white shadow-xs hover:bg-primary/90',
+					'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 cursor-pointer',
+				primary: 'bg-primary text-white shadow-xs hover:bg-primary/90 cursor-pointer',
 				outline:
-					'text-xs text-ternary hover:text-background hover:bg-white shadow-xs border border-white bg-transparent',
+					'text-xs text-ternary hover:text-background hover:bg-white shadow-xs border border-white bg-transparent cursor-pointer',
 				white:
-					'bg-[#D9D9D9] text-xs text-background hover:bg-white hover:text-black',
+					'bg-[#D9D9D9] text-xs text-background hover:bg-white hover:text-black cursor-pointer',
 				underline:
-					'text-xs text-white border-b-[1px] border-white rounded-none hover:text-primary hover:bg-transparent hover:border-white transition-all w-fit ',
+					'text-xs text-white border-b-[1px] border-white rounded-none hover:text-primary hover:bg-transparent hover:border-white transition-all w-fit cursor-pointer',
 				arrow:
-					'w-12 h-12 p-0 text-primary hover:text-gray-400 hover:translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 rounded-full bg-background flex items-center justify-center shrink-0',
-				link: 'text-primary underline-offset-4 hover:underline',
+					'w-12 h-12 p-0 text-primary hover:text-gray-400 hover:translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 rounded-full bg-background flex items-center justify-center shrink-0 cursor-pointer',
+				link: 'text-primary underline-offset-4 hover:underline cursor-pointer',
 			},
 			size: {
 				default: 'h-9 px-4 py-2 has-[>svg]:px-3',

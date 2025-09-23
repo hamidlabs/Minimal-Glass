@@ -21,7 +21,7 @@ export default function ProductCard({
 
   return (
     <div
-      className="group bg-black rounded-none overflow-hidden transition-all duration-300 hover:scale-105 cursor-pointer"
+      className="group bg-black rounded-none overflow-hidden transition-all duration-300 hover:scale-105"
       onClick={handleCardClick}
     >
       {/* Product Image */}
