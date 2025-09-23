@@ -56,10 +56,10 @@ export default function MinimalGlassFooter() {
                   +32 144 99 777
                 </a>
                 <a
-                  href="mailto:info@minimalglass.com"
+                  href="mailto:info@minimalsteel.com"
                   className="text-secondary text-xs hover:underline block"
                 >
-                  info@minimalglass.com
+                  info@minimalsteel.com
                 </a>
               </div>
             </div>
@@ -117,7 +117,7 @@ export default function MinimalGlassFooter() {
               <p>
                 © 2025{" "}
                 <span className="font-semibold">
-                  Minimal Steel
+                  Minimal Glass
                 </span>
               </p>
             </div>
@@ -130,7 +130,7 @@ export default function MinimalGlassFooter() {
           <div className="flex flex-row items-center justify-between mb-12 space-y-0">
             <img
               src="brand/logoblack.png"
-              alt="Minimal Steel Logo"
+              alt="Minimal Glass Logo"
               className="h-16 w-auto"
             />
             <div className="text-xl sm:text-2xl font-bold text-primary ">M</div>
@@ -221,7 +221,7 @@ export default function MinimalGlassFooter() {
                       href="mailto:info@minimalglass.com"
                       className="text-secondary text-sm hover:underline block transition-colors"
                     >
-                      info@minimalglass.com
+                      info@minimalglass``.com
                     </a>
                   </div>
                 </div>
