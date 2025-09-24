@@ -5,6 +5,7 @@ import {
 	AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { useConfiguratorStore } from '@/store/configurator-store'
 import { Product } from '@/types/product'
 import { Calculator, ChevronDown, Clock, Truck } from 'lucide-react'
@@ -172,22 +173,22 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 			{/* Configurator Sections */}
 			<div className="space-y-0">
 				{/* Dimensions */}
-				<div>
+				<div className="border-b border-gray-800">
 					<Accordion type="single" collapsible>
 						<AccordionItem value="dimensions" className="border-none">
-							<AccordionTrigger className="text-ternary text-lg hover:no-underline bg-accent/30">
+							<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
 								Dimensions
 							</AccordionTrigger>
-							<AccordionContent className="pb-4 bg-accent/30">
+							<AccordionContent className="pb-4 space-y-4">
 								<div className="space-y-4">
 									{/* Shape Selection */}
 									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
+										<label className="text-xs text-primary mb-2 block">
 											Shape
 										</label>
 										<div className="relative">
 											<select
-												className="w-full text-ternary border-b border-gray-600 rounded px-3 py-2 text-sm appearance-none pr-10 focus:outline-none focus:border-gray-400"
+												className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 												value={configuration.selections.dimensions.shape}
 												onChange={e => updateDimensions({ shape: e.target.value as 'Square' | 'Rectangle' | 'Custom' })}
 											>
@@ -212,29 +213,31 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 									{/* Width & Height Input */}
 									<div className="grid grid-cols-2 gap-4">
 										<div>
-											<label className="text-xs text-gray-400 block mb-1">
+											<label className="text-xs text-primary block mb-1">
 												Width (MM)
 											</label>
-											<input
+											<Input
 												type="number"
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-gray-400"
+												variant="bottom-border"
 												value={configuration.selections.dimensions.width}
 												onChange={e => updateDimensions({ width: parseInt(e.target.value) || 0 })}
-												min="500"
-												max="5000"
+												min={500}
+												max={5000}
+												placeholder="Enter width"
 											/>
 										</div>
 										<div>
-											<label className="text-xs text-gray-400 block mb-1">
+											<label className="text-xs text-primary block mb-1">
 												Height (MM)
 											</label>
-											<input
+											<Input
 												type="number"
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-gray-400"
+												variant="bottom-border"
 												value={configuration.selections.dimensions.height}
 												onChange={e => updateDimensions({ height: parseInt(e.target.value) || 0 })}
-												min="500"
-												max="5000"
+												min={500}
+												max={5000}
+												placeholder="Enter height"
 											/>
 										</div>
 									</div>
@@ -263,12 +266,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 							</AccordionTrigger>
 							<AccordionContent className="pb-4 space-y-4">
 								<div>
-									<label className="text-xs text-gray-400 mb-2 block">
+									<label className="text-xs text-primary mb-2 block">
 										Type
 									</label>
 									<div className="relative">
 										<select
-											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 											value={configuration.selections.glassType.type}
 											onChange={e => {
 												const newGlassType = configurationOptions.glassTypes.find(gt => gt.value === e.target.value)
@@ -300,12 +303,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 								</div>
 
 								<div>
-									<label className="text-xs text-gray-400 mb-2 block">
+									<label className="text-xs text-primary mb-2 block">
 										Color
 									</label>
 									<div className="relative">
 										<select
-											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 											value={configuration.selections.glassType.color}
 											onChange={e => updateGlassType({ color: e.target.value })}
 										>
@@ -324,12 +327,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 								</div>
 
 								<div>
-									<label className="text-xs text-gray-400 mb-2 block">
+									<label className="text-xs text-primary mb-2 block">
 										Thickness
 									</label>
 									<div className="relative">
 										<select
-											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 											value={configuration.selections.glassType.thickness}
 											onChange={e => updateGlassType({ thickness: e.target.value })}
 										>
@@ -361,12 +364,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 							<AccordionContent className="pb-4 space-y-4">
 								{/* Glass Finishing */}
 								<div>
-									<label className="text-xs text-gray-400 mb-2 block">
+									<label className="text-xs text-primary mb-2 block">
 										Glass Finishing
 									</label>
 									<div className="relative">
 										<select
-											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 											value={configuration.selections.glassTreatment.glassFinishing}
 											onChange={e => updateGlassTreatment({ glassFinishing: e.target.value })}
 										>
@@ -390,12 +393,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
 								{/* Polishing */}
 								<div>
-									<label className="text-xs text-gray-400 mb-2 block">
+									<label className="text-xs text-primary mb-2 block">
 										Polishing
 									</label>
 									<div className="relative">
 										<select
-											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 											value={configuration.selections.glassTreatment.polishing}
 											onChange={e => updateGlassTreatment({ polishing: e.target.value })}
 										>
@@ -419,12 +422,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
 								{/* Corner Finishing */}
 								<div>
-									<label className="text-xs text-gray-400 mb-2 block">
+									<label className="text-xs text-primary mb-2 block">
 										Corner Finishing
 									</label>
 									<div className="relative">
 										<select
-											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 											value={configuration.selections.glassTreatment.cornerFinishing}
 											onChange={e => updateGlassTreatment({ cornerFinishing: e.target.value })}
 										>
@@ -448,12 +451,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
 								{/* Side Finishing */}
 								<div>
-									<label className="text-xs text-gray-400 mb-2 block">
+									<label className="text-xs text-primary mb-2 block">
 										Side Finishing
 									</label>
 									<div className="relative">
 										<select
-											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 											value={configuration.selections.glassTreatment.sideFinishing}
 											onChange={e => updateGlassTreatment({ sideFinishing: e.target.value })}
 										>
@@ -477,12 +480,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
 								{/* Cut-outs */}
 								<div>
-									<label className="text-xs text-gray-400 mb-2 block">
+									<label className="text-xs text-primary mb-2 block">
 										Cut-outs
 									</label>
 									<div className="relative">
 										<select
-											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 											value={configuration.selections.glassTreatment.cutOuts}
 											onChange={e => updateGlassTreatment({ cutOuts: e.target.value })}
 										>
@@ -519,12 +522,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 								<AccordionContent className="pb-4 space-y-4">
 									{/* Mesh Color */}
 									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
+										<label className="text-xs text-primary mb-2 block">
 											Colour
 										</label>
 										<div className="relative">
 											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+												className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 												value={configuration.selections.mesh?.color || 'Silver'}
 												onChange={e => updateMesh({ color: e.target.value })}
 											>
@@ -544,12 +547,12 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
 									{/* Mesh Direction */}
 									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
+										<label className="text-xs text-primary mb-2 block">
 											Mesh Direction
 										</label>
 										<div className="relative">
 											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+												className="w-full bg-transparent border-0 border-b border-gray-600 rounded-none px-3 py-2 text-sm text-white placeholder:text-gray-400 appearance-none pr-10 focus:outline-none focus:border-gray-400 transition-colors"
 												value={configuration.selections.mesh?.direction || 'Vertical'}
 												onChange={e => updateMesh({ direction: e.target.value })}
 											>
@@ -593,7 +596,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 										</p>
 
 										<div className="relative">
-											<div className="flex items-center gap-3 p-3 border border-gray-700 rounded bg-transparent">
+											<div className="flex items-center gap-3 p-3 border-0 border-b border-gray-600 bg-transparent">
 												<div className="text-gray-400">
 													<svg
 														className="w-4 h-4"
@@ -609,10 +612,11 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 														/>
 													</svg>
 												</div>
-												<input
+												<Input
 													type="text"
+													variant="bottom-border"
 													placeholder="Upload drawing file"
-													className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 outline-none"
+													className="flex-1 border-0 p-0"
 													readOnly
 												/>
 												<Button
