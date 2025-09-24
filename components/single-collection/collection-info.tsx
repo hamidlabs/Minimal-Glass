@@ -179,7 +179,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 							<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
 								Dimensions
 							</AccordionTrigger>
-							<AccordionContent className="pb-4 space-y-4">
+							<AccordionContent className="pb-4 space-y-4 bg-accent/30">
 								<div className="space-y-4">
 									{/* Shape Selection */}
 									<div>
@@ -264,7 +264,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 							<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
 								Glass Type
 							</AccordionTrigger>
-							<AccordionContent className="pb-4 space-y-4">
+							<AccordionContent className="pb-4 space-y-4 bg-accent/30">
 								<div>
 									<label className="text-xs text-primary mb-2 block">
 										Type
@@ -361,7 +361,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 							<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
 								Glass Treatment
 							</AccordionTrigger>
-							<AccordionContent className="pb-4 space-y-4">
+							<AccordionContent className="pb-4 space-y-4 bg-accent/30">
 								{/* Glass Finishing */}
 								<div>
 									<label className="text-xs text-primary mb-2 block">
@@ -519,7 +519,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 								<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
 									Mesh
 								</AccordionTrigger>
-								<AccordionContent className="pb-4 space-y-4">
+								<AccordionContent className="pb-4 space-y-4 bg-accent/30">
 									{/* Mesh Color */}
 									<div>
 										<label className="text-xs text-primary mb-2 block">
@@ -586,7 +586,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 								<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
 									Dimensional Drawing
 								</AccordionTrigger>
-								<AccordionContent className="pb-4">
+								<AccordionContent className="pb-4 bg-accent/30">
 									<div className="space-y-4">
 										<p className="text-sm text-gray-300 leading-relaxed">
 											Due to the complexity of your configuration, we need a dimensional drawing to ensure precise manufacturing. This may include custom dimensions, premium materials, or specialized treatments that require detailed specifications.
