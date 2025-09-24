@@ -1,15 +1,11 @@
-"use client"
-import React from 'react'
-import Navbar from '@/components/shared/Navbar'
-import Footer from '@/components/shared/Footer'
-import NotFoundHeroSection from '@/components/shared/NotFoundHeroSection'
+"use client";
+import React from "react";
+import NotFoundHeroSection from "@/components/shared/NotFoundHeroSection";
+import CardWrapper from "@/components/cardwrapper";
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-          <Navbar />
-          <NotFoundHeroSection />
-      <Footer />
-    </div>
+    <CardWrapper>
+      <NotFoundHeroSection />
+    </CardWrapper>
   );
 }
-

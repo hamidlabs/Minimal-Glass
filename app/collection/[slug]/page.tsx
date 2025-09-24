@@ -1,9 +1,10 @@
 "use client";
 import CollectionProductHeader from "@/components/single-collection/CollectionProductHero";
+import CollectionConfigure from "@/components/single-collection/collection-configure";
 import { useProductStore } from "@/store/product-store";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
-import CardWrapper from "@/components/cardwrapper";
+
 
 export default function SingleProductPage() {
   const params = useParams();
@@ -24,6 +25,7 @@ console.log(product)
   return (
     <div>
       <CollectionProductHeader product={product} />
+      <CollectionConfigure />
     </div>
   );
 }
