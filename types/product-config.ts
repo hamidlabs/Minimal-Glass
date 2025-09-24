@@ -3,13 +3,9 @@ export interface ProductConfiguration {
   basePrice: number;
   selections: {
     dimensions: {
-      type: string;
+      shape: 'Square' | 'Rectangle' | 'Custom';
       width: number;
       height: number;
-      customDimensions?: {
-        width: number;
-        height: number;
-      };
       priceModifier: number;
     };
     glassType: {
@@ -20,22 +16,16 @@ export interface ProductConfiguration {
       priceModifier: number;
     };
     glassTreatment: {
-      selected: string;
-      priceModifier: number;
-    };
-    mesh?: {
-      material: string;
-      pattern: string;
-      color: string;
-      finish: string;
-      priceModifier: number;
-    };
-    additionalServices?: {
+      glassFinishing: string;
       polishing: string;
       cornerFinishing: string;
       sideFinishing: string;
       cutOuts: string;
-      installation: boolean;
+      priceModifier: number;
+    };
+    mesh?: {
+      color: string;
+      direction: string;
       priceModifier: number;
     };
   };
@@ -45,7 +35,7 @@ export interface ProductConfiguration {
 }
 
 export interface PricingRule {
-  category: 'glass' | 'mesh' | 'dimension' | 'treatment' | 'service';
+  category: 'glass' | 'mesh' | 'dimension' | 'finishing' | 'treatment';
   option: string;
   modifier: number; // percentage (e.g., 0.15 for 15% increase)
   baseAddition?: number; // flat addition to base price
@@ -59,31 +49,38 @@ export interface ConfigurationOptions {
     colors: string[];
     thicknesses: string[];
   }[];
-  glassTreatments: {
-    value: string;
-    label: string;
-    pricingRule: PricingRule;
-  }[];
-  meshOptions: {
-    materials: {
+  glassTreatmentOptions: {
+    glassFinishing: {
       value: string;
       label: string;
       pricingRule: PricingRule;
     }[];
-    patterns: string[];
-    colors: string[];
-  };
-  dimensionPricing: {
-    standardSizes: {
-      size: string;
-      modifier: number;
+    polishing: {
+      value: string;
+      label: string;
+      pricingRule: PricingRule;
     }[];
-    customPricing: {
-      perSquareMeter: number;
-      minPrice: number;
-    };
+    cornerFinishing: {
+      value: string;
+      label: string;
+      pricingRule: PricingRule;
+    }[];
+    sideFinishing: {
+      value: string;
+      label: string;
+      pricingRule: PricingRule;
+    }[];
+    cutOuts: {
+      value: string;
+      label: string;
+      pricingRule: PricingRule;
+    }[];
   };
-  additionalServices: {
+  meshOptions: {
+    colors: string[];
+    directions: string[];
+  };
+  dimensionShapes: {
     value: string;
     label: string;
     pricingRule: PricingRule;

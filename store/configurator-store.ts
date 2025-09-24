@@ -14,7 +14,6 @@ interface ConfiguratorState {
   updateGlassType: (glassType: Partial<ProductConfiguration["selections"]["glassType"]>) => void;
   updateGlassTreatment: (treatment: Partial<ProductConfiguration["selections"]["glassTreatment"]>) => void;
   updateMesh: (mesh: Partial<ProductConfiguration["selections"]["mesh"]>) => void;
-  updateAdditionalServices: (services: Partial<ProductConfiguration["selections"]["additionalServices"]>) => void;
   calculatePrice: () => void;
   resetConfiguration: () => void;
 }
@@ -65,113 +64,112 @@ const configurationOptions: ConfigurationOptions = {
       thicknesses: ["12 mm (6 / 1.52 / 6)", "15 mm (8 / 2.28 / 8)"]
     }
   ],
-  glassTreatments: [
-    {
-      value: "Standard process",
-      label: "Standard Process",
-      pricingRule: { category: 'treatment', option: 'standard', modifier: 0 }
-    },
-    {
-      value: "UV Etching",
-      label: "UV Etching",
-      pricingRule: { category: 'treatment', option: 'uv-etching', modifier: 0.15 }
-    },
-    {
-      value: "Anti-glare",
-      label: "Anti-glare Coating",
-      pricingRule: { category: 'treatment', option: 'anti-glare', modifier: 0.20 }
-    },
-    {
-      value: "Premium coating",
-      label: "Premium Coating",
-      pricingRule: { category: 'treatment', option: 'premium', modifier: 0.30 }
-    },
-    {
-      value: "Gold leafing",
-      label: "Gold Leafing",
-      pricingRule: { category: 'treatment', option: 'gold-leafing', modifier: 0.75 }
-    },
-    {
-      value: "Sound reduction",
-      label: "Sound Reduction",
-      pricingRule: { category: 'treatment', option: 'sound-reduction', modifier: 0.40 }
-    },
-    {
-      value: "Energy efficient",
-      label: "Energy Efficient",
-      pricingRule: { category: 'treatment', option: 'energy-efficient', modifier: 0.25 }
-    }
-  ],
-  meshOptions: {
-    materials: [
+  glassTreatmentOptions: {
+    glassFinishing: [
       {
-        value: "Kevlar",
-        label: "Kevlar Mesh",
-        pricingRule: { category: 'mesh', option: 'kevlar', modifier: 0.30 }
+        value: "Standard",
+        label: "Standard Finishing",
+        pricingRule: { category: 'finishing', option: 'standard', modifier: 0 }
       },
       {
-        value: "Stainless Steel",
-        label: "Stainless Steel",
-        pricingRule: { category: 'mesh', option: 'stainless-steel', modifier: 0.15 }
+        value: "Premium",
+        label: "Premium Finishing",
+        pricingRule: { category: 'finishing', option: 'premium', modifier: 0.15 }
       },
       {
-        value: "Carbon Fiber",
-        label: "Carbon Fiber",
-        pricingRule: { category: 'mesh', option: 'carbon-fiber', modifier: 0.45 }
-      },
-      {
-        value: "Aluminum",
-        label: "Aluminum",
-        pricingRule: { category: 'mesh', option: 'aluminum', modifier: 0.10 }
-      },
-      {
-        value: "Fiberglass",
-        label: "Fiberglass",
-        pricingRule: { category: 'mesh', option: 'fiberglass', modifier: 0.05 }
+        value: "Luxury",
+        label: "Luxury Finishing",
+        pricingRule: { category: 'finishing', option: 'luxury', modifier: 0.30 }
       }
     ],
-    patterns: ["Vertical", "Horizontal", "Diamond", "Woven", "Square", "Fine weave"],
-    colors: ["Silver", "Black", "Bronze", "White", "Cardinal red", "Gold"]
-  },
-  dimensionPricing: {
-    standardSizes: [
-      { size: "1200 MM", modifier: -0.20 },
-      { size: "1800 MM", modifier: -0.10 },
-      { size: "2400 MM", modifier: 0 },
-      { size: "3000 MM", modifier: 0.15 },
-      { size: "3600 MM", modifier: 0.30 },
-      { size: "4200 MM", modifier: 0.50 }
+    polishing: [
+      {
+        value: "Standard",
+        label: "Standard Polishing",
+        pricingRule: { category: 'finishing', option: 'standard-polish', modifier: 0 }
+      },
+      {
+        value: "Polished edges",
+        label: "Polished Edges",
+        pricingRule: { category: 'finishing', option: 'polished-edges', modifier: 0.08 }
+      },
+      {
+        value: "High gloss",
+        label: "High Gloss Polish",
+        pricingRule: { category: 'finishing', option: 'high-gloss', modifier: 0.15 }
+      }
     ],
-    customPricing: {
-      perSquareMeter: 150,
-      minPrice: 200
-    }
+    cornerFinishing: [
+      {
+        value: "Standard",
+        label: "Standard Corners",
+        pricingRule: { category: 'finishing', option: 'standard-corners', modifier: 0 }
+      },
+      {
+        value: "Rounded",
+        label: "Rounded Corners",
+        pricingRule: { category: 'finishing', option: 'rounded-corners', modifier: 0.12 }
+      },
+      {
+        value: "Beveled",
+        label: "Beveled Corners",
+        pricingRule: { category: 'finishing', option: 'beveled-corners', modifier: 0.18 }
+      }
+    ],
+    sideFinishing: [
+      {
+        value: "Standard",
+        label: "Standard Sides",
+        pricingRule: { category: 'finishing', option: 'standard-sides', modifier: 0 }
+      },
+      {
+        value: "Polished",
+        label: "Polished Sides",
+        pricingRule: { category: 'finishing', option: 'polished-sides', modifier: 0.10 }
+      },
+      {
+        value: "Frosted",
+        label: "Frosted Sides",
+        pricingRule: { category: 'finishing', option: 'frosted-sides', modifier: 0.12 }
+      }
+    ],
+    cutOuts: [
+      {
+        value: "None",
+        label: "No Cut-outs",
+        pricingRule: { category: 'finishing', option: 'no-cutouts', modifier: 0 }
+      },
+      {
+        value: "Standard holes",
+        label: "Standard Holes",
+        pricingRule: { category: 'finishing', option: 'standard-holes', baseAddition: 50 }
+      },
+      {
+        value: "Custom cutouts",
+        label: "Custom Cut-outs",
+        pricingRule: { category: 'finishing', option: 'custom-cutouts', baseAddition: 125 }
+      }
+    ]
   },
-  additionalServices: [
+  meshOptions: {
+    colors: ["Silver", "Black", "Bronze", "White", "Gold", "Copper"],
+    directions: ["Vertical", "Horizontal", "Diamond", "Square", "Woven"]
+  },
+  dimensionShapes: [
     {
-      value: "polished-edges",
-      label: "Polished Edges",
-      pricingRule: { category: 'service', option: 'polished-edges', modifier: 0.08 }
+      value: "Square",
+      label: "Square",
+      pricingRule: { category: 'dimension', option: 'square', modifier: 0 }
     },
     {
-      value: "beveled-edges",
-      label: "Beveled Edges",
-      pricingRule: { category: 'service', option: 'beveled-edges', modifier: 0.12 }
+      value: "Rectangle",
+      label: "Rectangle",
+      pricingRule: { category: 'dimension', option: 'rectangle', modifier: 0.05 }
     },
     {
-      value: "rounded-corners",
-      label: "Rounded Corners",
-      pricingRule: { category: 'service', option: 'rounded-corners', modifier: 0.15 }
-    },
-    {
-      value: "custom-cutouts",
-      label: "Custom Cutouts",
-      pricingRule: { category: 'service', option: 'custom-cutouts', baseAddition: 75 }
-    },
-    {
-      value: "installation",
-      label: "Professional Installation",
-      pricingRule: { category: 'service', option: 'installation', baseAddition: 200 }
+      value: "Custom",
+      label: "Custom Shape",
+      pricingRule: { category: 'dimension', option: 'custom', modifier: 0.20 }
     }
   ]
 };
@@ -188,7 +186,7 @@ export const useConfiguratorStore = create<ConfiguratorState>((set, get) => ({
       basePrice: product.price,
       selections: {
         dimensions: {
-          type: product.dimensions?.type || "Standard",
+          shape: 'Rectangle',
           width: product.dimensions?.width || 2400,
           height: product.dimensions?.height || 1800,
           priceModifier: 0
@@ -201,15 +199,17 @@ export const useConfiguratorStore = create<ConfiguratorState>((set, get) => ({
           priceModifier: 0
         },
         glassTreatment: {
-          selected: product.glasstreatment?.selected || "Standard process",
+          glassFinishing: "Standard",
+          polishing: "Standard",
+          cornerFinishing: "Standard",
+          sideFinishing: "Standard",
+          cutOuts: "None",
           priceModifier: 0
         },
         ...(product.mesh && product.mesh.material !== "None" && {
           mesh: {
-            material: product.mesh.material,
-            pattern: product.mesh.pattern,
             color: "Silver",
-            finish: product.mesh.finish,
+            direction: product.mesh.pattern || "Vertical",
             priceModifier: 0
           }
         })
@@ -302,26 +302,6 @@ export const useConfiguratorStore = create<ConfiguratorState>((set, get) => ({
     get().calculatePrice();
   },
 
-  updateAdditionalServices: (services) => {
-    const state = get();
-    if (!state.configuration) return;
-
-    const updatedConfig = {
-      ...state.configuration,
-      selections: {
-        ...state.configuration.selections,
-        additionalServices: {
-          ...state.configuration.selections.additionalServices,
-          ...services
-        } as NonNullable<ProductConfiguration["selections"]["additionalServices"]>
-      }
-    };
-
-    set({ configuration: updatedConfig });
-    get().calculatePrice();
-  },
-
-
   calculatePrice: () => {
     const state = get();
     const config = state.configuration;
@@ -340,67 +320,71 @@ export const useConfiguratorStore = create<ConfiguratorState>((set, get) => ({
       totalModifier += glassTypeOption.pricingRule.modifier;
     }
 
-    // Calculate glass treatment modifier
-    const treatmentOption = state.configurationOptions.glassTreatments.find(
-      gt => gt.value === config.selections.glassTreatment.selected
+    // Calculate dimension shape modifier
+    const shapeOption = state.configurationOptions.dimensionShapes.find(
+      s => s.value === config.selections.dimensions.shape
     );
-    if (treatmentOption) {
-      totalModifier += treatmentOption.pricingRule.modifier;
-      if (treatmentOption.pricingRule.baseAddition) {
-        additionalCosts += treatmentOption.pricingRule.baseAddition;
+    if (shapeOption) {
+      totalModifier += shapeOption.pricingRule.modifier;
+    }
+
+    // Calculate size modifier based on area
+    const area = (config.selections.dimensions.width * config.selections.dimensions.height) / 1000000;
+    if (area > 10) totalModifier += 0.30; // Large panels
+    else if (area > 6) totalModifier += 0.15; // Medium panels
+
+    // Calculate glass treatment modifiers
+    const treatment = config.selections.glassTreatment;
+
+    // Glass finishing
+    const finishingOption = state.configurationOptions.glassTreatmentOptions.glassFinishing.find(
+      f => f.value === treatment.glassFinishing
+    );
+    if (finishingOption) {
+      totalModifier += finishingOption.pricingRule.modifier;
+      if (finishingOption.pricingRule.baseAddition) {
+        additionalCosts += finishingOption.pricingRule.baseAddition;
       }
     }
 
-    // Calculate mesh modifier
+    // Polishing
+    const polishingOption = state.configurationOptions.glassTreatmentOptions.polishing.find(
+      p => p.value === treatment.polishing
+    );
+    if (polishingOption) {
+      totalModifier += polishingOption.pricingRule.modifier;
+    }
+
+    // Corner finishing
+    const cornerOption = state.configurationOptions.glassTreatmentOptions.cornerFinishing.find(
+      c => c.value === treatment.cornerFinishing
+    );
+    if (cornerOption) {
+      totalModifier += cornerOption.pricingRule.modifier;
+    }
+
+    // Side finishing
+    const sideOption = state.configurationOptions.glassTreatmentOptions.sideFinishing.find(
+      s => s.value === treatment.sideFinishing
+    );
+    if (sideOption) {
+      totalModifier += sideOption.pricingRule.modifier;
+    }
+
+    // Cut-outs
+    const cutOutOption = state.configurationOptions.glassTreatmentOptions.cutOuts.find(
+      c => c.value === treatment.cutOuts
+    );
+    if (cutOutOption) {
+      totalModifier += cutOutOption.pricingRule.modifier;
+      if (cutOutOption.pricingRule.baseAddition) {
+        additionalCosts += cutOutOption.pricingRule.baseAddition;
+      }
+    }
+
+    // Calculate mesh modifier (if mesh exists)
     if (config.selections.mesh) {
-      const meshMaterial = state.configurationOptions.meshOptions.materials.find(
-        m => m.value === config.selections.mesh?.material
-      );
-      if (meshMaterial) {
-        totalModifier += meshMaterial.pricingRule.modifier;
-      }
-    }
-
-    // Calculate dimension modifier
-    const dimensionSize = `${Math.max(config.selections.dimensions.width, config.selections.dimensions.height)} MM`;
-    const sizeOption = state.configurationOptions.dimensionPricing.standardSizes.find(
-      s => s.size === dimensionSize
-    );
-    if (sizeOption) {
-      totalModifier += sizeOption.modifier;
-    } else {
-      // Custom dimensions
-      const area = (config.selections.dimensions.width * config.selections.dimensions.height) / 1000000;
-      const customCost = Math.max(
-        area * state.configurationOptions.dimensionPricing.customPricing.perSquareMeter,
-        state.configurationOptions.dimensionPricing.customPricing.minPrice
-      );
-      additionalCosts += customCost;
-    }
-
-    // Calculate additional services
-    if (config.selections.additionalServices) {
-      const services = state.configurationOptions.additionalServices;
-
-      if (config.selections.additionalServices.polishing && config.selections.additionalServices.polishing !== "Standard") {
-        const service = services.find(s => s.value === "polished-edges");
-        if (service) totalModifier += service.pricingRule.modifier;
-      }
-
-      if (config.selections.additionalServices.cornerFinishing && config.selections.additionalServices.cornerFinishing !== "Standard") {
-        const service = services.find(s => s.value === "rounded-corners");
-        if (service) totalModifier += service.pricingRule.modifier;
-      }
-
-      if (config.selections.additionalServices.cutOuts && config.selections.additionalServices.cutOuts !== "None") {
-        const service = services.find(s => s.value === "custom-cutouts");
-        if (service?.pricingRule.baseAddition) additionalCosts += service.pricingRule.baseAddition;
-      }
-
-      if (config.selections.additionalServices.installation) {
-        const service = services.find(s => s.value === "installation");
-        if (service?.pricingRule.baseAddition) additionalCosts += service.pricingRule.baseAddition;
-      }
+      totalModifier += 0.20; // Base mesh addition
     }
 
     // Calculate final price

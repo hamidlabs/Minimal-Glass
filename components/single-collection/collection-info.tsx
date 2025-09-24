@@ -24,7 +24,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 		updateGlassType,
 		updateGlassTreatment,
 		updateMesh,
-		updateAdditionalServices,
 	} = useConfiguratorStore()
 
 	const [showPriceBreakdown, setShowPriceBreakdown] = useState(false)
@@ -32,7 +31,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 	useEffect(() => {
 		initializeConfiguration(product)
 	}, [product, initializeConfiguration])
-
 
 	const getCurrentGlassType = () => {
 		return configurationOptions.glassTypes.find(
@@ -48,6 +46,35 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 	const getAvailableThicknesses = () => {
 		const currentGlassType = getCurrentGlassType()
 		return currentGlassType ? currentGlassType.thicknesses : []
+	}
+
+	const isConfigurationComplex = () => {
+		if (!configuration) return false
+
+		const complexFactors = {
+			// Custom shape requires drawing
+			hasCustomShape: configuration.selections.dimensions.shape === 'Custom',
+
+			// Large format glass requires drawing
+			isLargeFormat: configuration.selections.dimensions.width > 3000 || configuration.selections.dimensions.height > 2500,
+
+			// Premium glass types often need detailed specs
+			isPremiumGlass: ['Designer glass', 'Acoustic glass', 'Low-E glass'].includes(configuration.selections.glassType.type),
+
+			// Custom cutouts always require drawing
+			hasCustomCutouts: configuration.selections.glassTreatment.cutOuts === 'Custom cutouts',
+
+			// Multiple premium finishes combined
+			hasMultiplePremiumFinishes: [
+				configuration.selections.glassTreatment.glassFinishing !== 'Standard',
+				configuration.selections.glassTreatment.polishing !== 'Standard',
+				configuration.selections.glassTreatment.cornerFinishing !== 'Standard',
+				configuration.selections.glassTreatment.sideFinishing !== 'Standard'
+			].filter(Boolean).length >= 2
+		}
+
+		// Show dimensional drawing if any complex factor is true
+		return Object.values(complexFactors).some(factor => factor)
 	}
 
 	const formatPrice = (price: number) => {
@@ -109,10 +136,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 								<div className="flex justify-between">
 									<span>Configuration Adjustments:</span>
 									<span>
-										€
-										{formatPrice(
-											configuration.totalPrice - configuration.basePrice,
-										)}
+										€{formatPrice(configuration.totalPrice - configuration.basePrice)}
 									</span>
 								</div>
 								<div className="flex justify-between">
@@ -135,7 +159,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 				)}
 			</div>
 
-
 			{/* Action Buttons */}
 			<div className="flex gap-3">
 				<Button variant="outline" size="sm">
@@ -146,310 +169,346 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 				</Button>
 			</div>
 
-			{/* Accordions */}
+			{/* Configurator Sections */}
 			<div className="space-y-0">
 				{/* Dimensions */}
-				{product.dimensions && (
-					<div>
-						<Accordion type="single" collapsible>
-							<AccordionItem value="dimensions" className="border-none">
-								<AccordionTrigger className="text-ternary text-lg hover:no-underline bg-accent/30">
-									Dimensions
-								</AccordionTrigger>
-								<AccordionContent className="pb-4 bg-accent/30">
-									<div className="space-y-3">
+				<div>
+					<Accordion type="single" collapsible>
+						<AccordionItem value="dimensions" className="border-none">
+							<AccordionTrigger className="text-ternary text-lg hover:no-underline bg-accent/30">
+								Dimensions
+							</AccordionTrigger>
+							<AccordionContent className="pb-4 bg-accent/30">
+								<div className="space-y-4">
+									{/* Shape Selection */}
+									<div>
+										<label className="text-xs text-gray-400 mb-2 block">
+											Shape
+										</label>
 										<div className="relative">
 											<select
 												className="w-full text-ternary border-b border-gray-600 rounded px-3 py-2 text-sm appearance-none pr-10 focus:outline-none focus:border-gray-400"
-												value={`${configuration.selections.dimensions.width}x${configuration.selections.dimensions.height}`}
-												onChange={e => {
-													const [width, height] = e.target.value
-														.split('x')
-														.map(Number)
-													updateDimensions({ width, height })
-												}}
+												value={configuration.selections.dimensions.shape}
+												onChange={e => updateDimensions({ shape: e.target.value as 'Square' | 'Rectangle' | 'Custom' })}
 											>
-												{configurationOptions.dimensionPricing.standardSizes.map(
-													sizeOption => {
-														const size = parseInt(sizeOption.size)
-														const modifier = sizeOption.modifier
-														const priceEffect =
-															modifier === 0
-																? ''
-																: modifier > 0
-																? ` (+${(modifier * 100).toFixed(0)}%)`
-																: ` (${(modifier * 100).toFixed(0)}%)`
-														return (
-															<option
-																key={sizeOption.size}
-																value={`${size}x${Math.round(size * 0.75)}`}
-																className="bg-gray-800"
-															>
-																{sizeOption.size} x {Math.round(size * 0.75)} MM
-																{priceEffect}
-															</option>
-														)
-													},
-												)}
-												<option value="custom" className="bg-gray-800">
-													Custom Dimensions
-												</option>
+												{configurationOptions.dimensionShapes.map(shape => {
+													const modifier = shape.pricingRule.modifier
+													const priceEffect = modifier === 0 ? '' : ` (+${(modifier * 100).toFixed(0)}%)`
+													return (
+														<option
+															key={shape.value}
+															value={shape.value}
+															className="bg-gray-800"
+														>
+															{shape.label}{priceEffect}
+														</option>
+													)
+												})}
 											</select>
 											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
 										</div>
-										<div className="space-y-3">
-											<div className="flex items-center gap-6">
-												<div className="flex items-center gap-2">
-													<div className="w-8 h-8 border border-gray-600 rounded flex items-center justify-center">
-														<span className="text-xs">📐</span>
-													</div>
-													<span className="text-sm">
-														Width: {configuration.selections.dimensions.width}{' '}
-														MM
-													</span>
-												</div>
-												<div className="flex items-center gap-2">
-													<div className="w-8 h-8 border border-gray-600 rounded flex items-center justify-center">
-														<span className="text-xs">📏</span>
-													</div>
-													<span className="text-sm">
-														Height: {configuration.selections.dimensions.height}{' '}
-														MM
-													</span>
-												</div>
-											</div>
+									</div>
 
-											{/* Custom Dimension Inputs */}
-											{configuration.selections.dimensions.customDimensions && (
-												<div className="grid grid-cols-2 gap-4">
-													<div>
-														<label className="text-xs text-gray-400 block mb-1">
-															Custom Width (MM)
-														</label>
-														<input
-															type="number"
-															className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white"
-															value={
-																configuration.selections.dimensions
-																	.customDimensions.width
-															}
-															onChange={e =>
-																updateDimensions({
-																	customDimensions: {
-																		...configuration.selections.dimensions
-																			.customDimensions,
-																		width: parseInt(e.target.value),
-																	},
-																})
-															}
-														/>
-													</div>
-													<div>
-														<label className="text-xs text-gray-400 block mb-1">
-															Custom Height (MM)
-														</label>
-														<input
-															type="number"
-															className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white"
-															value={
-																configuration.selections.dimensions
-																	.customDimensions.height
-															}
-															onChange={e =>
-																updateDimensions({
-																	customDimensions: {
-																		...configuration.selections.dimensions
-																			.customDimensions,
-																		height: parseInt(e.target.value),
-																	},
-																})
-															}
-														/>
-													</div>
-												</div>
-											)}
+									{/* Width & Height Input */}
+									<div className="grid grid-cols-2 gap-4">
+										<div>
+											<label className="text-xs text-gray-400 block mb-1">
+												Width (MM)
+											</label>
+											<input
+												type="number"
+												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-gray-400"
+												value={configuration.selections.dimensions.width}
+												onChange={e => updateDimensions({ width: parseInt(e.target.value) || 0 })}
+												min="500"
+												max="5000"
+											/>
+										</div>
+										<div>
+											<label className="text-xs text-gray-400 block mb-1">
+												Height (MM)
+											</label>
+											<input
+												type="number"
+												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-gray-400"
+												value={configuration.selections.dimensions.height}
+												onChange={e => updateDimensions({ height: parseInt(e.target.value) || 0 })}
+												min="500"
+												max="5000"
+											/>
 										</div>
 									</div>
-								</AccordionContent>
-							</AccordionItem>
-						</Accordion>
-					</div>
-				)}
+
+									{/* Size Info */}
+									<div className="flex items-center gap-6 text-sm text-gray-300">
+										<span>
+											Area: {((configuration.selections.dimensions.width * configuration.selections.dimensions.height) / 1000000).toFixed(2)} m²
+										</span>
+										<span>
+											Ratio: {(configuration.selections.dimensions.width / configuration.selections.dimensions.height).toFixed(2)}:1
+										</span>
+									</div>
+								</div>
+							</AccordionContent>
+						</AccordionItem>
+					</Accordion>
+				</div>
 
 				{/* Glass Type */}
-				{product.glassType && (
-					<div className="border-b border-gray-800">
-						<Accordion type="single" collapsible>
-							<AccordionItem value="glass-type" className="border-none">
-								<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
-									Glass type
-								</AccordionTrigger>
-								<AccordionContent className="pb-4 space-y-4">
-									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
-											Type
-										</label>
-										<div className="relative">
-											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
-												value={configuration.selections.glassType.type}
-												onChange={e => {
-													const newGlassType =
-														configurationOptions.glassTypes.find(
-															gt => gt.value === e.target.value,
-														)
-													if (newGlassType) {
-														updateGlassType({
-															type: e.target.value,
-															color: newGlassType.colors[0],
-															thickness: newGlassType.thicknesses[0],
-														})
-													}
-												}}
-											>
-												{configurationOptions.glassTypes.map(type => {
-													const modifier = type.pricingRule.modifier
-													const priceEffect =
-														modifier === 0
-															? ''
-															: ` (+${(modifier * 100).toFixed(0)}%)`
-													return (
-														<option
-															key={type.value}
-															value={type.value}
-															className="bg-gray-800"
-														>
-															{type.label}
-															{priceEffect}
-														</option>
-													)
-												})}
-											</select>
-											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-											<span className="absolute right-10 top-1/2 transform -translate-y-1/2 text-xs text-gray-500">
-												Standard
-											</span>
-										</div>
-									</div>
-
-									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
-											Color
-										</label>
-										<div className="relative">
-											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
-												value={configuration.selections.glassType.color}
-												onChange={e =>
-													updateGlassType({ color: e.target.value })
+				<div className="border-b border-gray-800">
+					<Accordion type="single" collapsible>
+						<AccordionItem value="glass-type" className="border-none">
+							<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
+								Glass Type
+							</AccordionTrigger>
+							<AccordionContent className="pb-4 space-y-4">
+								<div>
+									<label className="text-xs text-gray-400 mb-2 block">
+										Type
+									</label>
+									<div className="relative">
+										<select
+											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											value={configuration.selections.glassType.type}
+											onChange={e => {
+												const newGlassType = configurationOptions.glassTypes.find(gt => gt.value === e.target.value)
+												if (newGlassType) {
+													updateGlassType({
+														type: e.target.value,
+														color: newGlassType.colors[0],
+														thickness: newGlassType.thicknesses[0]
+													})
 												}
-											>
-												{getAvailableColors().map(color => (
+											}}
+										>
+											{configurationOptions.glassTypes.map(type => {
+												const modifier = type.pricingRule.modifier
+												const priceEffect = modifier === 0 ? '' : ` (+${(modifier * 100).toFixed(0)}%)`
+												return (
 													<option
-														key={color}
-														value={color}
+														key={type.value}
+														value={type.value}
 														className="bg-gray-800"
 													>
-														{color}
+														{type.label}{priceEffect}
 													</option>
-												))}
-											</select>
-											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-											<span className="absolute right-10 top-1/2 transform -translate-y-1/2 text-xs text-gray-500">
-												Standard
-											</span>
-										</div>
+												)
+											})}
+										</select>
+										<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
 									</div>
+								</div>
 
-									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
-											Thickness
-										</label>
-										<div className="relative">
-											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
-												value={configuration.selections.glassType.thickness}
-												onChange={e =>
-													updateGlassType({ thickness: e.target.value })
-												}
-											>
-												{getAvailableThicknesses().map(thickness => (
-													<option
-														key={thickness}
-														value={thickness}
-														className="bg-gray-800"
-													>
-														{thickness}
-													</option>
-												))}
-											</select>
-											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-											<span className="absolute right-10 top-1/2 transform -translate-y-1/2 text-xs text-gray-500">
-												Standard
-											</span>
-										</div>
+								<div>
+									<label className="text-xs text-gray-400 mb-2 block">
+										Color
+									</label>
+									<div className="relative">
+										<select
+											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											value={configuration.selections.glassType.color}
+											onChange={e => updateGlassType({ color: e.target.value })}
+										>
+											{getAvailableColors().map(color => (
+												<option
+													key={color}
+													value={color}
+													className="bg-gray-800"
+												>
+													{color}
+												</option>
+											))}
+										</select>
+										<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
 									</div>
-								</AccordionContent>
-							</AccordionItem>
-						</Accordion>
-					</div>
-				)}
+								</div>
+
+								<div>
+									<label className="text-xs text-gray-400 mb-2 block">
+										Thickness
+									</label>
+									<div className="relative">
+										<select
+											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											value={configuration.selections.glassType.thickness}
+											onChange={e => updateGlassType({ thickness: e.target.value })}
+										>
+											{getAvailableThicknesses().map(thickness => (
+												<option
+													key={thickness}
+													value={thickness}
+													className="bg-gray-800"
+												>
+													{thickness}
+												</option>
+											))}
+										</select>
+										<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+									</div>
+								</div>
+							</AccordionContent>
+						</AccordionItem>
+					</Accordion>
+				</div>
 
 				{/* Glass Treatment */}
-				{product.glasstreatment && (
-					<div className="border-b border-gray-800">
-						<Accordion type="single" collapsible>
-							<AccordionItem value="glass-treatment" className="border-none">
-								<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
-									Glass treatment
-								</AccordionTrigger>
-								<AccordionContent className="pb-4 space-y-4">
-									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
-											Treatment Option
-										</label>
-										<div className="relative">
-											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
-												value={configuration.selections.glassTreatment.selected}
-												onChange={e =>
-													updateGlassTreatment({ selected: e.target.value })
-												}
-											>
-												{configurationOptions.glassTreatments.map(treatment => {
-													const modifier = treatment.pricingRule.modifier
-													const baseAddition =
-														treatment.pricingRule.baseAddition
-													let priceEffect = ''
-													if (modifier > 0)
-														priceEffect = ` (+${(modifier * 100).toFixed(0)}%)`
-													if (baseAddition)
-														priceEffect += ` (+€${baseAddition})`
-													return (
-														<option
-															key={treatment.value}
-															value={treatment.value}
-															className="bg-gray-800"
-														>
-															{treatment.label}
-															{priceEffect}
-														</option>
-													)
-												})}
-											</select>
-											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-											<span className="absolute right-10 top-1/2 transform -translate-y-1/2 text-xs text-gray-500">
-												Standard
-											</span>
-										</div>
+				<div className="border-b border-gray-800">
+					<Accordion type="single" collapsible>
+						<AccordionItem value="glass-treatment" className="border-none">
+							<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
+								Glass Treatment
+							</AccordionTrigger>
+							<AccordionContent className="pb-4 space-y-4">
+								{/* Glass Finishing */}
+								<div>
+									<label className="text-xs text-gray-400 mb-2 block">
+										Glass Finishing
+									</label>
+									<div className="relative">
+										<select
+											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											value={configuration.selections.glassTreatment.glassFinishing}
+											onChange={e => updateGlassTreatment({ glassFinishing: e.target.value })}
+										>
+											{configurationOptions.glassTreatmentOptions.glassFinishing.map(finishing => {
+												const modifier = finishing.pricingRule.modifier
+												const priceEffect = modifier === 0 ? '' : ` (+${(modifier * 100).toFixed(0)}%)`
+												return (
+													<option
+														key={finishing.value}
+														value={finishing.value}
+														className="bg-gray-800"
+													>
+														{finishing.label}{priceEffect}
+													</option>
+												)
+											})}
+										</select>
+										<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
 									</div>
-								</AccordionContent>
-							</AccordionItem>
-						</Accordion>
-					</div>
-				)}
+								</div>
 
-				{/* Mesh */}
+								{/* Polishing */}
+								<div>
+									<label className="text-xs text-gray-400 mb-2 block">
+										Polishing
+									</label>
+									<div className="relative">
+										<select
+											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											value={configuration.selections.glassTreatment.polishing}
+											onChange={e => updateGlassTreatment({ polishing: e.target.value })}
+										>
+											{configurationOptions.glassTreatmentOptions.polishing.map(polishing => {
+												const modifier = polishing.pricingRule.modifier
+												const priceEffect = modifier === 0 ? '' : ` (+${(modifier * 100).toFixed(0)}%)`
+												return (
+													<option
+														key={polishing.value}
+														value={polishing.value}
+														className="bg-gray-800"
+													>
+														{polishing.label}{priceEffect}
+													</option>
+												)
+											})}
+										</select>
+										<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+									</div>
+								</div>
+
+								{/* Corner Finishing */}
+								<div>
+									<label className="text-xs text-gray-400 mb-2 block">
+										Corner Finishing
+									</label>
+									<div className="relative">
+										<select
+											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											value={configuration.selections.glassTreatment.cornerFinishing}
+											onChange={e => updateGlassTreatment({ cornerFinishing: e.target.value })}
+										>
+											{configurationOptions.glassTreatmentOptions.cornerFinishing.map(corner => {
+												const modifier = corner.pricingRule.modifier
+												const priceEffect = modifier === 0 ? '' : ` (+${(modifier * 100).toFixed(0)}%)`
+												return (
+													<option
+														key={corner.value}
+														value={corner.value}
+														className="bg-gray-800"
+													>
+														{corner.label}{priceEffect}
+													</option>
+												)
+											})}
+										</select>
+										<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+									</div>
+								</div>
+
+								{/* Side Finishing */}
+								<div>
+									<label className="text-xs text-gray-400 mb-2 block">
+										Side Finishing
+									</label>
+									<div className="relative">
+										<select
+											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											value={configuration.selections.glassTreatment.sideFinishing}
+											onChange={e => updateGlassTreatment({ sideFinishing: e.target.value })}
+										>
+											{configurationOptions.glassTreatmentOptions.sideFinishing.map(side => {
+												const modifier = side.pricingRule.modifier
+												const priceEffect = modifier === 0 ? '' : ` (+${(modifier * 100).toFixed(0)}%)`
+												return (
+													<option
+														key={side.value}
+														value={side.value}
+														className="bg-gray-800"
+													>
+														{side.label}{priceEffect}
+													</option>
+												)
+											})}
+										</select>
+										<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+									</div>
+								</div>
+
+								{/* Cut-outs */}
+								<div>
+									<label className="text-xs text-gray-400 mb-2 block">
+										Cut-outs
+									</label>
+									<div className="relative">
+										<select
+											className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
+											value={configuration.selections.glassTreatment.cutOuts}
+											onChange={e => updateGlassTreatment({ cutOuts: e.target.value })}
+										>
+											{configurationOptions.glassTreatmentOptions.cutOuts.map(cutOut => {
+												const baseAddition = cutOut.pricingRule.baseAddition
+												const priceEffect = baseAddition ? ` (+€${baseAddition})` : ''
+												return (
+													<option
+														key={cutOut.value}
+														value={cutOut.value}
+														className="bg-gray-800"
+													>
+														{cutOut.label}{priceEffect}
+													</option>
+												)
+											})}
+										</select>
+										<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+									</div>
+								</div>
+							</AccordionContent>
+						</AccordionItem>
+					</Accordion>
+				</div>
+
+				{/* Mesh - Only show for products with mesh */}
 				{product.mesh && product.mesh.material !== 'None' && (
 					<div className="border-b border-gray-800">
 						<Accordion type="single" collapsible>
@@ -458,43 +517,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 									Mesh
 								</AccordionTrigger>
 								<AccordionContent className="pb-4 space-y-4">
-									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
-											Material
-										</label>
-										<div className="relative">
-											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
-												value={
-													configuration.selections.mesh?.material ||
-													product.mesh?.material
-												}
-												onChange={e => updateMesh({ material: e.target.value })}
-											>
-												{configurationOptions.meshOptions.materials.map(
-													material => {
-														const modifier = material.pricingRule.modifier
-														const priceEffect =
-															modifier === 0
-																? ''
-																: ` (+${(modifier * 100).toFixed(0)}%)`
-														return (
-															<option
-																key={material.value}
-																value={material.value}
-																className="bg-gray-800"
-															>
-																{material.label}
-																{priceEffect}
-															</option>
-														)
-													},
-												)}
-											</select>
-											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-										</div>
-									</div>
-
+									{/* Mesh Color */}
 									<div>
 										<label className="text-xs text-gray-400 mb-2 block">
 											Colour
@@ -516,41 +539,31 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 												))}
 											</select>
 											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-											<span className="absolute right-10 top-1/2 transform -translate-y-1/2 text-xs text-gray-500">
-												Standard
-											</span>
 										</div>
 									</div>
 
+									{/* Mesh Direction */}
 									<div>
 										<label className="text-xs text-gray-400 mb-2 block">
-											Mesh direction
+											Mesh Direction
 										</label>
 										<div className="relative">
 											<select
 												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
-												value={
-													configuration.selections.mesh?.pattern ||
-													product.mesh?.pattern
-												}
-												onChange={e => updateMesh({ pattern: e.target.value })}
+												value={configuration.selections.mesh?.direction || 'Vertical'}
+												onChange={e => updateMesh({ direction: e.target.value })}
 											>
-												{configurationOptions.meshOptions.patterns.map(
-													pattern => (
-														<option
-															key={pattern}
-															value={pattern}
-															className="bg-gray-800"
-														>
-															{pattern}
-														</option>
-													),
-												)}
+												{configurationOptions.meshOptions.directions.map(direction => (
+													<option
+														key={direction}
+														value={direction}
+														className="bg-gray-800"
+													>
+														{direction}
+													</option>
+												))}
 											</select>
 											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-											<span className="absolute right-10 top-1/2 transform -translate-y-1/2 text-xs text-gray-500">
-												Standard
-											</span>
 										</div>
 									</div>
 								</AccordionContent>
@@ -559,130 +572,8 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 					</div>
 				)}
 
-				{/* Additional Services */}
-				<div className="border-b border-gray-800">
-					<Accordion type="single" collapsible>
-						<AccordionItem value="additional-services" className="border-none">
-							<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
-								Additional Services
-							</AccordionTrigger>
-							<AccordionContent className="pb-4 space-y-4">
-								<div className="grid grid-cols-1 gap-4">
-									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
-											Edge Finishing
-										</label>
-										<div className="relative">
-											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
-												value={
-													configuration.selections.additionalServices
-														?.polishing || 'Standard'
-												}
-												onChange={e =>
-													updateAdditionalServices({
-														polishing: e.target.value,
-													})
-												}
-											>
-												<option value="Standard" className="bg-gray-800">
-													Standard
-												</option>
-												<option value="polished-edges" className="bg-gray-800">
-													Polished Edges (+8%)
-												</option>
-												<option value="beveled-edges" className="bg-gray-800">
-													Beveled Edges (+12%)
-												</option>
-											</select>
-											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-										</div>
-									</div>
-
-									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
-											Corner Finishing
-										</label>
-										<div className="relative">
-											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
-												value={
-													configuration.selections.additionalServices
-														?.cornerFinishing || 'Standard'
-												}
-												onChange={e =>
-													updateAdditionalServices({
-														cornerFinishing: e.target.value,
-													})
-												}
-											>
-												<option value="Standard" className="bg-gray-800">
-													Standard Corners
-												</option>
-												<option value="rounded-corners" className="bg-gray-800">
-													Rounded Corners (+15%)
-												</option>
-											</select>
-											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-										</div>
-									</div>
-
-									<div>
-										<label className="text-xs text-gray-400 mb-2 block">
-											Custom Cutouts
-										</label>
-										<div className="relative">
-											<select
-												className="w-full bg-transparent border border-gray-700 rounded px-3 py-2 text-sm text-white appearance-none pr-10"
-												value={
-													configuration.selections.additionalServices
-														?.cutOuts || 'None'
-												}
-												onChange={e =>
-													updateAdditionalServices({ cutOuts: e.target.value })
-												}
-											>
-												<option value="None" className="bg-gray-800">
-													No Cutouts
-												</option>
-												<option value="custom-cutouts" className="bg-gray-800">
-													Custom Cutouts (+€75)
-												</option>
-											</select>
-											<ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
-										</div>
-									</div>
-
-									<div className="flex items-center gap-3">
-										<input
-											type="checkbox"
-											id="installation"
-											checked={
-												configuration.selections.additionalServices
-													?.installation || false
-											}
-											onChange={e =>
-												updateAdditionalServices({
-													installation: e.target.checked,
-												})
-											}
-											className="rounded border-gray-700 bg-transparent"
-										/>
-										<label
-											htmlFor="installation"
-											className="text-sm text-gray-300"
-										>
-											Professional Installation (+€200)
-										</label>
-									</div>
-								</div>
-							</AccordionContent>
-						</AccordionItem>
-					</Accordion>
-				</div>
-
-				{/* Dimensional Drawing */}
-				{product.dimensionalDrawing && product.dimensionalDrawing.available && (
+				{/* Dimensional Drawing - Only show for complex configurations */}
+				{isConfigurationComplex() && (
 					<div className="border-b border-gray-800">
 						<Accordion type="single" collapsible>
 							<AccordionItem
@@ -690,15 +581,15 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 								className="border-none"
 							>
 								<AccordionTrigger className="text-gray-400 text-sm py-4 hover:no-underline">
-									Dimensional drawing
+									Dimensional Drawing
 								</AccordionTrigger>
 								<AccordionContent className="pb-4">
 									<div className="space-y-4">
 										<p className="text-sm text-gray-300 leading-relaxed">
-											Due to the complexity of your application, you need to
-											upload a dimensional drawing. Based on this drawing, we
-											will determine the final price. Any increase or decrease
-											in price will be settled afterwards.
+											Due to the complexity of your configuration, we need a dimensional drawing to ensure precise manufacturing. This may include custom dimensions, premium materials, or specialized treatments that require detailed specifications.
+										</p>
+										<p className="text-xs text-yellow-400">
+											Final pricing will be confirmed after reviewing your drawing. Any adjustments will be communicated before production.
 										</p>
 
 										<div className="relative">
@@ -720,7 +611,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 												</div>
 												<input
 													type="text"
-													placeholder="Field name"
+													placeholder="Upload drawing file"
 													className="flex-1 bg-transparent text-white text-sm placeholder-gray-500 outline-none"
 													readOnly
 												/>
@@ -752,8 +643,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 						€{formatPrice(configuration.totalPrice)}
 					</p>
 					<p className="text-xs text-gray-400">
-						{Math.round((product.vatRate || 0.21) * 100)}% VAT: €
-						{formatPrice(configuration.vatAmount)}
+						{Math.round((product.vatRate || 0.21) * 100)}% VAT: €{formatPrice(configuration.vatAmount)}
 					</p>
 				</div>
 
@@ -770,9 +660,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
 				<div className="flex items-center justify-end gap-2 text-xs text-gray-400">
 					<Clock className="w-3 h-3" />
-					<span>
-						Made to order in {product.deliveryTime || '30 working days'}
-					</span>
+					<span>Made to order in {product.deliveryTime || '30 working days'}</span>
 				</div>
 			</div>
 
