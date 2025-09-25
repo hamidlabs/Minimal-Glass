@@ -1,12 +1,20 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Heart, User, ShoppingCart, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import CardWrapper from "../cardwrapper";
-
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Product } from "@/types/product";
+interface ProductCardProps {
+  product: Product;
+  onCardClick?: (productId: string) => void;
+}
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -24,35 +32,30 @@ export default function Navbar() {
           <div className="flex items-center justify-between">
             {/* Left Navigation (hidden on mobile) */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a
-                href="#"
+              <Link
+                href="/"
                 className={cn(
-                  "text-primary hover:text-white transition-colors text-sm font-medium",
-                  isMenuOpen ? "text-black hover:text-black" : ""
+                  "transition-colors text-sm font-medium",
+                  pathname === "/"
+                    ? "text-primary"
+                    : "text-black hover:text-black"
                 )}
               >
                 MINIMAL GLASS
-              </a>
-              <a
+              </Link>
+
+              <Link
                 href="/collection"
                 className={cn(
-                  "text-gray-300 hover:text-white transition-colors text-sm font-medium",
-                  isMenuOpen ? "text-black hover:text-black" : ""
+                  "transition-colors text-sm font-medium",
+                  pathname === "/collection"
+                    ? "text-primary"
+                    : "text-black hover:text-black"
                 )}
               >
                 COLLECTION
-              </a>
-              <a
-                href="#"
-                className={cn(
-                  "text-gray-300 hover:text-white transition-colors text-sm font-medium",
-                  isMenuOpen ? "text-black hover:text-black" : ""
-                )}
-              >
-                SAMPLES
-              </a>
+              </Link>
             </nav>
-
             {/* Center Logo */}
             <div
               className={cn(
@@ -60,27 +63,17 @@ export default function Navbar() {
                 isMenuOpen ? "text-black" : ""
               )}
             >
-              M
+              <Image
+                src="/brand/navbar-logo.png"
+                alt="logo"
+                height={50}
+                width={50}
+              />
             </div>
 
             {/* Right Icons */}
 
             <div className="flex items-center space-x-2 sm:space-x-4">
-              <div className="hidden md:flex items-center space-x-1">
-                <span className={cn("text-white font-medium",isMenuOpen ? "text-black hover:text-black" : "")}>EN</span>
-                <span className="text-gray-500">|</span>
-                <span className="text-gray-500">NL</span>
-              </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                className={cn(
-                  "text-gray-300 hover:text-white",
-                  isMenuOpen ? "text-black hover:text-black" : ""
-                )}
-              >
-                <Heart className="h-5 w-5" /> 
-              </Button>
               <Button
                 variant="ghost"
                 size="icon"
@@ -143,7 +136,7 @@ export default function Navbar() {
                   Home
                 </a>
                 <a
-                  href="#"
+                  href="/impression"
                   className="text-primary hover:underline transition-colors py-1"
                 >
                   Discover
@@ -168,20 +161,28 @@ export default function Navbar() {
                   Popular models
                   <ChevronDown className="h-4 w-4 ml-1" />
                 </h3>
+
                 <ul className="space-y-2 sm:space-y-3 text-sm text-secondary">
                   {[
-                    "Model no. 74",
-                    "Model no. 2",
-                    "Model no. 56",
-                    "Model no. 34",
-                    "Model no. 80",
-                  ].map((model) => (
-                    <li key={model}>
-                      <a href="#" className="hover:text-primary">
-                        {model}
-                      </a>
-                    </li>
-                  ))}
+                    "model-no-01",
+                    "model-no-50",
+                    "model-no-73",
+                    "model-no-67",
+                    "model-no-85",
+                    "model-no-91",
+                  ].map((product) => {
+                    const slug = product.toLowerCase().replace(/\s+/g, "-");
+                    return (
+                      <li key={product}>
+                        <Link
+                          href={`/collection/${slug}`}
+                          className="hover:text-primary"
+                        >
+                          {product}
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
 
@@ -202,7 +203,7 @@ export default function Navbar() {
                     "Request a quote",
                   ].map((item) => (
                     <li key={item}>
-                      <a href="#" className="hover:text-primary">
+                      <a href="/customerservice" className="hover:text-primary">
                         {item}
                       </a>
                     </li>
@@ -212,8 +213,13 @@ export default function Navbar() {
 
               {/* Section 4 */}
               <div>
-                <h3 className="text-sm font-medium mb-3">Privacy statement</h3>
-                <ul className="space-y-2 sm:space-y-3 text-sm text-secondary">
+                <ul className=" text-sm text-secondary space-y-2 sm:space-y-3">
+                  <li>
+                    <Link className="text-sm text-secondary" href="/privacy">
+                      Privacy statement
+                    </Link>
+                  </li>
+
                   <li>
                     <a href="#" className="hover:text-primary">
                       General terms and conditions

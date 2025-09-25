@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import HeroTextSection from "@/components/text/HeroTextSection";
+import HeroPrivacySection from "@/components/privacy/HeroPrivacySection";
 import CardWrapper from "@/components/cardwrapper";
 export default function TextPage() {
   return (
     <CardWrapper>
-      <HeroTextSection />
+      <HeroPrivacySection />
     </CardWrapper>
   );
 }
