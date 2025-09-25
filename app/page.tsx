@@ -11,12 +11,13 @@ import PureMasterpieces from "@/components/sections/PureMasterpieces";
 import PureMasterpiecesed from "@/components/sections/PureMasterpiecesed";
 import DutchDesignSection from "@/components/sections/DutchDesignSection";
 import CardWrapper from "@/components/cardwrapper";
+
 export default function HomePage() {
   return (
     <CardWrapper>
       {/* Hero Section */}
       <HeroSection />
-
+    
       {/* Content Section */}
       <ContentSection />
 

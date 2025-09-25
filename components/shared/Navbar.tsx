@@ -236,6 +236,23 @@ export default function Navbar() {
           </div>
         </div>
       </header>
+
+      {/* <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
+        {" "}
+        <Button
+          onClick={toggleMenu}
+          className="w-20 h-20 rounded-full bg-gray-600 text-white shadow-lg flex flex-col items-center justify-center"
+        >
+          {" "}
+          <Image
+            src="/brand/navbar-logo.png"
+            alt="menu"
+            width={30}
+            height={30}
+          />{" "}
+          <span className="text-sm font-semibold ">MENU</span>{" "}
+        </Button>{" "}
+      </div> */}
     </div>
   );
 }

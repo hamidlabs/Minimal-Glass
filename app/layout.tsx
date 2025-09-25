@@ -8,7 +8,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
-
+import MenuButton from "@/components/shared/menu-button";
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
@@ -39,6 +39,7 @@ export default function RootLayout({
         className={`${montserrat.variable} ${gifilka.variable} font-montserrat antialiased`}
       >
         <Navbar />
+      <MenuButton />
         <Suspense fallback={null}>{children}</Suspense>
         <Footer />
         <Analytics />
