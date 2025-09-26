@@ -39,7 +39,7 @@ export function CustomerServiceHeroSection() {
 				<div className="grid lg:grid-cols-2 gap-16 items-start">
 					{/* Left side - Content */}
 					<div className="space-y-10 md:mt-30">
-						<h1 className="text-6xl  lg:text-7xl font-light leading-tight text-balance font-[Gipilka]">
+						<h1 className="text-6xl  lg:text-7xl font-light leading-tight text-balance font-gifilka">
 							Customer
 							<br />
 							service
@@ -52,11 +52,11 @@ export function CustomerServiceHeroSection() {
 					</div>
 
 					{/* Right side - Service cards */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:mt-30  ">
+					<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:mt-30 z-10 ">
 						{services.map((service, index) => (
 							<Card
 								key={index}
-								className="group bg-accent  rounded-none transition-all duration-300 cursor-pointer p-6 backdrop-blur-sm border-transparent"
+								className="group bg-accent  rounded-none transition-all duration-300 cursor-pointer p-6 border-transparent"
 							>
 								<div className="space-y-4 ">
 									{/* Icon */}
@@ -80,7 +80,7 @@ export function CustomerServiceHeroSection() {
 							</Card>
 						))}
 					</div>
-					<div className="flex items-center justify-center absolute left-[450px]">
+					<div className="flex items-center justify-center absolute z-0 left-[450px]">
 						<div className="h-[600px] w-[600px] rounded-full bg-transparent border-[1px] border-[#F0E6E2]/10"></div>
 					</div>
 				</div>
