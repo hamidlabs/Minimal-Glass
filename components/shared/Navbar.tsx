@@ -50,7 +50,7 @@ export default function Navbar() {
                   "transition-colors text-sm font-medium",
                   pathname === "/collection"
                     ? "text-primary"
-                    : "text-black hover:text-black"
+                    : "text-ternary hover:text-black"
                 )}
               >
                 COLLECTION

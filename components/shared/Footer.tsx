@@ -14,8 +14,11 @@ export default function MinimalGlassFooter() {
               alt="Minimal Glass Logo"
               className="h-16 w-auto"
             />
-
-            <div className="text-xl sm:text-2xl font-bold text-primary">M</div>
+            <img
+              src="brand/navbar-logo.png"
+              alt="Minimal Glass Logo"
+              className=" w-auto"
+            />
           </div>
 
           {/* Navigation - Mobile */}
@@ -66,7 +69,9 @@ export default function MinimalGlassFooter() {
 
             {/* Showroom Netherlands */}
             <div>
-              <h3 className="font-semibold text-sm mb-2">Showroom Nederland</h3>
+              <h3 className="font-semibold text-black text-sm mb-2">
+                Showroom Nederland
+              </h3>
               <div className="text-secondary text-xs leading-relaxed mb-2">
                 <p>Beethovenstraat 530,</p>
                 <p>1082 PR Amsterdam</p>
@@ -78,20 +83,22 @@ export default function MinimalGlassFooter() {
                 >
                   +31 6 4222 0795
                 </a>
-                <p className=" text-xs font-medium">Enkel op afspraak</p>
+                <p className=" text-xs font-medium text-black">
+                  Appoinment Only
+                </p>
               </div>
             </div>
           </div>
 
           {/* Social Icons - Mobile */}
           <div className="flex gap-4 mb-8">
-            <a href="#" className=" hover:text-primary">
+            <a href="#" className="text-black hover:text-primary">
               <Instagram size={20} />
             </a>
-            <a href="#" className=" hover:text-primary">
+            <a href="#" className="text-black hover:text-primary">
               <Facebook size={20} />
             </a>
-            <a href="#" className=" hover:text-primary">
+            <a href="#" className="text-black hover:text-primary">
               <Linkedin size={20} />
             </a>
           </div>
@@ -104,10 +111,7 @@ export default function MinimalGlassFooter() {
                 Privacy statement
               </a>
               <a href="#" className="hover:text-secondary">
-                Algemene voorwaarden
-              </a>
-              <a href="#" className="hover:text-secondary">
-                Cookie Policy
+                General terms and conditions
               </a>
             </div>
 
@@ -115,10 +119,7 @@ export default function MinimalGlassFooter() {
             <div className="text-xs text-secondary space-y-1">
               <p>All rights reserved</p>
               <p>
-                © 2025{" "}
-                <span className="font-semibold">
-                  Minimal Glass
-                </span>
+                © 2025 <span className="font-semibold">Minimal Glass</span>
               </p>
             </div>
           </div>
@@ -133,15 +134,19 @@ export default function MinimalGlassFooter() {
               alt="Minimal Glass Logo"
               className="h-16 w-auto"
             />
-            <div className="text-xl sm:text-2xl font-bold text-primary ">M</div>
+            <img
+              src="brand/navbar-logo.png"
+              alt="Minimal Glass Logo"
+              className=" w-auto"
+            />
           </div>
 
           <div className="border-t border-gray-300 pt-8"></div>
 
           {/* Main Footer Content */}
-          <div className="grid grid-cols-12 gap-12 mb-12">
+          <div className="flex justify-between gap-12 mb-12">
             {/* Navigation */}
-            <div className="col-span-4">
+            <div className="">
               <nav className="flex flex-col space-y-3 text-3xl font-light font-[Gifilka]">
                 <a
                   href="#"
@@ -199,7 +204,7 @@ export default function MinimalGlassFooter() {
             </div>
 
             {/* Contact Information */}
-            <div className="col-span-8">
+            <div className="">
               <div className="grid grid-cols-2 gap-8">
                 {/* Office Belgium */}
                 <div>
@@ -208,7 +213,7 @@ export default function MinimalGlassFooter() {
                   </h3>
                   <div className="text-secondary text-sm leading-relaxed mb-3">
                     <p>Corsendonk 9</p>
-                    <p>2560 Oud Turnhout</p>
+                    <p>2360 Oud Turnhout</p>
                   </div>
                   <div className="space-y-1">
                     <a
@@ -243,7 +248,7 @@ export default function MinimalGlassFooter() {
                       +31 6 4222 0795
                     </a>
                     <p className="text-secondary text-sm font-medium">
-                      Enkel op afspraak
+                      Appointment Only
                     </p>
                   </div>
                 </div>
@@ -259,23 +264,17 @@ export default function MinimalGlassFooter() {
                 <a href="#" className="hover:text-primary transition-colors">
                   Privacy statement
                 </a>
+                <span className="text-secondary">|</span>
                 <a href="#" className="hover:text-secondary transition-colors">
-                  Algemene voorwaarden
-                </a>
-                <a href="#" className="hover:text-secondary transition-colors">
-                  Cookie Policy
+                  General terms and conditions
                 </a>
               </div>
 
               {/* Copyright */}
               <div className="text-sm text-secondary">
-               
                 <p>
-                  © 2025{" "}
-                  <span className="font-semibold">
-                    Minimal Glass
-                  </span>
-                  . All rights reserved
+                  © 2025 <span className="font-semibold">Minimal Glass</span>.
+                  All rights reserved
                 </p>
               </div>
             </div>

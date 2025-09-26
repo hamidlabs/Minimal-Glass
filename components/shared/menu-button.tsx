@@ -117,7 +117,7 @@ export default function MenuButton() {
       <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
         <Button
           onClick={() => setOpen(!open)}
-          className="w-20 h-20 rounded-full bg-primary/45 hover:bg-primary/80 text-white shadow-lg flex flex-col items-center justify-center"
+          className="w-20 h-20 rounded-full bg-secondary  border border-primary text-white shadow-lg flex flex-col items-center justify-center"
         >
           <Image
             src="/brand/navbar-logo.png"

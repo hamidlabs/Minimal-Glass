@@ -62,7 +62,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                     {/* Mobile Layout */}
                     <div className="flex flex-col justify-center items-center sm:hidden px-4 py-8">
                       <div className="text-center w-full max-w-sm">
-                        <h2 className="text-lg font-light text-[#F0E6E2] mb-4 leading-tight">
+                        <h2 className="text-lg  text-[#F0E6E2] mb-4 leading-tight font-gifilka">
                           The most elegant glass you'll ever see
                         </h2>
                         <p className="text-[#F0E6E2] mb-6 text-sm leading-relaxed">
@@ -117,7 +117,7 @@ export default function HeroSection({ isMenuOpen = false }) {
                     <div className="hidden sm:flex items-center p-10 h-[400px] ">
                       <div>
                         <div className="w-[300px] ml-24">
-                          <h2 className="text-xl md:text-2xl font-light text-ternary mb-6 leading-tight">
+                          <h2 className="text-xl md:text-3xl font-gifilka text-ternary mb-6 leading-tight">
                             The most elegant glass you'll ever see
                           </h2>
                           <p className="text-ternary mb-8 text-[14px] leading-relaxed max-w-md">
