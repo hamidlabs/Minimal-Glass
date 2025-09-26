@@ -62,7 +62,7 @@ export default function MinimalGlassFooter() {
                   href="mailto:info@minimalglass.com"
                   className="text-secondary text-xs hover:underline block"
                 >
-                  info@minimalglass.com
+                  info@minimal.glass
                 </a>
               </div>
             </div>
