@@ -20,7 +20,7 @@ const dummyProducts: Product[] = [
 		slug: 'model-no-01',
 		name: 'Model No.01',
 		price: 905,
-		image: 'https://images.pexels.com/photos/279906/pexels-photo-279906.jpeg',
+		image: '/products/Mask group-1.png',
 		productType: 'Mesh',
 		collection: 'Essential',
 		applications: ['Wall covering', 'Glass partitions'],
@@ -63,6 +63,22 @@ const dummyProducts: Product[] = [
 		},
 		vatRate: 0.21,
 		deliveryTime: '30 working days',
+		specifications: {
+			weave: 'Vertical Kevlar',
+			weight: '2.5 kg/m²',
+			minimalSize: '250 x 160 MM  |  160 x 250 MM',
+			maximalSize: '250 x 160 MM  |  160 x 250 MM',
+			pricing: '€905',
+			shipping: '30 working days',
+			certification: 'CE Certified',
+		},
+		model: {
+			application:
+				'Wall Covering, Glass Lamination, Framing, Window treatments: Roller Blinds, Sliding/Fixed Panels (shades or Blinds), Sculpted Drapery',
+			usage: 'Not recommended for outdoor use',
+			cleaningCare:
+				'Soft and Dry methods - Avoid scratching and applying weight - Use of chemicals not recommended as it may damage the surface of the glass',
+		},
 	},
 	{
 		id: '2',

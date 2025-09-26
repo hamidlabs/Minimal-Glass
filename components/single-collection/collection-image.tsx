@@ -1,14 +1,25 @@
 'use client'
 
 import { Product } from '@/types/product'
-import { ZoomIn, ZoomOut } from 'lucide-react'
+import {
+	ZoomIn,
+	ZoomOut,
+	ChevronLeft,
+	ChevronRight,
+	ArrowLeft,
+	ArrowRight,
+} from 'lucide-react'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
 
 export default function CollectionImage({ product }: { product: Product }) {
 	const [isZoomed, setIsZoomed] = useState(false)
 	const [position, setPosition] = useState({ x: 50, y: 50 })
+	const [currentImage, setCurrentImage] = useState(0)
 	const imageRef = useRef<HTMLDivElement>(null)
+
+	// Mock multiple images - replace with actual product images array
+	const images = [product.image, product.image, product.image]
 
 	const handleMouseMove = (e: React.MouseEvent) => {
 		if (!isZoomed || !imageRef.current) return
@@ -24,6 +35,14 @@ export default function CollectionImage({ product }: { product: Product }) {
 		setPosition({ x: 50, y: 50 })
 	}
 
+	const nextImage = () => {
+		setCurrentImage(prev => (prev + 1) % images.length)
+	}
+
+	const prevImage = () => {
+		setCurrentImage(prev => (prev - 1 + images.length) % images.length)
+	}
+
 	return (
 		<div className="relative bg-accent p-4 md:p-20 h-fit max-w-[90vw] ">
 			<div
@@ -33,7 +52,7 @@ export default function CollectionImage({ product }: { product: Product }) {
 				onClick={toggleZoom}
 			>
 				<Image
-					src={product.image}
+					src={images[currentImage]}
 					alt={product.name}
 					fill
 					className="object-cover transition-transform duration-300"
@@ -58,8 +77,29 @@ export default function CollectionImage({ product }: { product: Product }) {
 				</button>
 			</div>
 
+			{/* Navigation Arrows - Outside image container */}
+			<button
+				onClick={e => {
+					e.stopPropagation()
+					prevImage()
+				}}
+				className="absolute left-10 top-1/2 -translate-y-1/2 p-4 bg-ternary/20 backdrop-blur-xl rounded-full hover:bg-ternary/80 transition-colors z-50"
+			>
+				<ArrowLeft className="w-6 h-6 text-white" />
+			</button>
+
+			<button
+				onClick={e => {
+					e.stopPropagation()
+					nextImage()
+				}}
+				className="absolute right-10 top-1/2 -translate-y-1/2 p-4 bg-ternary/20 backdrop-blur-xl rounded-full hover:bg-ternary/80 transition-colors z-50"
+			>
+				<ArrowRight className="w-6 h-6 text-white" />
+			</button>
+
 			<p className="absolute left-1/2 transform -translate-x-1/2 text-sm tracking-wider text-white mt-4">
-				1 — 1
+				{currentImage + 1} — {images.length}
 			</p>
 		</div>
 	)

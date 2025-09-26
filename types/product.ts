@@ -39,6 +39,22 @@ export interface Product {
   };
   vatRate?: number;
   deliveryTime?: string;
+  // Technical specifications
+  specifications?: {
+    weave?: string;
+    weight?: string;
+    minimalSize?: string;
+    maximalSize?: string;
+    pricing?: string;
+    shipping?: string;
+    certification?: string;
+  };
+  // Model information
+  model?: {
+    application?: string;
+    usage?: string;
+    cleaningCare?: string;
+  };
 }
 
 export type ProductType = "Glass" | "Mesh" | "Fabric";
