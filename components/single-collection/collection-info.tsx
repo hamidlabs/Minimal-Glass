@@ -127,9 +127,7 @@ export default function ProductInfo({ product }: ProductInfoProps) {
             {formatPrice(configuration.basePrice)}
           </span>
         </p>
-        <p className="text-xs text-white/55 tracking-wider flex items-center gap-3">
-          REF. {product.reference}
-        </p>
+       
       </div>
 
       {/* Action Buttons */}

@@ -13,7 +13,7 @@ import Image from 'next/image'
 
 export default function CollectionImage({ product }: { product: Product }) {
   return (
-    <div className="relative bg-accent p-10">
+    <div className="relative bg-accent p-20 h-fit">
       <Dialog>
         {/* Image carousel as trigger */}
         <DialogTrigger asChild>
@@ -29,8 +29,8 @@ export default function CollectionImage({ product }: { product: Product }) {
               </CarouselItem>
             </CarouselContent>
 
-            <CarouselPrevious className="left-3" />
-            <CarouselNext className="right-3" />
+            <CarouselPrevious className="-left-6 bg-white/70 backdrop-blur-lg h-12 w-12" />
+            <CarouselNext className="-right-6 bg-white/70 backdrop-blur-lg h-12 w-12" />
           </Carousel>
         </DialogTrigger>
 
