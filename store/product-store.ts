@@ -20,7 +20,7 @@ const dummyProducts: Product[] = [
 		slug: 'model-no-01',
 		name: 'Model No.01',
 		price: 905,
-		image: '/products/Mask group.png',
+		image: 'https://images.pexels.com/photos/279906/pexels-photo-279906.jpeg',
 		productType: 'Mesh',
 		collection: 'Essential',
 		applications: ['Wall covering', 'Glass partitions'],
