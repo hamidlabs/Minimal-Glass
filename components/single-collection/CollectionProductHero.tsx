@@ -23,8 +23,8 @@ export default function CollectionProductHeader({
       </div>
 
       {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-20 border-b border-white/50 mt-20">
-        <nav className="container mx-auto px-6 py-4 flex items-center justify-between border-b border-gray-600">
+      <header className="absolute top-0 left-0 right-0 z-20 mt-20">
+        <nav className="container mx-auto py-4 px-4 flex items-center justify-between  border-b border-gray-600 ">
           <div className="text-2xl font-light tracking-[0.2em]">
             {product.name}
           </div>
