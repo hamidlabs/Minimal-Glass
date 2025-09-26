@@ -83,7 +83,7 @@ export default function CollectionImage({ product }: { product: Product }) {
 					e.stopPropagation()
 					prevImage()
 				}}
-				className="absolute left-10 top-1/2 -translate-y-1/2 p-4 bg-ternary/20 backdrop-blur-xl rounded-full hover:bg-ternary/80 transition-colors z-50"
+				className="absolute left-1 md:left-10 top-1/2 -translate-y-1/2 p-4 bg-ternary/20 backdrop-blur-xl rounded-full hover:bg-ternary/80 transition-colors z-50"
 			>
 				<ArrowLeft className="w-6 h-6 text-white" />
 			</button>
@@ -93,7 +93,7 @@ export default function CollectionImage({ product }: { product: Product }) {
 					e.stopPropagation()
 					nextImage()
 				}}
-				className="absolute right-10 top-1/2 -translate-y-1/2 p-4 bg-ternary/20 backdrop-blur-xl rounded-full hover:bg-ternary/80 transition-colors z-50"
+				className="absolute right-1 md:right-10 top-1/2 -translate-y-1/2 p-4 bg-ternary/20 backdrop-blur-xl rounded-full hover:bg-ternary/80 transition-colors z-50"
 			>
 				<ArrowRight className="w-6 h-6 text-white" />
 			</button>
