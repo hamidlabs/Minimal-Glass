@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import CardWrapper from "@/components/cardwrapper";
+import ProductCardConfigure from "@/components/single-collection/product-card-configure";
 export default function GlassForm() {
   return (
     <CardWrapper>
@@ -69,7 +70,7 @@ export default function GlassForm() {
           </SelectContent>
         </Select>
 
-
+<ProductCardConfigure />
         
       </div>
     </CardWrapper>

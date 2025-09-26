@@ -223,10 +223,10 @@ export default function MinimalGlassFooter() {
                       +32 144 99 777
                     </a>
                     <a
-                      href="mailto:info@minimalglass.com"
+                      href="mailto: info@minimal.glass"
                       className="text-secondary text-sm hover:underline block transition-colors"
                     >
-                      info@minimalglass.com
+                      info@minimal.glass
                     </a>
                   </div>
                 </div>
