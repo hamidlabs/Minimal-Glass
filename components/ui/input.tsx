@@ -11,7 +11,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const getVariantClasses = () => {
       switch (variant) {
         case "bottom-border":
-          return "bg-transparent border-0 border-b border-gray-600 rounded-none placeholder:text-gray-400 text-white focus:border-gray-400 transition-colors";
+          return "bg-transparent border-0 border-b border-gray-600 rounded-none placeholder:text-gray-400 text-white focus:border-gray-400 transition-colors p-0";
         case "borderless":
           return "bg-accent/30 border-0 border-transparent rounded-none placeholder:text-white/50 text-white";
         case "bordered":
