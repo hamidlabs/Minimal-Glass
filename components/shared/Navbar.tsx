@@ -38,7 +38,7 @@ export default function Navbar() {
                   "transition-colors text-sm font-medium",
                   pathname === "/"
                     ? "text-primary"
-                    : "text-black hover:text-black"
+                    : "text-ternary hover:text-primary"
                 )}
               >
                 MINIMAL GLASS
@@ -50,7 +50,7 @@ export default function Navbar() {
                   "transition-colors text-sm font-medium",
                   pathname === "/collection"
                     ? "text-primary"
-                    : "text-ternary hover:text-black"
+                    : "text-ternary hover:text-primary"
                 )}
               >
                 COLLECTION

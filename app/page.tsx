@@ -3,7 +3,7 @@
 import HeroSection from "@/components/sections/HeroSection";
 import ContentSection from "@/components/sections/ContentSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
-import CollectionSection from "@/components/sections/CollectionSection";
+
 import AboutSection from "@/components/sections/AboutSection";
 import ServiceSection from "@/components/sections/ServiceSection";
 import ProductsSection from "@/components/sections/ProductsSection";
@@ -11,6 +11,7 @@ import PureMasterpieces from "@/components/sections/PureMasterpieces";
 import PureMasterpiecesed from "@/components/sections/PureMasterpiecesed";
 import DutchDesignSection from "@/components/sections/DutchDesignSection";
 import CardWrapper from "@/components/cardwrapper";
+import CollectionSection from "@/components/sections/CollectionSection";
 
 export default function HomePage() {
   return (

@@ -2,34 +2,16 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import ProductCard from "../collection/ProductCard";
+import { useProductStore } from "@/store/product-store";
+import { useEffect } from "react";
 
 export default function CollectionSection() {
-  const products = [
-    {
-      id: 1,
-      name: "MODEL NO.73",
-      price: "EUR 905 M2",
-      collection: "Essential collection",
-      status: "In Stock",
-      image: "brand/Mask-group.png",
-    },
-    {
-      id: 2,
-      name: "MODEL NO.73",
-      price: "EUR 905 M2",
-      collection: "Essential collection",
-      status: "In Stock",
-      image: "brand/Mask-group.png",
-    },
-    {
-      id: 3,
-      name: "MODEL NO.73",
-      price: "EUR 905 M2",
-      collection: "Essential collection",
-      status: "In Stock",
-      image: "brand/Mask-group.png",
-    },
-  ];
+  const { products, fetchProducts } = useProductStore();
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   return (
     <section className=" bg-background ">
@@ -59,48 +41,8 @@ export default function CollectionSection() {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="group bg-accent rounded-none overflow-hidden transition-transform duration-300 hover:-translate-y-2"
-            >
-              {/* Product Image Container */}
-              <div className="relative h-80 overflow-hidden">
-                {/* Collection Badge */}
-                <span className="absolute top-5 left-20 md:left-2 text-xs font-medium py-1 px-2 text-[#F0E6E299] md:ml-20 z-10">
-                  {product.collection} | {product.status}
-                </span>
-
-                {/* Product Image */}
-                <div className="relative w-[200px] h-full mx-auto mt-16">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {/* Overlay for better text visibility */}
-                  <div className="absolute inset-0 bg-black/20"></div>
-                </div>
-
-                {/* Product Name Overlay */}
-                {/* <div className="absolute bottom-4 left-0 right-0 text-center">
-                  <p className="text-lg font-medium bg-black/50 backdrop-blur-sm py-2 mx-8 rounded">
-                    {product.name}
-                  </p>
-                </div> */}
-              </div>
-
-              {/* Product Info */}
-              <div className="p-6 flex justify-between items-center">
-                <h3 className="text-xs text-ternary font-medium">
-                  {product.name}
-                </h3>
-                <span className="text-[#F0E6E299] text-xs">
-                  {product.price}
-                </span>
-              </div>
-            </div>
+          {products.slice(0, 3).map((product) => (
+           <ProductCard key={product.id} product={product} /> 
           ))}
         </div>
       </div>
