@@ -18,8 +18,8 @@ export default function CollectionImage({ product }: { product: Product }) {
 	const [currentImage, setCurrentImage] = useState(0)
 	const imageRef = useRef<HTMLDivElement>(null)
 
-	// Mock multiple images - replace with actual product images array
-	const images = [product.image, product.image, product.image]
+	// Use product images array or fallback to single image
+	const images = product.images || [product.thumbnail]
 
 	const handleMouseMove = (e: React.MouseEvent) => {
 		if (!isZoomed || !imageRef.current) return
@@ -52,7 +52,7 @@ export default function CollectionImage({ product }: { product: Product }) {
 				onClick={toggleZoom}
 			>
 				<Image
-					src={images[currentImage]}
+					src={images[currentImage] || product.thumbnail}
 					alt={product.name}
 					fill
 					className="object-cover transition-transform duration-300"

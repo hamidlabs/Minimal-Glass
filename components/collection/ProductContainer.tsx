@@ -1,17 +1,7 @@
 'use client'
 
 import ProductCard from './ProductCard'
-
-interface Product {
-	id: string
-	name: string
-	price: number
-	image: string
-	collection: string
-	color: string
-	applications: string[]
-	inStock: boolean
-}
+import { Product } from '@/types/product'
 
 interface ProductContainerProps {
 	products: Product[]
